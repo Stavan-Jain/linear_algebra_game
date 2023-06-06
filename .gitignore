@@ -13,3 +13,5 @@
 *~
 *.mo
 .python-version
+
+.DS_Store
