@@ -1,4 +1,5 @@
 import data.real.basic
+import tactic.norm_num
 
 inductive tuple : ℕ → Type
 | nil : tuple 0
@@ -19,6 +20,8 @@ protected def tuple.add : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 | n (tuple.cons head₁ tail₁) (tuple.cons head₂ tail₂) := tuple.cons (head₁ + head₂) (tuple.add tail₁ tail₂)
 instance (n : ℕ) : has_add (tuple n) := ⟨tuple.add⟩
 
+
+
 def tuple.dotproduct : ∀ {n : ℕ}, tuple n → tuple n → ℤ
 | 0 _ _ := 0
 | _ (tuple.cons head₁ tail₁) (tuple.cons head₂ tail₂) := (head₁ * head₂) + tuple.dotproduct tail₁ tail₂
@@ -28,4 +31,14 @@ def tuple.crossproduct : tuple 3 → tuple 3 → tuple 3
 
 def tuple.normsq {n : ℕ} (v : tuple n) : ℤ := tuple.dotproduct v v
 
-#eval tuple.normsq [[1, 2, 3]]
+def tuple.scalar_mul: ∀ {n : ℕ}, ℤ   → tuple n → tuple n
+| 0 _ _ := [[]]
+| n a (tuple.cons head tail) := tuple.cons (a*head) (tuple.scalar_mul a tail)
+
+namespace tuple 
+#eval normsq [[1, 2, 3]]
+#eval [[3 , 4 , 5]] + [[3, 6, 7]]
+#eval crossproduct [[12, 10, 5]] [[13, 14, 17]]
+#eval scalar_mul 4 [[1, 2, 3]]
+
+end tuple
