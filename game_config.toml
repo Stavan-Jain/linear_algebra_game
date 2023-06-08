@@ -161,10 +161,3 @@ levels = [
 	"src/game/world10/level17.lean",
 ]
 
-[[worlds]]
-name = "Vector World"
-id = 11
-parents = [3]
-levels = [
-	"src/game/trial_world/level1.lean",
-]
