@@ -1,4 +1,7 @@
 import data.real.basic
+import data.real.nnreal
+import data.real.sqrt
+import analysis.normed.group.basic
 
 
 inductive tuple : ℕ → Type
@@ -54,4 +57,19 @@ def tuple.scalar_mul: ∀ {n : ℕ}, ℝ → tuple n → tuple n
 infix ` ** `:69 := tuple.scalar_mul
 
 
-def tuple.norm_sq {n : ℕ} (v : tuple n) : ℝ  := v ⬝ v
+def tuple.norm_sq {n : ℕ} (v : tuple n) : nnreal := ⟨v ⬝ v, begin
+  induction n with n hn generalizing v,
+  { cases v, refl, },
+  { cases v with _ head tail,
+    specialize hn tail,
+    dsimp [tuple.dot_product],
+    have : 0 ≤ head * head,
+    { exact mul_self_nonneg head, },
+    exact add_nonneg this hn, },
+end⟩
+
+protected noncomputable def tuple.norm {n : ℕ} (v : tuple n) : nnreal :=
+  nnreal.sqrt (tuple.norm_sq v)
+
+noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
+noncomputable instance (n : ℕ) : has_nnnorm (tuple n) := ⟨tuple.norm⟩
