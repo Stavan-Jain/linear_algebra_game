@@ -22,7 +22,10 @@ protected def tuple.add : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 | n (tuple.cons head₁ tail₁) (tuple.cons head₂ tail₂) := tuple.cons (head₁ + head₂) (tuple.add tail₁ tail₂)
 instance (n : ℕ) : has_add (tuple n) := ⟨tuple.add⟩
 
-
+protected def tuple.subtract : ∀ {n : ℕ}, tuple n → tuple n → tuple n
+| 0 _ _ := tuple.nil
+| n (tuple.cons head₁ tail₁) (tuple.cons head₂ tail₂) := tuple.cons (head₁ - head₂) (tuple.subtract tail₁ tail₂)
+instance (n : ℕ) : has_sub (tuple n) := ⟨tuple.subtract⟩
 
 def tuple.dotproduct : ∀ {n : ℕ}, tuple n → tuple n → ℤ  
 | 0 _ _ := 0
