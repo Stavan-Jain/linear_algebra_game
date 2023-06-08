@@ -8,9 +8,14 @@ inductive tuple : ℕ → Type
 notation `[[` l:(foldr `, ` (h t, tuple.cons h t) tuple.nil `]]`) := l
 
 
+protected meta def tuple.repr_aux : ∀ {n : ℕ}, bool → tuple n → string
+| 0 _ _ := ""
+| _ tt (tuple.cons a b) := repr a ++ tuple.repr_aux ff b
+| _ ff (tuple.cons a b) := ", " ++ repr a ++ tuple.repr_aux ff b
+
 protected meta def tuple.repr : ∀ {n : ℕ}, tuple n → string
-| 0 _ := "tuple.nil"
-| n (tuple.cons a b) := "(tuple.cons " ++ repr a ++ " " ++ tuple.repr b ++ ")"
+| 0 _     := "[[]]"
+| _ (tuple.cons a b) := "[[" ++ tuple.repr_aux tt (tuple.cons a b) ++ "]]"
 
 meta instance (n : ℕ) : has_repr (tuple n) := ⟨tuple.repr⟩
 
@@ -20,6 +25,13 @@ protected def tuple.add : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 | _ (tuple.cons head₁ tail₁) (tuple.cons head₂ tail₂) := tuple.cons (head₁ + head₂) (tuple.add tail₁ tail₂)
 
 instance (n : ℕ) : has_add (tuple n) := ⟨tuple.add⟩
+
+
+protected def tuple.subtract : ∀ {n : ℕ}, tuple n → tuple n → tuple n
+| 0 _ _ := tuple.nil
+| _ (tuple.cons head₁ tail₁) (tuple.cons head₂ tail₂) := tuple.cons (head₁ - head₂) (tuple.subtract tail₁ tail₂)
+
+instance (n : ℕ) : has_sub (tuple n) := ⟨tuple.subtract⟩
 
 
 def tuple.dot_product : ∀ {n : ℕ}, tuple n → tuple n → ℝ
