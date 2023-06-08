@@ -10,11 +10,22 @@ inductive tuple : ℕ → Type
 
 notation `[[` l:(foldr `, ` (h t, tuple.cons h t) tuple.nil `]]`) := l
 
+protected def tuple.repr_aux : ∀ {n : ℕ}, bool → tuple n → string
+| 0 _ _    := ""
+| _ tt (tuple.cons a b) := has_repr.repr a ++ tuple.repr_aux ff b
+| _ ff (tuple.cons a b) := ", " ++ has_repr.repr a ++ tuple.repr_aux ff b
 
 protected def tuple.repr : ∀ {n : ℕ}, tuple n → string
-| 0 _ := "tuple.nil"
-| _ (tuple.cons a b) := "(tuple.cons " ++ has_repr.repr a ++ " " ++ tuple.repr b ++ ")"
-instance (n : ℕ) : has_repr (tuple n) := ⟨tuple.repr⟩
+| 0 _     := "[[]]"
+| _ (tuple.cons a b) := "[[" ++ tuple.repr_aux tt (tuple.cons a b) ++ "]]"
+
+instance (n : ℕ) : has_repr (tuple n) :=
+⟨tuple.repr⟩
+
+-- protected def tuple.repr : ∀ {n : ℕ}, tuple n → string
+-- | 0 _ := ""
+-- | _ (tuple.cons a b) := has_repr.repr a ++ " " ++ tuple.repr b
+-- instance (n : ℕ) : has_repr (tuple n) := ⟨tuple.repr⟩
 
 
 protected def tuple.add : ∀ {n : ℕ}, tuple n → tuple n → tuple n
@@ -58,6 +69,3 @@ namespace tuple
 #eval 4 ** [[1, 2, 5]]
 
 end tuple
-
-
-#eval (3:ℝ)
