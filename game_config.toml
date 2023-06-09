@@ -161,3 +161,9 @@ levels = [
 	"src/game/world10/level17.lean",
 ]
 
+[[worlds]]
+name = "Vector world"
+id = 11
+levels = [
+	"src/game/vector_world/level1.lean",
+]
