@@ -166,4 +166,5 @@ name = "Vector world"
 id = 11
 levels = [
 	"src/game/vector_world/level1.lean",
+	"src/game/vector_world/level2.lean",
 ]
