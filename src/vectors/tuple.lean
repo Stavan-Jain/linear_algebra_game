@@ -23,21 +23,21 @@ protected meta def repr : ∀ {n : ℕ}, tuple n → string
 | 0 _     := "[[]]"
 | _ (cons a b) := "[[" ++ tuple.repr_aux tt (cons a b) ++ "]]"
 
-meta instance (n : ℕ) : has_repr (tuple n) := ⟨tuple.repr⟩
+meta instance {n : ℕ} : has_repr (tuple n) := ⟨tuple.repr⟩
 
 
 protected def add : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 | 0 _ _ := nil
 | _ (cons head₁ tail₁) (cons head₂ tail₂) := cons (head₁ + head₂) (add tail₁ tail₂)
 
-instance (n : ℕ) : has_add (tuple n) := ⟨tuple.add⟩
+instance {n : ℕ} : has_add (tuple n) := ⟨tuple.add⟩
 
 
 protected def sub : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 | 0 _ _ := nil
 | _ (cons head₁ tail₁) (cons head₂ tail₂) := cons (head₁ - head₂) (sub tail₁ tail₂)
 
-instance (n : ℕ) : has_sub (tuple n) := ⟨tuple.sub⟩
+instance {n : ℕ} : has_sub (tuple n) := ⟨tuple.sub⟩
 
 
 def dot_product : ∀ {n : ℕ}, tuple n → tuple n → ℝ
@@ -79,8 +79,8 @@ def nth : ∀ {n : ℕ} (i : ℕ), tuple n → i < n → ℝ
 | _ (i+1) (cons _ tail) prf := nth i (tail) (nat.le_of_succ_le_succ prf)
 
 protected noncomputable def norm {n : ℕ} (v : tuple n) : nnreal := nnreal.sqrt (norm_sq v)
-noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
-noncomputable instance (n : ℕ) : has_nnnorm (tuple n) := ⟨tuple.norm⟩
+noncomputable instance {n : ℕ} : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
+noncomputable instance {n : ℕ} : has_nnnorm (tuple n) := ⟨tuple.norm⟩
 
 
 protected def zero : ∀ {n : ℕ}, tuple n
