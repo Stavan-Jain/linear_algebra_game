@@ -50,16 +50,13 @@ def tuple.cross_product : tuple 3 → tuple 3 → tuple 3
 infixl ` ×ᵥ `:74 := tuple.cross_product
 
 
-def tuple.scalar_mul: ∀ {n : ℕ}, ℝ → tuple n → tuple n
-| 0 _ _ := [[]]
-| _ a (tuple.cons head tail) := tuple.cons (a*head) (tuple.scalar_mul a tail)
-
-infix ` ** `:69 := tuple.scalar_mul
-
-
 def tuple.map: ∀ {n : ℕ}, (ℝ → ℝ) → tuple n → tuple n
 | 0 _ _ := [[]]
 | _ f (tuple.cons head tail) := tuple.cons (f head) (tuple.map f tail)
+
+
+def tuple.scalar_mul {n : ℕ} (c : ℝ) : tuple n → tuple n := tuple.map (has_mul.mul c)
+infix ` ** `:69 := tuple.scalar_mul
 
 
 def tuple.norm_sq {n : ℕ} (v : tuple n) : nnreal := ⟨v ⬝ v, begin
