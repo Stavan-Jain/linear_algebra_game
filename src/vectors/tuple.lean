@@ -56,10 +56,6 @@ infix ` ** `:69 := tuple.scalar_mul
 
 def tuple.norm_sq {n : ℕ} (v : tuple n) : ℝ  := v ⬝ v
 
-def tuple.map: ∀ {n : ℕ}, (ℝ → ℝ) → tuple n → tuple n
-| 0 _ _ := [[]]
-| _ f (tuple.cons head tail) := tuple.cons (f head) (tuple.map f tail)
-
 def tuple.ith_element: ∀{n : ℕ}, ℕ → tuple n → ℝ
 | 0 _ _ := sorry
 | n 0 (tuple.cons head tail) := head
