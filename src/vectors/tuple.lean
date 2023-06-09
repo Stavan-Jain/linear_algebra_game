@@ -6,7 +6,7 @@ import analysis.normed.group.basic
 
 inductive tuple : ℕ → Type
 | nil : tuple 0
-| cons {n : ℕ} (car : ℝ) (cdr : tuple n) : (tuple (n + 1))
+| cons {n : ℕ} (head : ℝ) (tail : tuple n) : (tuple (n + 1))
 
 namespace tuple
 
