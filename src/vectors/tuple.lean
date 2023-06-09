@@ -79,4 +79,15 @@ noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm�
 noncomputable instance (n : ℕ) : has_nnnorm (tuple n) := ⟨tuple.norm⟩
 
 
+protected def zero : ∀ {n : ℕ}, tuple n
+| 0 := [[]]
+| (n + 1) := cons 0 zero
+
+instance {n : ℕ} : has_zero (tuple n) := ⟨tuple.zero⟩
+
+
+protected def neg {n : ℕ} : tuple n → tuple n := scalar_mul (-1)
+instance {n : ℕ} : has_neg (tuple n) := ⟨tuple.neg⟩
+
+
 end tuple
