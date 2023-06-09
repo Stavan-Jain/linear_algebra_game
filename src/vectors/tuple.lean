@@ -53,7 +53,7 @@ def cross_product : tuple 3 → tuple 3 → tuple 3
 infixl ` ×ᵥ `:74 := cross_product
 
 
-def map: ∀ {n : ℕ}, (ℝ → ℝ) → tuple n → tuple n
+def map : ∀ {n : ℕ}, (ℝ → ℝ) → tuple n → tuple n
 | 0 _ _ := [[]]
 | _ f (cons head tail) := cons (f head) (map f tail)
 
