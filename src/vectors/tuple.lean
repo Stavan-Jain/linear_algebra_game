@@ -55,3 +55,5 @@ infix ` ** `:69 := tuple.scalar_mul
 
 
 def tuple.norm_sq {n : ℕ} (v : tuple n) : ℝ  := v ⬝ v
+
+def tuple.len {n : ℕ} (v : tuple n): ℕ := n
