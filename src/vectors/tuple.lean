@@ -49,7 +49,7 @@ infixl ` ×ᵥ `:74 := tuple.cross_product
 
 def tuple.scalar_mul: ∀ {n : ℕ}, ℝ → tuple n → tuple n
 | 0 _ _ := [[]]
-| _ a (tuple.cons head tail) := tuple.cons (a*head) (tuple.scalar_mul a tail)
+| _ a (tuple.cons head tail) := tuple.cons (a * head) (tuple.scalar_mul a tail)
 
 infix ` ** `:69 := tuple.scalar_mul
 
@@ -62,3 +62,12 @@ def tuple.ith_element: ∀{n : ℕ}, ℕ → tuple n → ℝ
 | 0 _ _ := sorry
 | n 0 (tuple.cons head tail) := head
 | n n₁ (tuple.cons head tail) := tuple.ith_element (n₁ - 1) tail
+#eval 
+
+--Works if tuple is of type ℚ
+-- def tuple.isequal: ∀ {n : ℕ}, tuple n → tuple n → bool
+-- | 0 _ _ := tt
+-- | _ (tuple.cons head₁ tail₁) (tuple.cons head₂ tail₂) := if (head₁ = head₂) then (tuple.isequal tail₁ tail₂) else ff
+--
+-- #eval tuple.isequal [[1, 2, 3]] [[1, 2, 4]]
+-- #eval tuple.isequal [[2, 4, 9]] [[2, 4, 9]]
