@@ -73,6 +73,10 @@ def norm_sq {n : ℕ} (v : tuple n) : nnreal := ⟨v ⬝ v, begin
     exact add_nonneg this hn, },
 end⟩
 
+def nth : ∀ {n : ℕ} (i : ℕ), tuple n → i < n → ℝ 
+| 0 i _ prf := absurd prf i.not_lt_zero
+| _ 0 (cons head _) prf := head
+| _ (i+1) (cons _ tail) prf := nth i (tail) (nat.le_of_succ_le_succ prf)
 
 protected noncomputable def norm {n : ℕ} (v : tuple n) : nnreal := nnreal.sqrt (norm_sq v)
 noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
