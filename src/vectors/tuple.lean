@@ -59,11 +59,13 @@ def tuple.norm_sq {n : ℕ} (v : tuple n) : ℝ  := v ⬝ v
 def tuple.len {n : ℕ} (v : tuple n) : ℕ := n
 
 --What I originally had, works if input is valid and returns sorry if invalid
-def tuple.ith_element: ∀{n : ℕ}, ℕ → tuple n → ℝ
-| 0 _ _ := sorry
-| n 0 (tuple.cons head tail) := head
-| n n₁ (tuple.cons head tail) := tuple.ith_element (n₁ - 1) tail
-
+-- 
+-- def tuple.ith_element: ∀{n : ℕ}, ℕ → tuple n → ℝ
+-- | 0 _ _ := sorry
+-- | n 0 (tuple.cons head tail) := head
+-- | n i (tuple.cons head tail) := tuple.ith_element (i - 1) tail
+--
+--
 --This is what I have now. Trying to do something similar to the original 
 --documentation. Havent been able to test it yet since le_of_succ_le_succ
 --doesn't work
