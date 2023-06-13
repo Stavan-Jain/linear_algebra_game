@@ -83,6 +83,11 @@ def update_nth : ∀ {n : ℕ}, tuple n → ℕ → ℝ → tuple n
 | n (cons head tail) 0 a := cons a tail
 | n (cons head tail) (i + 1) a := cons head (update_nth tail i a)
 
+def remove_nth : ∀ {n : ℕ}, tuple (n+1) → ℕ → tuple n
+| 0 _ _ := nil
+| (n + 1) (cons _ tail) 0 := tail
+| (n + 1) (cons head tail) (i + 1) := cons head (remove_nth tail i)
+
 protected noncomputable def norm {n : ℕ} (v : tuple n) : nnreal := nnreal.sqrt (norm_sq v)
 noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
 noncomputable instance (n : ℕ) : has_nnnorm (tuple n) := ⟨tuple.norm⟩
