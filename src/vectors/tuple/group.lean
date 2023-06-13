@@ -63,10 +63,35 @@ end
 
 protected def nsmul {n : ℕ} (c : ℕ) (v : tuple n) : tuple n := ↑c ** v
 
-protected lemma nsmul_zero {n : ℕ} : ∀ (v : tuple n), (tuple.nsmul 0 v = 0) := sorry
+protected lemma nsmul_zero {n : ℕ} : ∀ (v : tuple n), (tuple.nsmul 0 v = 0) := begin
+  induction n with n hn,
+  { intro v, cases v,
+    dsimp [tuple.nsmul, tuple.scalar_mul, tuple.map],
+    refl, },
+  { intro v,
+    cases v with n v₁ v_tail,
+    simp [tuple.nsmul, tuple.scalar_mul, tuple.map] at *,
+    simp [has_zero.zero, tuple.zero] at *,
+    split,
+    { refl, },
+    { exact hn v_tail, }, },
+end
 
-protected lemma nsmul_succ {n : ℕ} : (∀ (c : ℕ) (v : tuple n),
-  tuple.nsmul c.succ v = v + tuple.nsmul c v) := sorry
+protected lemma nsmul_succ {n : ℕ}
+  : (∀ (c : ℕ) (v : tuple n), tuple.nsmul c.succ v = v + tuple.nsmul c v) := begin
+  intro c,
+  induction n with n hn,
+  { intro v, cases v,
+    dsimp [tuple.nsmul, tuple.scalar_mul, tuple.map],
+    refl, },
+  { intro v,
+    cases v with n v₁ v_tail,
+    dsimp [tuple.nsmul, tuple.scalar_mul, tuple.map, has_add.add] at *,
+    simp [tuple.add] at *,
+    split,
+    { ring, },
+    { exact hn v_tail, }, },
+end
 
 
 lemma sub_eq_add_neg {n : ℕ} : (∀ (v u : tuple n), v - u = v + -u) := sorry
