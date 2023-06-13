@@ -45,7 +45,20 @@ lemma add_zero {n : ℕ} : ∀ (v : tuple n), v + 0 = v := begin
     { exact hn v_tail, }, },
 end
 
-lemma add_comm {n : ℕ} : ∀ (u v : tuple n), u + v = v + u := sorry
+lemma add_comm {n : ℕ} : ∀ (u v : tuple n), u + v = v + u := begin
+  induction n with n hn,
+  { intros u v,
+    cases u, cases v,
+    refl, },
+  { intros u v,
+    cases u with n u₁ u_tail,
+    cases v with n v₁ v_tail,
+    simp [has_zero.zero, tuple.zero, has_add.add] at *,
+    simp [tuple.add] at *,
+    split,
+    { ring, },
+    { exact hn u_tail v_tail, }, },
+end
 
 
 protected def nsmul {n : ℕ} (c : ℕ) (v : tuple n) : tuple n := ↑c ** v
