@@ -118,13 +118,59 @@ end
 
 protected def zsmul {n : ℕ} (c : ℤ) (v : tuple n) : tuple n := ↑c ** v
 
-protected lemma zsmul_zero {n : ℕ} : ∀ (v : tuple n), (tuple.zsmul 0 v = 0) := sorry
+protected lemma zsmul_zero {n : ℕ} : ∀ (v : tuple n), (tuple.zsmul 0 v = 0) := begin
+  induction n with n hn,
+  { intro v, cases v,
+    simp [tuple.zsmul],
+    refl, },
+  { intro v,
+    cases v with n v₁ vₙ,
+    simp [tuple.zsmul] at *,
+    simp [tuple.scalar_mul] at *,
+    simp [tuple.map] at *,
+    simp [has_zero.zero] at *,
+    simp [tuple.zero] at *,
+    split,
+    { refl, },
+    { exact hn vₙ, }, },
+end
 
-protected lemma zsmul_succ {n : ℕ} : (∀ (c : ℕ) (v : tuple n),
-  tuple.zsmul (int.of_nat c.succ) v = v + tuple.zsmul (int.of_nat c) v) := sorry
+protected lemma zsmul_succ {n : ℕ}
+  : (∀ (c : ℕ) (v : tuple n),
+    tuple.zsmul (int.of_nat c.succ) v = v + tuple.zsmul (int.of_nat c) v) := begin
+  intro c,
+  induction n with n hn,
+  { intro v, cases v, refl, },
+  { intro v,
+    cases v with n v₁ vₙ,
+    simp [tuple.zsmul] at *,
+    simp [tuple.scalar_mul] at *,
+    simp [tuple.map] at *,
+    simp [has_add.add] at *,
+    simp [tuple.add] at *,
+    split,
+    { simp [add_zero_class.add, add_monoid.add, add_monoid_with_one.add, add_group_with_one.add, 
+            add_comm_group_with_one.add, ring.add, comm_ring.add],
+      ring, },
+    { exact hn vₙ, }, },
+end
 
 protected lemma zsmul_neg {n : ℕ} : (∀ (c : ℕ) (v : tuple n),
-  tuple.zsmul -[1+ c] v = -tuple.zsmul ↑(c.succ) v) := sorry
+  tuple.zsmul -[1+ c] v = -tuple.zsmul ↑(c.succ) v) := begin
+  intro c,
+  induction n with n hn,
+  { intro v, cases v, refl, },
+  { intro v,
+    cases v with n v₁ vₙ,
+    simp [has_neg.neg] at *,
+    simp [tuple.neg] at *,
+    simp [tuple.zsmul] at *,
+    simp [tuple.scalar_mul] at *,
+    simp [tuple.map] at *,
+    split,
+    { ring, },
+    { exact hn vₙ, }, },
+end
 
 
 lemma add_left_neg {n : ℕ} : ∀ (v : tuple n), -v + v = 0 := sorry
