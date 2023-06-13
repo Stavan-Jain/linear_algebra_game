@@ -3,11 +3,47 @@ import algebra.group.basic
 
 namespace tuple
 
-lemma add_assoc {n : ℕ} : ∀ (u v w : tuple n), u + v + w = u + (v + w) := sorry
+lemma add_assoc {n : ℕ} : ∀ (u v w : tuple n), u + v + w = u + (v + w) := begin
+  induction n with n hn,
+  { intros u v w,
+    cases u, cases v, cases w,
+    dsimp [has_add.add],
+    dsimp [tuple.add],
+    refl, },
+  { intros u v w,
+    cases u with n u₁ u_tail, cases v with n v₁ v_tail, cases w with n w₁ w_tail,
+    specialize hn u_tail v_tail w_tail,
+    dsimp [has_add.add] at *,
+    dsimp [tuple.add] at *,
+    simp [hn],
+    ring, },
+end
 
-lemma zero_add {n : ℕ} : ∀ (v : tuple n), 0 + v = v := sorry
+lemma zero_add {n : ℕ} : ∀ (v : tuple n), 0 + v = v := begin
+  induction n with n hn,
+  { intro v, cases v,
+    simp [has_zero.zero, tuple.zero, has_add.add, tuple.add], },
+  { intro v,
+    cases v with n v₁ v_tail,
+    simp [has_zero.zero, tuple.zero, has_add.add] at *,
+    simp [tuple.add] at *,
+    split,
+    { refl, },
+    { exact hn v_tail, }, },
+end
 
-lemma add_zero {n : ℕ} : ∀ (v : tuple n), v + 0 = v := sorry
+lemma add_zero {n : ℕ} : ∀ (v : tuple n), v + 0 = v := begin
+  induction n with n hn,
+  { intro v, cases v,
+    simp [has_zero.zero, tuple.zero, has_add.add, tuple.add], },
+  { intro v,
+    cases v with n v₁ v_tail,
+    simp [has_zero.zero, tuple.zero, has_add.add] at *,
+    simp [tuple.add] at *,
+    split,
+    { refl, },
+    { exact hn v_tail, }, },
+end
 
 lemma add_comm {n : ℕ} : ∀ (u v : tuple n), u + v = v + u := sorry
 
