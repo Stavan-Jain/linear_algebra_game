@@ -78,6 +78,11 @@ def nth : ∀ {n : ℕ} (i : ℕ), tuple n → i < n → ℝ
 | _ 0 (cons head _) prf := head
 | _ (i+1) (cons _ tail) prf := nth i (tail) (nat.le_of_succ_le_succ prf)
 
+def update_nth : ∀ {n : ℕ}, tuple n → ℕ → ℝ → tuple n
+| 0 _ _ _ := nil
+| n (cons head tail) 0 a := cons a tail
+| n (cons head tail) (i + 1) a := cons head (update_nth tail i a)
+
 protected noncomputable def norm {n : ℕ} (v : tuple n) : nnreal := nnreal.sqrt (norm_sq v)
 noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
 noncomputable instance (n : ℕ) : has_nnnorm (tuple n) := ⟨tuple.norm⟩
