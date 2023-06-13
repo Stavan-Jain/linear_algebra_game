@@ -1,22 +1,26 @@
 import vectors.tuple -- hide
+import data.real.basic --hide
 namespace tuple -- hide
+
 
 /- 
 # Vector world
 
-We're going to prove that { [0, 1] , [1, 0] } forms a basis for ℝ² 
+We're going to prove that [3, 4] is a linear combination of the standard basis vectors in ℝ²  
 
-## Level 2: `basis_for_r2` 
+## Level 1: `lin_comb` 
 
 -/
 
 /- Lemma
-And vector in ℝ² can be expressed as a linear combination of the vectors [0, 1] and [1, 0]
+The vector [3, 4] is a linear combination of the vectors [0, 1] and [1, 0]
 -/
 
-lemma lin_comb: ∀  (a: tuple 2), ∃(d₁ : ℤ)(d₂ : ℤ) , a = (d₁ ** [[0, 1]]) + (d₂** [[1, 0]]) :=
+lemma lin_comb: ∃ (d₁ : ℝ )(d₂ : ℝ) , [[3, 4]] = tuple.add (d₁ ** [[0, 1]]) (d₂** [[1, 0]]) :=
 begin 
- sorry, 
+  use 4,
+  use 3,
+  dsimp [scalar_mul, map, tuple.add], norm_num,
 end
 
 end tuple -- hide
