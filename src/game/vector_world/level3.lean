@@ -16,7 +16,7 @@ v ⬝ w = w ⬝ v for all vectors v, w ∈ ℝⁿ
 -/
 lemma dot_comm: ∀ {n : ℕ} (v: tuple n) (w : tuple n),  v ⬝ w = w ⬝ v :=
 begin 
-  intro n, 
+  intros n,
   induction n with d hd,
   { intros v w, cases v, cases w, dsimp [tuple.dot_product], refl,},
   { intros v w, cases v, cases w, dsimp [tuple.dot_product], 
