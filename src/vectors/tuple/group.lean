@@ -173,7 +173,21 @@ protected lemma zsmul_neg {n : ℕ} : (∀ (c : ℕ) (v : tuple n),
 end
 
 
-lemma add_left_neg {n : ℕ} : ∀ (v : tuple n), -v + v = 0 := sorry
+lemma add_left_neg {n : ℕ} : ∀ (v : tuple n), -v + v = 0 := begin
+  induction n with n hn,
+  { intro v, cases v, refl, },
+  { intro v,
+    cases v with n v₁ vₙ,
+    simp [has_zero.zero] at *,
+    simp [tuple.zero] at *,
+    simp [has_neg.neg] at *,
+    simp [tuple.neg] at *,
+    simp [tuple.scalar_mul] at *,
+    simp [tuple.map] at *,
+    simp [has_add.add] at *,
+    simp [tuple.add] at *,
+    exact hn vₙ, },
+end
 
 
 instance {n : ℕ} : add_comm_group (tuple n) := ⟨
