@@ -39,6 +39,7 @@ protected def sub : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 
 instance (n : ℕ) : has_sub (tuple n) := ⟨tuple.sub⟩
 
+def length {n : ℕ} : tuple n → ℕ := n
 
 def dot_product : ∀ {n : ℕ}, tuple n → tuple n → ℝ
 | 0 _ _ := 0
