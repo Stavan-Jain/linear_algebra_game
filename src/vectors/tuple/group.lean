@@ -94,7 +94,26 @@ protected lemma nsmul_succ {n : ℕ}
 end
 
 
-lemma sub_eq_add_neg {n : ℕ} : (∀ (v u : tuple n), v - u = v + -u) := sorry
+lemma sub_eq_add_neg {n : ℕ} : (∀ (v u : tuple n), v - u = v + -u) := begin
+  induction n with n hn,
+  { intros v u,
+    cases v, cases u,
+    refl, },
+  { intros v u,
+    cases v with n v₁ v_tail,
+    cases u with n u₁ u_tail,
+    simp [has_neg.neg] at *,
+    simp [tuple.neg] at *,
+    simp [tuple.scalar_mul] at *,
+    simp [tuple.map] at *,
+    simp [has_sub.sub] at *,
+    simp [tuple.sub] at *,
+    simp [has_add.add] at *,
+    simp [tuple.add] at *,
+    split,
+    { ring, },
+    { exact hn v_tail u_tail, }, },
+end
 
 
 protected def zsmul {n : ℕ} (c : ℤ) (v : tuple n) : tuple n := ↑c ** v
