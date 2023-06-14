@@ -9,7 +9,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 8: `Add norm square` 
+## Level 9: `Add norm square` 
 
 -/
 
@@ -21,15 +21,7 @@ namespace tuple -- hide
 lemma sub_norm_square: ∀ {n : ℕ} (x: tuple n) (y : tuple n) 
 ,  ↑(norm_sq (x - y)) = ↑(norm_sq x) - (2 * (x ⬝ y)) + ↑(norm_sq y) :=
 begin 
-  intros n x y, 
-  dsimp [norm_sq],  
-  rw dot_dist, 
-  rw dot_comm, 
-  rw dot_dist, 
-  nth_rewrite 2 dot_comm, 
-  rw dot_dist, 
-  nth_rewrite 2 dot_comm,
-  linarith,  
+  sorry,  
 end
 
 end tuple -- hide
