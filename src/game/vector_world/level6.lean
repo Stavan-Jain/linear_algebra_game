@@ -14,7 +14,7 @@ namespace tuple -- hide
 (cx)·y=c (x·y) for all x, y ∈ ℝⁿ and c ∈ R
 -/
 
-lemma scalar_through: ∀ {n : ℕ} (c: ℝ) (x: tuple n) (y : tuple n) ,  (c**x) ⬝  y =c * (x ⬝ y) :=
+lemma scalar_through: ∀ {n : ℕ} (c: ℝ) (x: tuple n) (y : tuple n) ,  (c**x) ⬝ y =c * (x ⬝ y) :=
 begin 
   intro n,
   induction n with d hd, 
