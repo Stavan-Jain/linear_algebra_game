@@ -9,3 +9,9 @@ lemma add_cons_eq_cons_add {n : ℕ} (u₁ v₁ : ℝ) (uₙ vₙ : tuple n)
   simp [tuple.add],
   refl,
 end
+
+@[simp]
+lemma mul_cons_eq_cons_mul {n : ℕ} (c u₁ : ℝ) (uₙ : tuple n)
+  : c ** (cons u₁ uₙ) = cons (c * u₁) (c ** uₙ) := begin
+  simp [tuple.scalar_mul, has_mul.mul, tuple.map],
+end
