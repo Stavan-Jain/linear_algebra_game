@@ -1,6 +1,6 @@
 [package]
-name = "natural_number_game"
-version = "0.1"
+name = "linear_algebra_game"
+version = "0.0.1"
 lean_version = "leanprover-community/lean:3.51.1"
 path = "src"
 

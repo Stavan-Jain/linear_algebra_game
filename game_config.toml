@@ -1,170 +1,20 @@
-name = "Natural number game"
-version = "1.3.3"
+name = "Linear algebra game"
+version = "0.0.1"
 extra_files = "extras"
 intro = "src/game/intro.lean"
 
 [[worlds]]
-name = "Tutorial world"
-id = 1
-levels = [
-	"src/game/world1/level1.lean",
-	"src/game/world1/level2.lean",
-	"src/game/world1/level3.lean",
-	"src/game/world1/level4.lean",
-]
-
-[[worlds]]
-name = "Addition world"
-id = 2
-parents = [1]
-levels = [
-	"src/game/world2/level1.lean",
-	"src/game/world2/level2.lean",
-	"src/game/world2/level3.lean",
-	"src/game/world2/level4.lean",
-	"src/game/world2/level5.lean",
-	"src/game/world2/level6.lean",
-]
-
-[[worlds]]
-name = "Multiplication world"
-id = 3
-parents = [2]
-levels = [
-	"src/game/world3/level1.lean",
-	"src/game/world3/level2.lean",
-	"src/game/world3/level3.lean",
-	"src/game/world3/level4.lean",
-	"src/game/world3/level5.lean",
-	"src/game/world3/level6.lean",
-	"src/game/world3/level7.lean",
-	"src/game/world3/level8.lean",
-	"src/game/world3/level9.lean",
-]
-
-[[worlds]]
-name = "Power world"
-id = 4
-parents = [3]
-levels = [
-	"src/game/world4/level1.lean",
-	"src/game/world4/level2.lean",
-	"src/game/world4/level3.lean",
-	"src/game/world4/level4.lean",
-	"src/game/world4/level5.lean",
-	"src/game/world4/level6.lean",
-	"src/game/world4/level7.lean",
-	"src/game/world4/level8.lean",
-	"src/game/world4/level9.lean", 
-]
-
-[[worlds]]
-name = "Function world"
-id = 5
-parents = [2]
-levels = [
-	"src/game/world5/level1.lean",
-	"src/game/world5/level2.lean",
-	"src/game/world5/level3.lean",
-	"src/game/world5/level4.lean",
-	"src/game/world5/level5.lean",
-	"src/game/world5/level6.lean",
-	"src/game/world5/level7.lean",
-	"src/game/world5/level8.lean",
-	"src/game/world5/level9.lean",
-]
-
-[[worlds]]
-name = "Proposition world"
-id = 6
-parents = [5]
-levels = [
-	"src/game/world6/level1.lean",
-	"src/game/world6/level2.lean",
-	"src/game/world6/level3.lean",
-	"src/game/world6/level4.lean",
-	"src/game/world6/level5.lean",
-	"src/game/world6/level6.lean",
-	"src/game/world6/level7.lean",
-	"src/game/world6/level8.lean",
-	"src/game/world6/level9.lean",
-]
-[[worlds]]
-name = "Advanced Proposition world"
-id = 7
-parents = [6]
-levels = [
-	"src/game/world7/level1.lean",
-	"src/game/world7/level2.lean",
-	"src/game/world7/level3.lean",
-	"src/game/world7/level4.lean",
-	"src/game/world7/level5.lean",
-	"src/game/world7/level6.lean",
-	"src/game/world7/level7.lean",
-	"src/game/world7/level8.lean",
-	"src/game/world7/level9.lean",
-	"src/game/world7/level10.lean",
-]
-
-[[worlds]]
-name = "Advanced Addition world"
-id = 8
-parents = [7]
-levels = [
-	"src/game/world8/level1.lean",
-	"src/game/world8/level2.lean",
-	"src/game/world8/level3.lean",
-	"src/game/world8/level4.lean",
-	"src/game/world8/level5.lean",
-	"src/game/world8/level6.lean",
-	"src/game/world8/level7.lean",
-	"src/game/world8/level8.lean",
-	"src/game/world8/level9.lean",
-	"src/game/world8/level10.lean",
-	"src/game/world8/level11.lean",
-	"src/game/world8/level12.lean",
-	"src/game/world8/level13.lean",
-]
-
-[[worlds]]
-name = "Advanced Multiplication world"
-id = 9
-parents = [3, 8]
-levels = [
-	"src/game/world9/level1.lean",
-	"src/game/world9/level2.lean",
-	"src/game/world9/level3.lean",
-	"src/game/world9/level4.lean",
-]
-
-[[worlds]]
-name = "Inequality world"
-id = 10
-parents = [9]
-levels = [
-	"src/game/world10/level1.lean",
-	"src/game/world10/level2.lean",
-	"src/game/world10/level3.lean",
-	"src/game/world10/level4.lean",
-	"src/game/world10/level5.lean",
-	"src/game/world10/level6.lean",
-	"src/game/world10/level7.lean",
-	"src/game/world10/level8.lean",
-	"src/game/world10/level9.lean",
-	"src/game/world10/level10.lean",
-	"src/game/world10/level11.lean",
-	"src/game/world10/level12.lean",
-	"src/game/world10/level13.lean",
-	"src/game/world10/level14.lean",
-	"src/game/world10/level15.lean",
-	"src/game/world10/level16.lean",
-	"src/game/world10/level17.lean",
-]
-
-[[worlds]]
 name = "Vector world"
-id = 11
+id = 1
 levels = [
 	"src/game/vector_world/level1.lean",
 	"src/game/vector_world/level2.lean",
+	"src/game/vector_world/level3.lean",
+	"src/game/vector_world/level4.lean",
+	"src/game/vector_world/level5.lean",
+	"src/game/vector_world/level6.lean",
+	"src/game/vector_world/level7.lean",
+	"src/game/vector_world/level8.lean",
+	"src/game/vector_world/level9.lean",
+	"src/game/vector_world/level10.lean",
 ]
