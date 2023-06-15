@@ -91,7 +91,10 @@ protected def zero : ∀ {n : ℕ}, tuple n
 instance {n : ℕ} : has_zero (tuple n) := ⟨tuple.zero⟩
 
 
-protected def neg {n : ℕ} : tuple n → tuple n := scalar_mul (-1)
+protected def neg : ∀ {n : ℕ}, tuple n → tuple n
+| 0 _ := [[]]
+| (n + 1) (cons head tail) := cons (-head) (neg tail)
+
 instance {n : ℕ} : has_neg (tuple n) := ⟨tuple.neg⟩
 
 
