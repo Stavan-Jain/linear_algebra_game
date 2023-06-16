@@ -40,6 +40,9 @@ protected def sub : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 instance {n : ℕ} : has_sub (tuple n) := ⟨tuple.sub⟩
 
 
+def length {n : ℕ} : tuple n → ℕ := n
+
+
 def dot_product : ∀ {n : ℕ}, tuple n → tuple n → ℝ
 | 0 _ _ := 0
 | _ (cons head₁ tail₁) (cons head₂ tail₂) := (head₁ * head₂) + dot_product tail₁ tail₂
@@ -82,6 +85,17 @@ def nth : ∀ {n : ℕ} (i : ℕ), tuple n → i < n → ℝ
 | 0 i _ prf := absurd prf i.not_lt_zero
 | _ 0 (cons head _) prf := head
 | _ (i+1) (cons _ tail) prf := nth i (tail) (nat.le_of_succ_le_succ prf)
+
+def update_nth : ∀ {n : ℕ} (i : ℕ), tuple n → ℝ → i < n → tuple n
+| 0 i _ _ prf := absurd prf i.not_lt_zero
+| n 0 (cons head tail) a prf := cons a tail
+| n (i + 1) (cons head tail) a prf := cons head (update_nth i tail a (nat.le_of_succ_le_succ prf))
+
+def remove_nth : ∀ {n : ℕ} (i : ℕ), tuple (n + 1) → i ≤ n → tuple n
+| 0 0 _ prf := nil
+| 0 (i + 1) _ prf := absurd prf (by linarith)
+| (n + 1) 0 (cons _ tail) prf := tail
+| (n + 1) (i + 1) (cons head tail) prf := cons head (remove_nth i tail (by linarith))
 
 
 protected def zero : ∀ {n : ℕ}, tuple n
