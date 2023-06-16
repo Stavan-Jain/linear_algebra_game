@@ -1,48 +1,43 @@
 import vectors.tuple
+import vectors.tuple.tactics
 import algebra.group.basic
 
 namespace tuple
+
 
 lemma add_assoc {n : ℕ} : ∀ (u v w : tuple n), u + v + w = u + (v + w) := begin
   induction n with n hn,
   { intros u v w,
     cases u, cases v, cases w,
-    dsimp [has_add.add],
-    dsimp [tuple.add],
     refl, },
   { intros u v w,
-    cases u with n u₁ u_tail, cases v with n v₁ v_tail, cases w with n w₁ w_tail,
-    specialize hn u_tail v_tail w_tail,
-    dsimp [has_add.add] at *,
-    dsimp [tuple.add] at *,
-    simp [hn],
-    ring, },
+    cases u with n u₁ uₙ,
+    cases v with n v₁ vₙ,
+    cases w with n w₁ wₙ,
+    simp,
+    split,
+    { ring, },
+    { exact hn uₙ vₙ wₙ, }, },
 end
 
 lemma zero_add {n : ℕ} : ∀ (v : tuple n), 0 + v = v := begin
   induction n with n hn,
   { intro v, cases v,
-    simp [has_zero.zero, tuple.zero, has_add.add, tuple.add], },
+    refl, },
   { intro v,
-    cases v with n v₁ v_tail,
-    simp [has_zero.zero, tuple.zero, has_add.add] at *,
-    simp [tuple.add] at *,
-    split,
-    { refl, },
-    { exact hn v_tail, }, },
+    cases v with n head tail,
+    simp,
+    exact hn tail, },
 end
 
 lemma add_zero {n : ℕ} : ∀ (v : tuple n), v + 0 = v := begin
   induction n with n hn,
   { intro v, cases v,
-    simp [has_zero.zero, tuple.zero, has_add.add, tuple.add], },
+    refl, },
   { intro v,
-    cases v with n v₁ v_tail,
-    simp [has_zero.zero, tuple.zero, has_add.add] at *,
-    simp [tuple.add] at *,
-    split,
-    { refl, },
-    { exact hn v_tail, }, },
+    cases v with n head tail,
+    simp,
+    exact hn tail, }
 end
 
 lemma add_comm {n : ℕ} : ∀ (u v : tuple n), u + v = v + u := begin
@@ -51,13 +46,12 @@ lemma add_comm {n : ℕ} : ∀ (u v : tuple n), u + v = v + u := begin
     cases u, cases v,
     refl, },
   { intros u v,
-    cases u with n u₁ u_tail,
-    cases v with n v₁ v_tail,
-    simp [has_zero.zero, tuple.zero, has_add.add] at *,
-    simp [tuple.add] at *,
+    cases u with n u₁ uₙ,
+    cases v with n v₁ vₙ,
+    simp,
     split,
     { ring, },
-    { exact hn u_tail v_tail, }, },
+    { exact hn uₙ vₙ, }, },
 end
 
 
@@ -66,15 +60,11 @@ protected def nsmul {n : ℕ} (c : ℕ) (v : tuple n) : tuple n := ↑c ** v
 protected lemma nsmul_zero {n : ℕ} : ∀ (v : tuple n), (tuple.nsmul 0 v = 0) := begin
   induction n with n hn,
   { intro v, cases v,
-    dsimp [tuple.nsmul, tuple.scalar_mul, tuple.map],
     refl, },
   { intro v,
-    cases v with n v₁ v_tail,
-    simp [tuple.nsmul, tuple.scalar_mul, tuple.map] at *,
-    simp [has_zero.zero, tuple.zero] at *,
-    split,
-    { refl, },
-    { exact hn v_tail, }, },
+    cases v with n head tail,
+    simp [tuple.nsmul] at *,
+    exact hn tail, },
 end
 
 protected lemma nsmul_succ {n : ℕ}
@@ -82,15 +72,13 @@ protected lemma nsmul_succ {n : ℕ}
   intro c,
   induction n with n hn,
   { intro v, cases v,
-    dsimp [tuple.nsmul, tuple.scalar_mul, tuple.map],
     refl, },
   { intro v,
-    cases v with n v₁ v_tail,
-    dsimp [tuple.nsmul, tuple.scalar_mul, tuple.map, has_add.add] at *,
-    simp [tuple.add] at *,
+    cases v with n head tail,
+    simp [tuple.nsmul] at *,
     split,
     { ring, },
-    { exact hn v_tail, }, },
+    { exact hn tail, }, },
 end
 
 
@@ -100,19 +88,12 @@ lemma sub_eq_add_neg {n : ℕ} : (∀ (v u : tuple n), v - u = v + -u) := begin
     cases v, cases u,
     refl, },
   { intros v u,
-    cases v with n v₁ v_tail,
-    cases u with n u₁ u_tail,
-    simp [has_neg.neg] at *,
-    simp [tuple.neg] at *,
-    simp [tuple.scalar_mul] at *,
-    simp [tuple.map] at *,
-    simp [has_sub.sub] at *,
-    simp [tuple.sub] at *,
-    simp [has_add.add] at *,
-    simp [tuple.add] at *,
+    cases v with n v₁ vₙ,
+    cases u with n u₁ uₙ,
+    simp,
     split,
     { ring, },
-    { exact hn v_tail u_tail, }, },
+    { exact hn vₙ uₙ, }, }
 end
 
 
@@ -121,18 +102,11 @@ protected def zsmul {n : ℕ} (c : ℤ) (v : tuple n) : tuple n := ↑c ** v
 protected lemma zsmul_zero {n : ℕ} : ∀ (v : tuple n), (tuple.zsmul 0 v = 0) := begin
   induction n with n hn,
   { intro v, cases v,
-    simp [tuple.zsmul],
     refl, },
   { intro v,
-    cases v with n v₁ vₙ,
+    cases v with n head tail,
     simp [tuple.zsmul] at *,
-    simp [tuple.scalar_mul] at *,
-    simp [tuple.map] at *,
-    simp [has_zero.zero] at *,
-    simp [tuple.zero] at *,
-    split,
-    { refl, },
-    { exact hn vₙ, }, },
+    exact hn tail, },
 end
 
 protected lemma zsmul_succ {n : ℕ}
@@ -142,17 +116,11 @@ protected lemma zsmul_succ {n : ℕ}
   induction n with n hn,
   { intro v, cases v, refl, },
   { intro v,
-    cases v with n v₁ vₙ,
+    cases v with n head tail,
     simp [tuple.zsmul] at *,
-    simp [tuple.scalar_mul] at *,
-    simp [tuple.map] at *,
-    simp [has_add.add] at *,
-    simp [tuple.add] at *,
     split,
-    { simp [add_zero_class.add, add_monoid.add, add_monoid_with_one.add, add_group_with_one.add, 
-            add_comm_group_with_one.add, ring.add, comm_ring.add],
-      ring, },
-    { exact hn vₙ, }, },
+    { ring, },
+    { exact hn tail, }, },
 end
 
 protected lemma zsmul_neg {n : ℕ} : (∀ (c : ℕ) (v : tuple n),
@@ -161,15 +129,11 @@ protected lemma zsmul_neg {n : ℕ} : (∀ (c : ℕ) (v : tuple n),
   induction n with n hn,
   { intro v, cases v, refl, },
   { intro v,
-    cases v with n v₁ vₙ,
-    simp [has_neg.neg] at *,
-    simp [tuple.neg] at *,
+    cases v with n head tail,
     simp [tuple.zsmul] at *,
-    simp [tuple.scalar_mul] at *,
-    simp [tuple.map] at *,
     split,
     { ring, },
-    { exact hn vₙ, }, },
+    { exact hn tail, }, },
 end
 
 
@@ -177,16 +141,9 @@ lemma add_left_neg {n : ℕ} : ∀ (v : tuple n), -v + v = 0 := begin
   induction n with n hn,
   { intro v, cases v, refl, },
   { intro v,
-    cases v with n v₁ vₙ,
-    simp [has_zero.zero] at *,
-    simp [tuple.zero] at *,
-    simp [has_neg.neg] at *,
-    simp [tuple.neg] at *,
-    simp [tuple.scalar_mul] at *,
-    simp [tuple.map] at *,
-    simp [has_add.add] at *,
-    simp [tuple.add] at *,
-    exact hn vₙ, },
+    cases v with n head tail,
+    simp,
+    exact hn tail, },
 end
 
 
@@ -209,5 +166,6 @@ instance {n : ℕ} : add_comm_group (tuple n) := ⟨
   add_left_neg,
   add_comm,
   ⟩
+
 
 end tuple
