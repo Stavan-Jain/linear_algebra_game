@@ -15,7 +15,8 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-|x · y| ≤ 1 if x and y are unit vectors.-/
+|x · y| ≤ 1 if x and y are unit vectors.
+-/
 
 lemma cauchy_schwarz_unit: ∀ {n : ℕ} (x: tuple n) (y : tuple n) 
 , (norm_sq x) = 1 → (norm_sq y) = 1 → | x ⬝ y| ≤ 1 :=
