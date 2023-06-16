@@ -117,6 +117,7 @@ natural is either `0` or `succ(d)` for `d` another natural, so if
 one with `n = 0` and the other with `d : mynat` and `n = succ(d)`.
 -/
 
+/-
 ## Summary:
 
 If the goal is `P ∧ Q` or `P ↔ Q` then `split` will break it into two goals.
@@ -151,10 +152,8 @@ a b : mynat
 a b : mynat
 ⊢ a + 3 = b + 3 → a = b
 
--/
 
-
-/-
 https://leanprover.github.io/logic_and_proof/classical_reasoning.html
 -/
 
+end mynat -- hide 
