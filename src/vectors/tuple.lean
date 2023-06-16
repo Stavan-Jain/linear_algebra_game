@@ -39,7 +39,9 @@ protected def sub : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 
 instance (n : ℕ) : has_sub (tuple n) := ⟨tuple.sub⟩
 
+
 def length {n : ℕ} : tuple n → ℕ := n
+
 
 def dot_product : ∀ {n : ℕ}, tuple n → tuple n → ℝ
 | 0 _ _ := 0
@@ -74,24 +76,26 @@ def norm_sq {n : ℕ} (v : tuple n) : nnreal := ⟨v ⬝ v, begin
     exact add_nonneg this hn, },
 end⟩
 
+protected noncomputable def norm {n : ℕ} (v : tuple n) : nnreal := nnreal.sqrt (norm_sq v)
+noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
+noncomputable instance (n : ℕ) : has_nnnorm (tuple n) := ⟨tuple.norm⟩
+
+
 def nth : ∀ {n : ℕ} (i : ℕ), tuple n → i < n → ℝ 
 | 0 i _ prf := absurd prf i.not_lt_zero
 | _ 0 (cons head _) prf := head
 | _ (i+1) (cons _ tail) prf := nth i (tail) (nat.le_of_succ_le_succ prf)
 
-def update_nth : ∀ {n : ℕ}, tuple n → ℕ → ℝ → tuple n
-| 0 _ _ _ := nil
-| n (cons head tail) 0 a := cons a tail
-| n (cons head tail) (i + 1) a := cons head (update_nth tail i a)
+def update_nth : ∀ {n : ℕ} (i : ℕ), tuple n → ℝ → i < n → tuple n
+| 0 i _ _ prf := absurd prf i.not_lt_zero
+| n 0 (cons head tail) a prf := cons a tail
+| n (i + 1) (cons head tail) a prf := cons head (update_nth i tail a (nat.le_of_succ_le_succ prf))
 
-def remove_nth : ∀ {n : ℕ}, tuple (n+1) → ℕ → tuple n
-| 0 _ _ := nil
-| (n + 1) (cons _ tail) 0 := tail
-| (n + 1) (cons head tail) (i + 1) := cons head (remove_nth tail i)
-
-protected noncomputable def norm {n : ℕ} (v : tuple n) : nnreal := nnreal.sqrt (norm_sq v)
-noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
-noncomputable instance (n : ℕ) : has_nnnorm (tuple n) := ⟨tuple.norm⟩
+def remove_nth : ∀ {n : ℕ} (i : ℕ), tuple (n + 1) → i ≤ n → tuple n
+| 0 0 _ prf := nil
+| 0 (i + 1) _ prf := absurd prf (by linarith)
+| (n + 1) 0 (cons _ tail) prf := tail
+| (n + 1) (i + 1) (cons head tail) prf := cons head (remove_nth i tail (by linarith))
 
 
 end tuple
