@@ -23,21 +23,21 @@ protected meta def repr : ∀ {n : ℕ}, tuple n → string
 | 0 _     := "[[]]"
 | _ (cons a b) := "[[" ++ tuple.repr_aux tt (cons a b) ++ "]]"
 
-meta instance (n : ℕ) : has_repr (tuple n) := ⟨tuple.repr⟩
+meta instance {n : ℕ} : has_repr (tuple n) := ⟨tuple.repr⟩
 
 
 protected def add : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 | 0 _ _ := nil
 | _ (cons head₁ tail₁) (cons head₂ tail₂) := cons (head₁ + head₂) (add tail₁ tail₂)
 
-instance (n : ℕ) : has_add (tuple n) := ⟨tuple.add⟩
+instance {n : ℕ} : has_add (tuple n) := ⟨tuple.add⟩
 
 
 protected def sub : ∀ {n : ℕ}, tuple n → tuple n → tuple n
 | 0 _ _ := nil
 | _ (cons head₁ tail₁) (cons head₂ tail₂) := cons (head₁ - head₂) (sub tail₁ tail₂)
 
-instance (n : ℕ) : has_sub (tuple n) := ⟨tuple.sub⟩
+instance {n : ℕ} : has_sub (tuple n) := ⟨tuple.sub⟩
 
 
 def length {n : ℕ} : tuple n → ℕ := n
@@ -77,11 +77,11 @@ def norm_sq {n : ℕ} (v : tuple n) : nnreal := ⟨v ⬝ v, begin
 end⟩
 
 protected noncomputable def norm {n : ℕ} (v : tuple n) : nnreal := nnreal.sqrt (norm_sq v)
-noncomputable instance (n : ℕ) : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
-noncomputable instance (n : ℕ) : has_nnnorm (tuple n) := ⟨tuple.norm⟩
+noncomputable instance {n : ℕ} : has_norm (tuple n) := ⟨coe ∘ tuple.norm⟩
+noncomputable instance {n : ℕ} : has_nnnorm (tuple n) := ⟨tuple.norm⟩
 
 
-def nth : ∀ {n : ℕ} (i : ℕ), tuple n → i < n → ℝ 
+def nth : ∀ {n : ℕ} (i : ℕ), tuple n → i < n → ℝ
 | 0 i _ prf := absurd prf i.not_lt_zero
 | _ 0 (cons head _) prf := head
 | _ (i+1) (cons _ tail) prf := nth i (tail) (nat.le_of_succ_le_succ prf)
@@ -96,6 +96,20 @@ def remove_nth : ∀ {n : ℕ} (i : ℕ), tuple (n + 1) → i ≤ n → tuple n
 | 0 (i + 1) _ prf := absurd prf (by linarith)
 | (n + 1) 0 (cons _ tail) prf := tail
 | (n + 1) (i + 1) (cons head tail) prf := cons head (remove_nth i tail (by linarith))
+
+
+protected def zero : ∀ {n : ℕ}, tuple n
+| 0 := [[]]
+| (n + 1) := cons 0 zero
+
+instance {n : ℕ} : has_zero (tuple n) := ⟨tuple.zero⟩
+
+
+protected def neg : ∀ {n : ℕ}, tuple n → tuple n
+| 0 _ := [[]]
+| (n + 1) (cons head tail) := cons (-head) (neg tail)
+
+instance {n : ℕ} : has_neg (tuple n) := ⟨tuple.neg⟩
 
 
 end tuple
