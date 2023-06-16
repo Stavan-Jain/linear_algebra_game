@@ -21,8 +21,7 @@ namespace tuple -- hide
 lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x: tuple n)
 ,(|c| * x.norm : ℝ)  = ((c**x).norm : ℝ)   :=
 begin 
-  intro n,
-  intros c x, 
+  intros n c x,
   dsimp [tuple.norm], simp,
   have j : ∀ (x : real), (0 ≤ x) → x = real.sqrt(x * x),
   {
@@ -77,7 +76,7 @@ begin
     linarith, 
   },
   simp, 
-  have m : real.sqrt (c * c) ≥ 0 , 
+  have m : real.sqrt (c * c) ≥ 0 ,
   {
     exact real.sqrt_nonneg (c*c), 
   }, 
