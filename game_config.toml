@@ -161,3 +161,15 @@ levels = [
 	"src/game/world10/level17.lean",
 ]
 
+[[worlds]]
+name = "Tutorial world"
+id = 11
+levels = [
+	"src/game/Tutorial_world/level1.lean",
+	"src/game/Tutorial_world/level2.lean",
+	"src/game/Tutorial_world/level3.lean",
+	"src/game/Tutorial_world/level4.lean",
+	"src/game/Tutorial_world/level5.lean",
+	"src/game/Tutorial_world/level6.lean",
+	"src/game/Tutorial_world/level7.lean",
+]
