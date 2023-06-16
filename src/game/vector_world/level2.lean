@@ -17,9 +17,9 @@ And vector in ℝ² can be expressed as a linear combination of the vectors [0, 
 lemma lin_comb: ∀  (i: ℝ) (j :ℝ ), ∃(d₁ : ℝ )(d₂ : ℝ ) , [[i, j]] =   (d₁ ** [[1, 0]]) + (d₂** [[0, 1]]) :=
 begin 
   intros i j ,
-  use [i, j], 
+  use [i, j],
   dsimp [scalar_mul, map], 
-  simp, 
+  simp,
   simp [has_add.add], dsimp [tuple.add], 
   simp, 
 end

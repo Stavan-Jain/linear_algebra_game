@@ -13,9 +13,9 @@ We're going to prove that the dot product is commutative!
 -/
 
 /- Lemma
-v ⬝ w = w ⬝ v for all vectors v, w ∈ ℝⁿ
+x ⬝ x = 0 ↔ x = tuple.zero
 -/
-lemma pos_dev_2: ∀ {n : ℕ} (x: tuple n),  x ⬝ x = 0 ↔ x = tuple.zero :=
+lemma dot_pos_def_2: ∀ {n : ℕ} (x: tuple n),  x ⬝ x = 0 ↔ x = tuple.zero :=
 begin 
   intro n, 
   induction n with d hd,
