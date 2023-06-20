@@ -20,17 +20,13 @@ begin
   intro n,
   induction n with d hd, 
   {intros x y z, 
-  cases x, 
-  cases y,  
-  cases z,
+  casesm* (tuple 0), 
   dsimp [dot_product],
   rw add_zero, 
   },
   {
     intros x y z, 
-    cases x, 
-    cases y, 
-    cases z, 
+    casesm* (tuple d.succ), 
     dsimp [dot_product], 
     have i : x_head * y_head + x_tail ⬝ y_tail + (x_head * z_head + x_tail ⬝ z_tail)
     = x_tail ⬝ y_tail + x_tail ⬝ z_tail +  x_head * y_head + x_head * z_head , 
@@ -40,7 +36,7 @@ begin
     rw i, 
     rw ← hd x_tail y_tail z_tail,  
     linarith, 
-  }
+  },
 end
 
 end tuple -- hide
