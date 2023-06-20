@@ -2,6 +2,7 @@ import vectors.tuple -- hide
 import data.real.basic
 import game.vector_world.level7-- hide 
 import game.vector_world.level3-- hide
+import game.vector_world.level6 --hide
 import game.vector_world.level8 --hide
 import game.vector_world.level10 --hide
 import game.vector_world.level12 --hide
@@ -22,16 +23,12 @@ namespace tuple -- hide
 |x · y| ≤ ||x||*||y||
 -/
 
-
-#check abs_eq_self
-#check scalar_norm
-#check inv_mul_cancel
 lemma cauchy_schwarz: ∀ {n : ℕ} (x: tuple n) (y : tuple n) 
 , | x ⬝ y| ≤ x.norm *y.norm    :=
 begin 
   intros n x y, 
   by_cases (x= tuple.zero),
-  {cases x, 
+ {cases x, 
     {dsimp [tuple.norm, norm_sq, dot_product],
     simp, },
     {
@@ -57,7 +54,7 @@ begin
     } , 
     {
       have non_zero : x.norm > 0 ∧ y.norm > 0, 
-      sorry {
+     {
         split, 
         {
           have h5: ↑x.norm ≠ (0:ℝ)  , 
@@ -110,10 +107,54 @@ begin
       }, 
       have h4 : ((1 / x.norm) : ℝ)  * |x ⬝ ((1/y.norm)** y)| ≤ 1, 
       {
-        sorry, 
+        have h5:= scalar_through (1 / ↑(x.norm)) x (1 / ↑(y.norm) ** y),
+        rw h5 at h3, 
+        have h6 :  0 ≤ ((1 / x.norm) : ℝ) ,  
+        {
+          simp,  
+        }, 
+        have h7 := abs_mul (1 / ↑(x.norm)) (x ⬝ (1 / ↑(y.norm) ** y)), 
+        rw h7 at h3, 
+        
+        have h8 : |((1 / x.norm) : ℝ) | = (1 / x.norm : ℝ) , 
+        {
+          exact abs_eq_self.mpr h6, 
+        }, 
+        rw h8 at h3, 
+        exact h3, 
       }, 
-
-
+      clear h3, 
+      rw dot_comm at h4, 
+      rw scalar_through at h4, 
+      rw dot_comm at h4, 
+      have h5 := abs_mul (1 / ↑y.norm) (x ⬝ y), 
+      rw h5 at h4, 
+      clear h5, 
+      have h5 : 0 ≤ ((1 / y.norm) : ℝ), 
+      {
+        simp, 
+      }, 
+      rw abs_eq_self.mpr h5 at h4,
+      have h10 : ∀ x : tuple n, x.norm = ↑ x.norm, 
+      {
+        intro x, refl, 
+      }, 
+      rw h10 at x_nonzero, 
+      rw h10 at y_nonzero,
+      clear h10,  
+      apply (@div_le_iff ℝ _ (|x ⬝ y|) (↑(y.norm)) (↑(x.norm)) y_nonzero).mp, 
+      have h6 : |x ⬝ y| / ↑(y.norm) = (1 / ↑(y.norm))* |x ⬝ y|, 
+      {
+        simp,
+        rw div_eq_inv_mul,  
+      }, 
+      rw h6, 
+      rw ← one_mul ↑ (x.norm),  
+      apply (@div_le_iff ℝ _ (1 / ↑(y.norm) * |x ⬝ y|) (↑(x.norm)) (1) x_nonzero).mp, 
+      rw div_eq_inv_mul, 
+      simp, 
+      simp at h4, 
+      exact h4,  
     }
   }, 
 
