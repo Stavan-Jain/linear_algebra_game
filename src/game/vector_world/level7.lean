@@ -39,12 +39,8 @@ begin
     }, 
     rw i, 
     rw ← hd x_tail y_tail z_tail,  
-    dsimp [has_add.add], simp [tuple.add], 
-    dsimp [dot_product],  
-    repeat {dsimp [has_add.add]} , 
-    sorry,
+    linarith, 
   }
-
 end
 
 end tuple -- hide
