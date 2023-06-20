@@ -36,7 +36,7 @@ begin
       } , 
       linarith, 
     }, 
-    have tgt_zero := pos_dev_1 x_tail,
+    have tgt_zero := dot_pos_def_1 x_tail,
     have t_eq_zero : x_tail ⬝ x_tail = 0 , {
       linarith, 
     } , 
@@ -56,7 +56,7 @@ begin
     cases h with head_eq_zero tail_dot_eq_zero,
     rw head_eq_zero, simp, 
     exact (hd x_tail).mpr tail_dot_eq_zero, 
-  }
+  },
 end
 
 end tuple -- hide
