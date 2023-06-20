@@ -36,8 +36,6 @@ begin
   use [i, j],
   dsimp [scalar_mul, map], 
   simp,
-  simp [has_add.add], dsimp [tuple.add], 
-  simp, 
 end
 
 end tuple -- hide

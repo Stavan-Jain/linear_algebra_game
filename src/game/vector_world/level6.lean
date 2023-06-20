@@ -30,7 +30,6 @@ begin
     dsimp [dot_product], rw mul_add, 
     rw ← hd c x_tail y_tail,
     dsimp [scalar_mul, map], 
-    dsimp [dot_product], 
     rw mul_assoc, 
   },
 end
