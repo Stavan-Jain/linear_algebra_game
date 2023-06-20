@@ -4,16 +4,7 @@ import mynat.definition -- Imports the natural numbers.
 import mynat.add -- imports addition.
 namespace mynat -- hide
 
-
-/- Axiom : add_zero (a : mynat) :
-a + 0 = a
--/
-
-/- Axiom : add_succ (a b : mynat) :
-a + succ(b) = succ(a + b)
--/
-
-/- Tactic : induction
+/-
 
 ## Summary
 
