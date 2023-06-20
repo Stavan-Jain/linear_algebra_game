@@ -3,9 +3,19 @@ import data.real.basic
 namespace tuple -- hide
 
 /- 
+
+Now we're gonna try and prove that the dot product is positive definite. 
+Positive definiteness relates to symmetric matrices (A is symmetric if A and A^T are equal.)
+A symmetric matrix A is said to be positive definite if, for any non-zero vector of dimension equal to A, 
+x^T A x is always positive. 
+
+What does this have to do with the dot product?
+
+We can treat the dot product itself as a matrix of one element. On computing x^T A x such that x 
+is a vector with one element, the product is always positive.
 # Vector world
 
-We're going to prove that the dot product is commutative!  
+We're going to prove that the dot product is positive definite!
 
 ## Level 4: `dot product is postive definite ` 
 

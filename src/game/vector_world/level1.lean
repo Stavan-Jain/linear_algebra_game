@@ -4,6 +4,15 @@ namespace tuple -- hide
 
 
 /- 
+
+Introduction
+
+In the following portion we will be looking at a problem related to linear combinations. 
+A linear combination is essentially a sum. Vectors are added to get new vectors. A vector is said to be
+a linear combination of another set of vectors if it can be obtained by adding some combination of their scalar products. 
+Essentially, vec(z) is a linear combination of vec(x) and vec(y) if there exist scalars a, b such that 
+a(vec(x)) + b(vec(y)) = vec(c)
+
 # Vector world
 
 We're going to prove that [3, 4] is a linear combination of the standard basis vectors in ℝ²  
