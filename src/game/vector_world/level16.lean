@@ -1,13 +1,5 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level7-- hide 
-import game.vector_world.level3-- hide
-import game.vector_world.level6 --hide
-import game.vector_world.level8 --hide
-import game.vector_world.level10 --hide
-import game.vector_world.level12 --hide
-import game.vector_world.level13 --hide
-import game.vector_world.level14 -- hide
 import game.vector_world.level15 --hide
 
 namespace tuple -- hide
@@ -15,7 +7,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 15: `Boss level: Cauchy-Schwarz` 
+## Level 16: `Boss level: Cauchy-Schwarz` 
 
 -/
 
@@ -157,9 +149,6 @@ begin
       exact h4,  
     }
   }, 
-
-
-
 end
 
 end tuple -- hide

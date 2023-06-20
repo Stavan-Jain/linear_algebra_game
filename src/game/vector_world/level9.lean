@@ -1,7 +1,5 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level7-- hide 
-import game.vector_world.level3-- hide
 import game.vector_world.level8 --hide
 
 namespace tuple -- hide

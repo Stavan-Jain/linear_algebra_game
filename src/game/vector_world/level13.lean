@@ -1,9 +1,5 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level7-- hide 
-import game.vector_world.level3-- hide
-import game.vector_world.level4 --hide
-import game.vector_world.level8 --hide
 import game.vector_world.level12 --hide
 
 namespace tuple -- hide
@@ -92,7 +88,8 @@ begin
     simp at k, 
     rw ← r, rw k, 
     simp,  
-  }
+  }, 
+  
 end
 
 end tuple -- hide
