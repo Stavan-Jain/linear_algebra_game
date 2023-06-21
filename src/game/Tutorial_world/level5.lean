@@ -1,4 +1,3 @@
-Induction
 
 import mynat.definition -- Imports the natural numbers.
 import mynat.add -- imports addition.
@@ -95,7 +94,6 @@ the same? No they're not! It is *true* that `x + y = y + x`, but we haven't
 *proved* it yet, and in fact we will need both `add_zero` and `zero_add` in order
 to prove this. In fact `x + y = y + x` is the boss level for addition world,
 and `induction` is the only other tactic you'll need to beat it.
-
 Now `add_zero` is one of Peano's axioms, so we don't need to prove it, we already have it
 (indeed, if you've opened the Addition World theorem statements on the left, you can even see it).
 To prove `0 + n = n` we need to use induction on $n$. While we're here,
