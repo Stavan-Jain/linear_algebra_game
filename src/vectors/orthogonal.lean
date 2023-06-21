@@ -4,8 +4,5 @@ import vectors.tuple
 def orthogonal {n : ℕ} (x : tuple n) (y:tuple n) : Prop :=
 x ⬝ y = 0 
 
-infix ` ⟂ `:45 := orthogonal
-infix ` ⊥ `:45 := orthogonal
-
-#check orthogonal [[0, 0 , 0]] [[2, 3, 4]]
-#check [[0, 0 , 0]] ⊥ [[2, 3, 4]]
+infix ` ⟂ `:63 := orthogonal
+infix ` ⊥ `:63 := orthogonal

@@ -21,14 +21,15 @@ lemma zero_orth_all: ∀ {n : ℕ} (x: tuple n)
 begin 
   intro n, 
   induction n with d ih, 
-  {dsimp [orthogonal], 
+  {simp,  
   intro x, 
   cases x, 
   dsimp [tuple.zero, dot_product], refl, }, 
   {
     intro x, cases x, 
-    dsimp [orthogonal, tuple.zero, dot_product],
-    have i:=  ih x_tail,  dsimp [orthogonal] at i, 
+    simp, 
+    dsimp [tuple.zero, dot_product],
+    have i:=  ih x_tail, simp at i, 
     rw i, 
     simp, 
   },
