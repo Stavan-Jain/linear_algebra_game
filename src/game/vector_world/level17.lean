@@ -27,6 +27,7 @@ begin
   },
   have h4 : ↑((x + y).norm_sq) ≤ ((x.norm + y.norm)^2), 
   {
+    
     calc 
       ↑((x + y).norm_sq) = ↑(x.norm_sq) + 2 * x ⬝ y + ↑(y.norm_sq) : 
         begin 
@@ -46,8 +47,12 @@ begin
         dsimp [tuple.norm], simp, refl, 
       end
   }, 
-  sorry, 
-
+  clear h3 h2 h1, 
+  dsimp [tuple.norm],
+  have i := nnreal.sqrt_le_sqrt_iff.mpr h4, 
+  rw nnreal.sqrt_sq at i,  
+  dsimp [tuple.norm] at i, 
+  exact i, 
 end
 
 end tuple
