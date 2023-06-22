@@ -18,7 +18,13 @@ namespace tuple -- hide
 
 lemma one_mul : ∀ {n :ℕ } (u: tuple n), 1**u = u :=
 begin 
-  sorry, 
+  intro n,
+  induction n with n hn,
+  {intro u, cases u,
+  simp,},
+  {intro u, cases u,
+  simp,
+  rw hn,},
 end
 
 end tuple -- hide

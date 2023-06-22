@@ -16,6 +16,9 @@ lemma mul_cons_eq_cons_mul {n : ℕ} (c head : ℝ) (tail : tuple n)
   : c ** (cons head tail) = cons (c * head) (c ** tail) := rfl
 
 @[simp]
+lemma mul_nil (c : ℝ) : c ** nil = nil := rfl
+
+@[simp]
 lemma neg_cons_eq_cons_neg {n : ℕ} (head : ℝ) (tail : tuple n)
   : -(cons head tail) = (cons (-head) (-tail)) := rfl
 
