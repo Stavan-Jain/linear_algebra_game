@@ -15,15 +15,20 @@ namespace tuple -- hide
 ||x + y|| ≤ ||x|| + ||y||
 -/
 
-lemma add_zero {n : ℕ} : ∀ (v : tuple n), v + 0 = v :=
+lemma one_smul: ∀ {n : ℕ} (v : tuple n)
+, 1 ** v = v :=
 begin 
+  intro n,
   induction n with n hn,
-  { intro v, cases v,
-    refl, },
-  { intro v,
-    cases v with n head tail,
-    simp,
-    exact hn tail, },
+  {intro v, cases v,
+  dsimp [tuple.zero, scalar_mul, map],
+  refl,},
+  {intro v,
+  cases v with n v₁ vₙ,
+  simp,
+  rw hn,
+  dsimp [tuple.zero],
+  refl,},
 end
 
 end tuple
