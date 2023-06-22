@@ -18,7 +18,17 @@ namespace tuple -- hide
 
 lemma vec_assoc : ∀ {n :ℕ } (u v w : tuple n), u + (v + w) = u + v + w :=
 begin 
-  sorry, 
+  intro n, 
+  induction n with n hn,
+  {intros u v w,
+  casesm* (tuple 0),
+  simp,},
+  {intros u v w,
+  casesm* (tuple n.succ),
+  simp,
+  split,
+  {linarith,},
+  {rw hn,},},
 end
 
 end tuple -- hide
