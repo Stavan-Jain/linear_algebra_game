@@ -1,7 +1,7 @@
 /-
 # Tutorial World. 
 
-## Level 2: `intro`, `apply`
+## Level 2: The `intro` and `apply` tactics
 
 Let's prove an implication. Let $P$ be a true/false statement,
 and let's prove that $P\implies P$. If you delete the

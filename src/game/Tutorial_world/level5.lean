@@ -4,6 +4,9 @@ import mynat.add -- imports addition.
 namespace mynat -- hide
 
 /-
+# Tutorial World. 
+## Level 5: Induction
+
 
 ## Summary
 
@@ -47,7 +50,8 @@ hd : 2 * d = d + d
 
 
 /- 
-# Tutorial World. 
+
+
 ## Data:
 By Piano's Axioms, we have:
   * a type called `mynat`
@@ -80,7 +84,7 @@ will prove invaluable as the number of theorems we prove gets bigger. On the oth
 we only need to learn one more tactic to really start going places, so let's learn about
 that tactic right now.
 
-## Level 5: the `induction` tactic.
+
 
 OK so let's see induction in action. We're going to prove
 

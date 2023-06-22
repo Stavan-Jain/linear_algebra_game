@@ -10,14 +10,11 @@ namespace mynat -- hide
 
 # Tutorial World
 
-## Level 8: `simp`
+## Level 8: The simp tactic
 
+`Simp` tactic is a tactic which tries
+to prove equalities using facts in its database.
 
-## Summary
-
-The `simp` tactic is a high-level tactic which tries
-to prove equalities using facts in its database (such
-as `add_assoc` and `add_comm`).
 
 ## Details
 

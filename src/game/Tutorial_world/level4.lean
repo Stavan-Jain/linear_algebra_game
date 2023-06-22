@@ -2,9 +2,16 @@ import mynat.le -- import definition of ≤
 import game.world9.level4 -- hide
 import game.world4.level8 -- hide
 namespace mynat -- hide
+
+/-
+# Tutorial World. 
+## Level 4: The `Use` and `Ring` tactics
+
+-/
 /- Axiom : le_iff_exists_add (a b : mynat)
   a ≤ b ↔ ∃ (c : mynat), b = a + c
 -/
+
 
 /- Tactic : use
 ## Summary
@@ -25,7 +32,7 @@ the goal into `P(x + y)` and so on.
 
 /- 
 
-# Tutorial World. 
+
 
 A new import, giving us a new definition. If `a` and `b` are naturals,
 `a ≤ b` is *defined* to mean
@@ -53,7 +60,7 @@ There are two situations. Firstly we need to know how to solve a goal
 of the form `⊢ ∃ c, ...`, and secondly we need to know how to use a hypothesis
 of the form `∃ c, ...`. 
 
-## Level 4: `Use` and `Ring`.
+
 
 The goal below is to prove $x\le 1+x$ for any natural number $x$. 
 First let's turn the goal explicitly into an existence problem with

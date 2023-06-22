@@ -7,7 +7,7 @@ namespace mynat -- hide
 /- 
 # Tutorial World
 
-## Level 1: refl & rw
+## Level 1: The refl & rw tactics
 
 Let's start with the `refl` and `rw`. `refl` stands for "reflexivity". Statements can be proved by `refl` when the left hand side is *exactly equal* to the
 right hand side ("definitionally equal"). And `rw` stands for "rewrite", substituting the LHS of an equality in an hypothesis h with the RHS. 
@@ -53,11 +53,13 @@ box saying "Proof complete!" and the bottom right box empty (i.e. with no errors
 
 Now we'll learn about the `rw` tactic.
 -/
+
 /-
 The rewrite tactic is the way to "substitute in" the value
 of a variable. If you have a hypothesis `h: A = B`, and your
 goal mentions the left hand side `A` somewhere, then
-the `rewrite` tactic will replace the `A` in your goal with a `B`.
+the `rewrite` tactic will replace the `A` in your goal with a `B`. If you want to substitude `B` 
+with `A`, then `rw <-` would solve the goal. 
 This is a lemma  cannot be proved directly using `refl`. What should we do? 
 -/
 
