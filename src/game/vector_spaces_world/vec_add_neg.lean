@@ -16,7 +16,7 @@ namespace tuple -- hide
 
 -/
 
-lemma vec_add_neg : ∀ {n :ℕ } (u: tuple n), u + (-u) = 0 :=
+lemma vec_add_neg : ∀ {n : ℕ } (u : tuple n), u + (-u) = 0 :=
 begin 
   intros n,
   induction n with n hn,
