@@ -1,7 +1,7 @@
 import vectors.tuple -- hide
 import data.real.basic --hide
 import vectors.tuple.tactics --hide
-import game.vector_spaces_world.level1 --hide
+import game.vector_spaces_world.vec_assoc --hide
 namespace tuple -- hide
 
 
