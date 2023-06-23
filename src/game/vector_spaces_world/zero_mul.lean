@@ -1,7 +1,7 @@
 import vectors.tuple -- hide
 import data.real.basic --hide
 import vectors.tuple.tactics --hide
-import game.vector_spaces_world.one_mul --hide
+import game.vector_spaces_world.zero_smul --hide
 namespace tuple -- hide
 
 
@@ -9,7 +9,7 @@ namespace tuple -- hide
 
 # Vector world
 
-## Level 8: `zero_mul` 
+## Level 9: `zero_mul` 
 
 -/
 
@@ -17,16 +17,12 @@ namespace tuple -- hide
 
 -/
 
-lemma zero_mul : ∀ {n :ℕ } (u : tuple n), 0**u = 0 :=
+lemma zero_mul : ∀ {n : ℕ } (u : tuple n), (0 : tuple n) ⬝ u = (0 : ℝ)   :=
 begin
-  intro n,
-  induction n with n hn,
-  {intro u, cases u,
-  simp, 
-  refl,},
-  {intro u, cases u,
+  intros n u,
+  rw ← zero_smul (0 : tuple n),
+  rw scalar_through,
   simp,
-  rw hn,}, 
 end
 
 end tuple -- hide
