@@ -18,7 +18,14 @@ namespace tuple -- hide
 
 lemma zero_mul : ∀ {n :ℕ } (u : tuple n), 0**u = 0 :=
 begin
-  sorry, 
+  intro n,
+  induction n with n hn,
+  {intro u, cases u,
+  simp, 
+  refl,},
+  {intro u, cases u,
+  simp,
+  rw hn,}, 
 end
 
 end tuple -- hide
