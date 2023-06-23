@@ -30,8 +30,7 @@ lemma lin_comb: ∃ (d₁ : ℝ )(d₂ : ℝ) , [[3, 4]] =  (d₁ ** [[0, 1]]) +
 begin 
   use 4,
   use 3,
-  simp, 
-  dsimp [scalar_mul, map, tuple.add], refl,
+  simp,
 end
 
 end tuple -- hide

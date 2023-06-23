@@ -34,7 +34,6 @@ lemma lin_comb2: ∀  (i: ℝ) (j :ℝ ), ∃(d₁ : ℝ )(d₂ : ℝ ) , [[i, j
 begin 
   intros i j ,
   use [i, j],
-  dsimp [scalar_mul, map], 
   simp,
 end
 
