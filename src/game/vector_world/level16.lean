@@ -71,7 +71,7 @@ begin
           rw ← dot_zero,
           exact real.sqrt_zero, }, },
 
-      have unit_dot_le_1 : |(‖x‖⁻¹ ** x) ⬝ (‖y‖⁻¹ ** y)| ≤ 1,
+      have unit_dot_le_1 : |(‖x‖⁻¹ • x) ⬝ (‖y‖⁻¹ • y)| ≤ 1,
       { apply cauchy_schwarz_unit,
         { have mul_inv_unit := div_norm_unit x x_zero,
           simp [has_norm.norm, tuple.norm] at mul_inv_unit ⊢,

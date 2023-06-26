@@ -17,7 +17,7 @@ namespace tuple -- hide
 -/
 
 lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n)
-, |c| * ‖x‖ = ‖c ** x‖   :=
+, |c| * ‖x‖ = ‖c • x‖   :=
 begin 
   intros n c x,
   simp [has_norm.norm, tuple.norm],

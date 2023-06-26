@@ -16,11 +16,11 @@ namespace tuple -- hide
 -/
 
 lemma div_norm_unit: ∀ {n : ℕ} (x: ℝ ^ n)
-, x ≠ 0 → ‖(1 / ‖x‖) ** x‖ = (1:ℝ) :=
+, x ≠ 0 → ‖ ‖x‖⁻¹ • x‖ = 1 :=
 begin 
   intros n x xneq,
-  rw ← scalar_norm (1 / ‖x‖) x,
-  have j : 0 ≤ (1 / ‖x‖ : ℝ),
+  rw ← scalar_norm (‖x‖⁻¹) x,
+  have j : 0 ≤ (‖x‖⁻¹ : ℝ),
   { simp [has_norm.norm, tuple.norm, norm_sq],
     exact real.sqrt_nonneg _, },
   rw abs_eq_self.mpr j,
