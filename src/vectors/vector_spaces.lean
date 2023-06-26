@@ -1,7 +1,7 @@
 import algebra.field.defs
 import group_theory.group_action.defs
 
-namespace vector_space
+namespace vector_spaces
 
 
 class vector_space (𝕍 : Type*) (𝔽 : Type*) [field 𝔽] extends add_comm_group 𝕍, has_smul 𝔽 𝕍 :=
