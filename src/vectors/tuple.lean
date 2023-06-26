@@ -113,6 +113,7 @@ end scalar_mul
 section dot_product
   variables [has_add α] [has_mul α] [has_zero α]
 
+  @[simp]
   def dot_product : ∀ {n : ℕ}, α ^ n → α ^ n → α
   | 0 _ _ := 0
   | _ (cons head₁ tail₁) (cons head₂ tail₂) := (head₁ * head₂) + dot_product tail₁ tail₂
@@ -132,6 +133,7 @@ end cross_product
 
 
 section norm_real
+  @[simp]
   def norm_sq {n : ℕ} (v : ℝ ^ n) : nnreal := ⟨v ⬝ v, begin
     induction n with n hn generalizing v,
     { cases v, refl, },
