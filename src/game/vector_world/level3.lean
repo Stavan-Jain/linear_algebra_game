@@ -20,7 +20,7 @@ We're going to prove that the dot product is commutative!
 /- Lemma
 v ⬝ w = w ⬝ v for all vectors v, w ∈ ℝⁿ
 -/
-lemma dot_comm: ∀ {n : ℕ} (v: tuple n) (w : tuple n),  v ⬝ w = w ⬝ v :=
+lemma dot_comm: ∀ {n : ℕ} (v: ℝ ^ n) (w : ℝ ^ n),  v ⬝ w = w ⬝ v :=
 begin 
   intros n,
   induction n with d hd,

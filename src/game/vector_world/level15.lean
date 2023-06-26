@@ -16,10 +16,7 @@ namespace tuple -- hide
 -/
 
 
-#check abs_eq_self
-#check scalar_norm
-#check inv_mul_cancel
-lemma zero_dot: ∀ {n : ℕ} (x : tuple n), tuple.zero ⬝ x = 0 :=
+lemma zero_dot: ∀ {n : ℕ} (x : ℝ ^ n), 0 ⬝ x = 0 :=
 begin 
    intro n , 
    induction n with d hd, 

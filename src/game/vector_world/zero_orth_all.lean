@@ -16,23 +16,19 @@ namespace tuple -- hide
 **0** is orthogonal to all vectors. 
 -/
 
-lemma zero_orth_all: ∀ {n : ℕ} (x: tuple n)
-,  orthogonal tuple.zero x   :=
-begin 
-  intro n, 
-  induction n with d ih, 
-  {simp,  
-  intro x, 
-  cases x, 
-  dsimp [tuple.zero, dot_product], refl, }, 
-  {
-    intro x, cases x, 
-    simp, 
-    dsimp [tuple.zero, dot_product],
-    have i:=  ih x_tail, simp at i, 
-    rw i, 
-    simp, 
-  },
+lemma zero_orth_all: ∀ {n : ℕ} (x: ℝ ^ n)
+,  orthogonal 0 x   :=
+begin
+  intro n,
+  induction n with n hn,
+  { intro x,
+    cases x,
+    simp,
+    refl, },
+  { intro x,
+    cases x with n head tail,
+    simp,
+    exact hn tail, },
 end
 
 end tuple

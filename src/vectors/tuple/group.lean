@@ -4,8 +4,11 @@ import algebra.group.basic
 
 namespace tuple
 
+universe u
+variables {α : Type u} [add_comm_group α]
 
-lemma add_assoc {n : ℕ} : ∀ (u v w : tuple n), u + v + w = u + (v + w) := begin
+
+lemma add_assoc {n : ℕ} : ∀ (u v w : α ^ n), u + v + w = u + (v + w) := begin
   induction n with n hn,
   { intros u v w,
     cases u, cases v, cases w,
@@ -16,11 +19,11 @@ lemma add_assoc {n : ℕ} : ∀ (u v w : tuple n), u + v + w = u + (v + w) := be
     cases w with n w₁ wₙ,
     simp,
     split,
-    { ring, },
+    { exact add_assoc u₁ v₁ w₁, },
     { exact hn uₙ vₙ wₙ, }, },
 end
 
-lemma zero_add {n : ℕ} : ∀ (v : tuple n), 0 + v = v := begin
+lemma zero_add {n : ℕ} : ∀ (v : α ^ n), 0 + v = v := begin
   induction n with n hn,
   { intro v, cases v,
     refl, },
@@ -30,7 +33,7 @@ lemma zero_add {n : ℕ} : ∀ (v : tuple n), 0 + v = v := begin
     exact hn tail, },
 end
 
-lemma add_zero {n : ℕ} : ∀ (v : tuple n), v + 0 = v := begin
+lemma add_zero {n : ℕ} : ∀ (v : α ^ n), v + 0 = v := begin
   induction n with n hn,
   { intro v, cases v,
     refl, },
@@ -40,7 +43,7 @@ lemma add_zero {n : ℕ} : ∀ (v : tuple n), v + 0 = v := begin
     exact hn tail, }
 end
 
-lemma add_comm {n : ℕ} : ∀ (u v : tuple n), u + v = v + u := begin
+lemma add_comm {n : ℕ} : ∀ (u v : α ^ n), u + v = v + u := begin
   induction n with n hn,
   { intros u v,
     cases u, cases v,
@@ -50,39 +53,22 @@ lemma add_comm {n : ℕ} : ∀ (u v : tuple n), u + v = v + u := begin
     cases v with n v₁ vₙ,
     simp,
     split,
-    { ring, },
+    { exact add_comm u₁ v₁, },
     { exact hn uₙ vₙ, }, },
 end
 
 
-protected def nsmul {n : ℕ} (c : ℕ) (v : tuple n) : tuple n := ↑c ** v
+protected def nsmul {n : ℕ} : ℕ → α ^ n → α ^ n
+| 0 _ := 0
+| (n+1) v := v + nsmul n v
 
-protected lemma nsmul_zero {n : ℕ} : ∀ (v : tuple n), (tuple.nsmul 0 v = 0) := begin
-  induction n with n hn,
-  { intro v, cases v,
-    refl, },
-  { intro v,
-    cases v with n head tail,
-    simp [tuple.nsmul] at *,
-    exact hn tail, },
-end
+protected lemma nsmul_zero {n : ℕ} : ∀ (v : α ^ n), (tuple.nsmul 0 v = 0) := λ v, rfl
 
 protected lemma nsmul_succ {n : ℕ}
-  : (∀ (c : ℕ) (v : tuple n), tuple.nsmul c.succ v = v + tuple.nsmul c v) := begin
-  intro c,
-  induction n with n hn,
-  { intro v, cases v,
-    refl, },
-  { intro v,
-    cases v with n head tail,
-    simp [tuple.nsmul] at *,
-    split,
-    { ring, },
-    { exact hn tail, }, },
-end
+  : (∀ (c : ℕ) (v : α ^ n), tuple.nsmul c.succ v = v + tuple.nsmul c v) := λ c v, rfl
 
 
-lemma sub_eq_add_neg {n : ℕ} : (∀ (v u : tuple n), v - u = v + -u) := begin
+lemma sub_eq_add_neg {n : ℕ} : (∀ (v u : α ^ n), v - u = v + -u) := begin
   induction n with n hn,
   { intros v u,
     cases v, cases u,
@@ -92,52 +78,26 @@ lemma sub_eq_add_neg {n : ℕ} : (∀ (v u : tuple n), v - u = v + -u) := begin
     cases u with n u₁ uₙ,
     simp,
     split,
-    { ring, },
+    { exact sub_eq_add_neg v₁ u₁, },
     { exact hn vₙ uₙ, }, }
 end
 
 
-protected def zsmul {n : ℕ} (c : ℤ) (v : tuple n) : tuple n := ↑c ** v
+protected def zsmul {n : ℕ} : ℤ → α ^ n → α ^ n
+| (int.of_nat c) := tuple.nsmul c
+| (int.neg_succ_of_nat c) := -tuple.nsmul (c+1)
 
-protected lemma zsmul_zero {n : ℕ} : ∀ (v : tuple n), (tuple.zsmul 0 v = 0) := begin
-  induction n with n hn,
-  { intro v, cases v,
-    refl, },
-  { intro v,
-    cases v with n head tail,
-    simp [tuple.zsmul] at *,
-    exact hn tail, },
-end
+protected lemma zsmul_zero {n : ℕ} : ∀ (v : α ^ n), (tuple.zsmul 0 v = 0) := λ v, rfl
 
 protected lemma zsmul_succ {n : ℕ}
-  : (∀ (c : ℕ) (v : tuple n),
-    tuple.zsmul (int.of_nat c.succ) v = v + tuple.zsmul (int.of_nat c) v) := begin
-  intro c,
-  induction n with n hn,
-  { intro v, cases v, refl, },
-  { intro v,
-    cases v with n head tail,
-    simp [tuple.zsmul] at *,
-    split,
-    { ring, },
-    { exact hn tail, }, },
-end
+  : (∀ (c : ℕ) (v : α ^ n),
+    tuple.zsmul (int.of_nat c.succ) v = v + tuple.zsmul (int.of_nat c) v) := λ c v, rfl
 
-protected lemma zsmul_neg {n : ℕ} : (∀ (c : ℕ) (v : tuple n),
-  tuple.zsmul -[1+ c] v = -tuple.zsmul ↑(c.succ) v) := begin
-  intro c,
-  induction n with n hn,
-  { intro v, cases v, refl, },
-  { intro v,
-    cases v with n head tail,
-    simp [tuple.zsmul] at *,
-    split,
-    { ring, },
-    { exact hn tail, }, },
-end
+protected lemma zsmul_neg {n : ℕ} : (∀ (c : ℕ) (v : α ^ n),
+  tuple.zsmul -[1+ c] v = -tuple.zsmul ↑(c.succ) v) := λ c v, rfl
 
 
-lemma add_left_neg {n : ℕ} : ∀ (v : tuple n), -v + v = 0 := begin
+lemma add_left_neg {n : ℕ} : ∀ (v : α ^ n), -v + v = 0 := begin
   induction n with n hn,
   { intro v, cases v, refl, },
   { intro v,
@@ -147,7 +107,7 @@ lemma add_left_neg {n : ℕ} : ∀ (v : tuple n), -v + v = 0 := begin
 end
 
 
-instance {n : ℕ} : add_comm_group (tuple n) := ⟨
+instance {n : ℕ} : add_comm_group (α ^ n) := ⟨
   tuple.add,
   add_assoc,
   tuple.zero,

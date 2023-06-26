@@ -18,7 +18,7 @@ We're going to prove that if dot product of a vector with itself is 0 then it mu
 /- Lemma
 x ⬝ x = 0 ↔ x = tuple.zero
 -/
-lemma dot_pos_def_2: ∀ {n : ℕ} (x: tuple n),  x ⬝ x = 0 ↔ x = tuple.zero :=
+lemma dot_pos_def_2: ∀ {n : ℕ} (x : ℝ ^ n),  x ⬝ x = 0 ↔ x = 0 :=
 begin 
   intro n, 
   induction n with d hd,
@@ -44,7 +44,7 @@ begin
       linarith, 
     } , 
     {
-      dsimp [tuple.zero], simp, 
+      simp,
       rw [t_eq_zero, add_zero] at h, 
       split, 
       {

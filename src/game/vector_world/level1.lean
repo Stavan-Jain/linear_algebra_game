@@ -26,12 +26,11 @@ We're going to prove that [3, 4] is a linear combination of the standard basis v
 The vector [3, 4] is a linear combination of the vectors [0, 1] and [1, 0]
 -/
 
-lemma lin_comb: ∃ (d₁ : ℝ )(d₂ : ℝ) , [[3, 4]] =  (d₁ ** [[0, 1]]) + (d₂** [[1, 0]]) :=
+lemma lin_comb: ∃ (d₁ d₂ : ℝ), [[(3 : ℝ), 4]] = (d₁ • [[0, 1]]) + (d₂ • [[1, 0]]) :=
 begin 
   use 4,
   use 3,
   simp, 
-  dsimp [scalar_mul, map, tuple.add], refl,
 end
 
 end tuple -- hide

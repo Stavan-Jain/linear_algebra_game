@@ -15,8 +15,8 @@ namespace tuple -- hide
 ||x + y|| ≤ ||x|| + ||y||
 -/
 
-lemma triangle_ineq: ∀ {n : ℕ} (x: tuple n) (y : tuple n) 
-, (x + y).norm ≤ x.norm + y.norm    :=
+lemma triangle_ineq: ∀ {n : ℕ} (x: ℝ ^ n) (y : ℝ ^ n) 
+, ‖x + y‖ ≤ ‖x‖ + ‖y‖ :=
 begin 
   intros n x y, 
   have h1:= add_norm_square x y,
@@ -25,33 +25,23 @@ begin
   {
     exact le_abs_self (x ⬝ y), 
   },
-  have h4 : ↑((x + y).norm_sq) ≤ ((x.norm + y.norm)^2), 
+  have h4 : ((x + y).norm_sq) ≤ ((‖x‖₊ + ‖y‖₊)^2),
   {
-    
-    calc 
-      ↑((x + y).norm_sq) = ↑(x.norm_sq) + 2 * x ⬝ y + ↑(y.norm_sq) : 
-        begin 
-          exact h1
-        end
-      ... ≤ ↑(x.norm_sq) + 2 * |x ⬝ y| + ↑(y.norm_sq) :
-      begin 
-        linarith, 
-      end
-      ... ≤ ↑(x.norm_sq) + 2 * x.norm * y.norm + ↑(y.norm_sq) :
-      begin
-        linarith, 
-      end
-      ... =  ((x.norm + y.norm)^2) :
-      begin 
-        rw add_sq, 
-        dsimp [tuple.norm], simp, refl, 
+    calc ↑((x + y).norm_sq) = ↑(x.norm_sq) + 2 * x ⬝ y + ↑(y.norm_sq) : h1
+      ... ≤ ↑(x.norm_sq) + 2 * |x ⬝ y| + ↑(y.norm_sq) : by linarith
+      ... ≤ ↑(x.norm_sq) + 2 * ‖x‖ * ‖y‖ + ↑(y.norm_sq) : by { simp, linarith, }
+      ... =  ((‖x‖ + ‖y‖)^2) : begin
+        rw add_sq,
+        have hx_sqrt := real.sq_sqrt(dot_pos_def_1 x),
+        have hy_sqrt := real.sq_sqrt(dot_pos_def_1 y),
+        simp [norm_eq_sqrt_norm_sq, hx_sqrt, hy_sqrt],
       end
   }, 
   clear h3 h2 h1, 
-  dsimp [tuple.norm],
+  repeat { rw norm_eq_sqrt_norm_sq },
+
   have i := nnreal.sqrt_le_sqrt_iff.mpr h4, 
   rw nnreal.sqrt_sq at i,  
-  dsimp [tuple.norm] at i, 
   exact i, 
 end
 
