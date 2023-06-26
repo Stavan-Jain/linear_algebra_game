@@ -25,4 +25,4 @@ begin
 end
 
 
-end vector_space
+end vector_spaces
