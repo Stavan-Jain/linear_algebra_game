@@ -1,7 +1,7 @@
-import vectors.vector_space
+import vectors.vector_spaces
 -- TODO: n-linear maps/forms
 
-namespace vector_space
+namespace vector_spaces
 
 
 section maps

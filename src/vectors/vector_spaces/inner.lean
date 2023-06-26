@@ -2,9 +2,9 @@ import data.real.basic
 import data.complex.basic
 import analysis.inner_product_space.basic
 
-import vectors.vector_space.linearity
+import vectors.vector_spaces.linearity
 
-namespace vector_space
+namespace vector_spaces
 
 
 open_locale complex_conjugate
