@@ -18,7 +18,7 @@ namespace tuple -- hide
 -/
 
 
-lemma sub_norm_square: ∀ {n : ℕ} (x: tuple n) (y : tuple n) 
+lemma sub_norm_square: ∀ {n : ℕ} (x y : ℝ ^ n)
 ,  ↑(norm_sq (x - y)) = ↑(norm_sq x) - (2 * (x ⬝ y)) + ↑(norm_sq y) :=
 begin 
   intros n x y,
@@ -29,11 +29,10 @@ begin
   rw scalar_through,
   rw dot_comm y x,
   simp,
-  simp [tuple.norm_sq],
   rw scalar_through,
   rw dot_comm y,
   rw scalar_through,
-  linarith, 
+  linarith,
 end
 
 end tuple -- hide

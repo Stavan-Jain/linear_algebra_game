@@ -15,30 +15,24 @@ namespace tuple -- hide
 ||(1 / ||x|| ) *x || = 1
 -/
 
-
-#check abs_eq_self
-#check scalar_norm
-#check inv_mul_cancel
-lemma div_norm_unit: ∀ {n : ℕ} (x: tuple n)
-, x ≠ tuple.zero → ↑(tuple.norm ((1 / tuple.norm x) ** x)) = (1:ℝ)   :=
+lemma div_norm_unit: ∀ {n : ℕ} (x: ℝ ^ n)
+, x ≠ 0 → ‖(1 / ‖x‖) ** x‖ = (1:ℝ) :=
 begin 
-  intros n x xneq, 
-  have i:= scalar_norm (1 / tuple.norm x) x,
-  rw ← i, 
-  simp, 
-  have j : 0 ≤ ((x.norm)⁻¹ : ℝ)   , 
-  {
-    simp, 
-  },
-  rw abs_eq_self.mpr j, 
-  apply inv_mul_cancel, 
-  have m : ↑(x.norm) = (0:ℝ) ↔ x = tuple.zero , 
-  {
-    exact norm_zero_iff x,
-  }, 
-  by_contra, 
-  have k := m.mp h, 
-  exact xneq k, 
+  intros n x xneq,
+  rw ← scalar_norm (1 / ‖x‖) x,
+  have j : 0 ≤ (1 / ‖x‖ : ℝ),
+  { simp [has_norm.norm, tuple.norm, norm_sq],
+    exact real.sqrt_nonneg _, },
+  rw abs_eq_self.mpr j,
+  simp [has_norm.norm, tuple.norm, norm_sq],
+  apply inv_mul_cancel,
+  rw real.sqrt_ne_zero,
+  { intro x_dot_0,
+    apply xneq,
+    rw ← dot_pos_def_2,
+    exact x_dot_0, },
+  { exact dot_pos_def_1 x, },
 end
 
 end tuple -- hide
+
