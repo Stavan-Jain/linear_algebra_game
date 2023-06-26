@@ -16,8 +16,11 @@ lemma sub_cons_eq_cons_sub [has_sub α] (u₁ v₁ : α) (uₙ vₙ : α ^ n)
   : (cons u₁ uₙ) - (cons v₁ vₙ) = cons (u₁ - v₁) (uₙ - vₙ) := rfl
 
 @[simp]
-lemma mul_cons_eq_cons_mul [has_mul α] (c head : α) (tail : α ^ n)
-  : c ** (cons head tail) = cons (c * head) (c ** tail) := rfl
+lemma smul_cons_eq_cons_smul [has_mul α] (c head : α) (tail : α ^ n)
+  : c • (cons head tail) = cons (c * head) (c • tail) := rfl
+
+@[simp]
+lemma smul_nil [has_mul α] (c : α) : c • (nil : tuple α 0) = nil := rfl
 
 @[simp]
 lemma neg_cons_eq_cons_neg [has_neg α] (head : α) (tail : α ^ n)

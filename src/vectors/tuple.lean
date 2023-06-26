@@ -104,9 +104,9 @@ section scalar_mul
   variable [has_mul α]
   open has_mul
 
-  def scalar_mul {n : ℕ} (c : α) : α ^ n → α ^ n := map (mul c)
+  protected def smul {n : ℕ} (c : α) : α ^ n → α ^ n := map (mul c)
 
-  infix ` ** `:69 := scalar_mul
+  instance {n : ℕ} : has_smul α (α ^ n) := ⟨tuple.smul⟩
 end scalar_mul
 
 
