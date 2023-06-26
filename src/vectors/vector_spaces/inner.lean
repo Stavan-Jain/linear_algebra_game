@@ -25,4 +25,4 @@ infix ` ⟂ `:63 := orthogonal
 -- for some reason the vscode lean extension has \bot and \perp being different
 
 
-end vector_space
+end vector_spaces

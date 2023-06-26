@@ -26,4 +26,4 @@ section forms
 end forms
 
 
-end vector_space
+end vector_spaces
