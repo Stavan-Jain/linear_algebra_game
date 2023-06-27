@@ -1,21 +1,28 @@
 import algebra.field.defs
-import data.real.basic
-import data.complex.basic
-import analysis.inner_product_space.basic
+import group_theory.group_action.defs
 
-universes u w
+namespace vector_spaces
 
-class vector_space (𝕍 : Type u) (𝔽 : Type w) [field 𝔽] extends add_comm_group 𝕍, has_smul 𝔽 𝕍 :=
+
+class vector_space (𝕍 : Type*) (𝔽 : Type*) [field 𝔽] extends add_comm_group 𝕍, has_smul 𝔽 𝕍 :=
   (smul_comp_mul : ∀ (a b : 𝔽) (v : 𝕍), a • (b • v) = (a * b) • v)
-  (one_smul : ∀ (v : 𝕍), 1 • v = v)
+  (one_smul : ∀ (v : 𝕍), (1 : 𝔽) • v = v)
   (smul_dist_vec_add : ∀ (a : 𝔽) (u v : 𝕍), a • (u + v) = a • u + a • v)
   (smul_dist_scalar_add : ∀ (a b : 𝔽) (v : 𝕍), (a + b) • v = a • v + b • v)
 
-open_locale complex_conjugate
-open is_R_or_C (re)
-class inner_prod_space (𝕍 : Type u) (𝔽 : Type w) [is_R_or_C 𝔽] extends vector_space 𝕍 𝔽, has_inner 𝔽 𝕍 :=
-  (add_left : ∀ (u v w : 𝕍), inner (u + v) w = inner u w + inner v w)
-  (smul_left : ∀ (u v : 𝕍) (α : 𝔽), inner (α • u) v = α • (inner u v))
-  (inner_comm : ∀ (u v : 𝕍), conj (inner u v) = inner v u)
-  (inner_self_ge_zero : ∀ (v : 𝕍), re (inner v v) ≥ 0)
-  (inner_self_zero_iff_zero : ∀ (v : 𝕍), inner v v = 0 ↔ v = 0)
+
+instance field_vector_self {𝔽 : Type*} [field 𝔽] : vector_space 𝔽 𝔽 :=
+begin
+  constructor,
+  { intros a b v,
+    simp [mul_assoc], },
+  { intro v,
+    simp, },
+  { intros a u v,
+    simp [left_distrib], },
+  { intros a b v,
+    simp [right_distrib], },
+end
+
+
+end vector_spaces
