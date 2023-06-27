@@ -30,7 +30,7 @@ lemma lin_comb: ∃ (d₁ d₂ : ℝ), [[(3 : ℝ), 4]] = (d₁ • [[0, 1]]) + 
 begin 
   use 4,
   use 3,
-  simp, 
+  simp,
 end
 
 end tuple -- hide
