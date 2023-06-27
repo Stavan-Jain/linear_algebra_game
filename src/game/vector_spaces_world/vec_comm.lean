@@ -17,19 +17,20 @@ namespace tuple -- hide
 
 -/
 
-lemma vec_comm : ∀ {n : ℕ } (u v : tuple n), u + v = v + u :=
-begin 
-   intro n,
-   induction n with n hn,
-   {intros u v,
-   casesm* (tuple 0),
-   refl,},
-   {intros u v,
-   casesm* (tuple n.succ),
-   simp,
-   split,
-   {linarith,},
-   {rw hn,},}
+lemma vec_comm : ∀ {n : ℕ} (u v : ℝ ^ n), u + v = v + u :=
+begin
+  intro n,
+  induction n with n hn,
+  { intros u v,
+    casesm* (ℝ ^ 0),
+    refl, },
+  { intros u v,
+    cases u with n u₁ uₙ,
+    cases v with n v₁ vₙ,
+    simp,
+    split,
+    { linarith, },
+    { exact hn uₙ vₙ, }, },
 end
 
 end tuple -- hide

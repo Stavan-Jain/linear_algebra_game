@@ -1,7 +1,7 @@
 import vectors.tuple -- hide
 import data.real.basic --hide
 import vectors.tuple.tactics --hide
-import game.vector_spaces_world.zero_smul --hide
+import game.vector_world.zero_smul
 namespace tuple -- hide
 
 
@@ -17,10 +17,10 @@ namespace tuple -- hide
 
 -/
 
-lemma zero_mul : ∀ {n : ℕ } (u : tuple n), (0 : tuple n) ⬝ u = (0 : ℝ)   :=
+lemma zero_mul : ∀ {n : ℕ} (u : ℝ ^ n), 0 ⬝ u = 0 :=
 begin
   intros n u,
-  rw ← zero_smul (0 : tuple n),
+  rw ← zero_smul (0 : ℝ ^ n),
   rw scalar_through,
   simp,
 end

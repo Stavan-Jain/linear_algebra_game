@@ -14,21 +14,19 @@ namespace tuple -- hide
 (cx)·y=c (x·y) for all x, y ∈ ℝⁿ and c ∈ R
 -/
 
-lemma vector_dist: ∀ {n : ℕ} (c d: ℝ) (v: tuple n),  (c + d)**(v) = (c**v) + (d**v) :=
+lemma vector_dist : ∀ {n : ℕ} (c d : ℝ) (v : ℝ ^ n),  (c + d) • v = c • v + d • v :=
 begin 
-  intro n,
-  induction n with n hn, 
-  {intros c d v, 
-  cases v, 
-  dsimp [scalar_mul, map],
-  refl,},
-  {intros c d v, 
-    cases v with _ v₁ vₙ,
+  intros n c d,
+  induction n with n hn,
+  { intro v,
+    cases v,
+    simp, },
+  { intro v,
+    cases v with n head tail,
     simp,
     split,
-    {linarith,},
-    {rw hn,},
-  },
+    { linarith, },
+    { exact hn tail, }, },
 end
 
 end tuple -- hide

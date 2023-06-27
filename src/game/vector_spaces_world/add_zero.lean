@@ -17,16 +17,17 @@ namespace tuple -- hide
 
 -/
 
-lemma add_zero : ∀ {n :ℕ } (u : tuple n), u + 0 = u :=
+lemma add_zero : ∀ {n : ℕ} (u : ℝ ^ n), u + 0 = u :=
 begin 
   intro n,
   induction n with n hn,
-  {intro v, cases v,
-  refl,},
-  {intro v,
-  cases v with n head tail,
-  simp,
-  exact hn tail,},
+  { intro v,
+    cases v,
+    refl, },
+  { intro v,
+    cases v with n head tail,
+    simp,
+    exact hn tail, },
 end
 
 end tuple -- hide

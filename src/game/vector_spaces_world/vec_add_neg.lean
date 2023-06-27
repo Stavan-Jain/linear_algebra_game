@@ -18,15 +18,17 @@ namespace tuple -- hide
 
 -/
 
-lemma vec_add_neg : ∀ {n : ℕ } (u : tuple n), u + (-u) = 0 :=
-begin 
+lemma vec_add_neg : ∀ {n : ℕ} (v : ℝ ^ n), v + -v = 0 :=
+begin
   intros n,
   induction n with n hn,
-  { intro v, cases v, refl, },
+  { intro v,
+    cases v,
+    refl, },
   { intro v,
     cases v with n head tail,
     simp,
-    exact hn tail, }, 
+    exact hn tail, },
 end
 
 end tuple -- hide

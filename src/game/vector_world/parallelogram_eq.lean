@@ -17,9 +17,9 @@ namespace tuple -- hide
 **0** is orthogonal to all vectors. 
 -/
 
-lemma parallelogram_eq: ∀ {n : ℕ} (u : tuple n) (v : tuple n)
-, ((norm_sq (u + v)) : ℝ) + ((norm_sq (u - v)) : ℝ) = 2 * (((norm_sq u) : ℝ) + ((norm_sq v) : ℝ)):=
-begin 
+lemma parallelogram_eq: ∀ {n : ℕ} (u v : ℝ ^ n)
+, (norm_sq (u + v) : ℝ) + ↑(norm_sq (u - v)) = 2 * (↑(norm_sq u) + ↑(norm_sq v)) :=
+begin
   intros n u v,
   rw add_norm_square,
   rw sub_norm_square,

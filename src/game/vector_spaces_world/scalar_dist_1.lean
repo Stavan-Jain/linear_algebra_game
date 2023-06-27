@@ -17,20 +17,20 @@ namespace tuple -- hide
 
 -/
 
-lemma scalar_dist_1 : ∀ {n : ℕ} (c : ℝ) (u v : tuple n), c** (u + v) = c** u + c** v :=
+lemma scalar_dist_1 : ∀ {n : ℕ} (c : ℝ) (u v : ℝ ^ n), c • (u + v) = c • u + c • v :=
 begin 
-  intro n,
-  induction n with d hd, 
-  {intros c x y, 
-  casesm* (tuple 0), 
-  simp,},
-  {intros c x y, 
-    casesm* (tuple d.succ),
+  intros n c,
+  induction n with n hn,
+  { intros u v,
+    casesm* (ℝ ^ 0),
+    simp, },
+  { intros u v,
+    cases u with n u₁ uₙ,
+    cases v with n v₁ vₙ,
     simp,
     split,
-    {linarith,},
-    {rw hd,},
-  },
+    { linarith, },
+    { exact hn uₙ vₙ, }, },
 end
 
 end tuple -- hide

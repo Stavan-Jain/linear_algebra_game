@@ -1,58 +1,34 @@
 import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.level16 --hide
-
+import data.real.basic --hide
+import vectors.tuple.tactics --hide
+import game.vector_world.level6 --hide
 namespace tuple -- hide
 
+
 /- 
+
 # Vector world
 
-## Level 17: `Triangle Inequality` 
+## Level 8: `zero_smul` 
 
 -/
 
 /- Lemma
-||x + y|| ≤ ||x|| + ||y||
+
 -/
 
-lemma triangle_ineq: ∀ {n : ℕ} (x: tuple n) (y : tuple n) 
-, (x + y).norm ≤ x.norm + y.norm    :=
-begin 
-  intros n x y, 
-  have h1:= add_norm_square x y,
-  have h2 := cauchy_schwarz x y,
-  have h3 : x ⬝ y ≤ |x ⬝ y|, 
-  {
-    exact le_abs_self (x ⬝ y), 
-  },
-  have h4 : ↑((x + y).norm_sq) ≤ ((x.norm + y.norm)^2), 
-  {
-    
-    calc 
-      ↑((x + y).norm_sq) = ↑(x.norm_sq) + 2 * x ⬝ y + ↑(y.norm_sq) : 
-        begin 
-          exact h1
-        end
-      ... ≤ ↑(x.norm_sq) + 2 * |x ⬝ y| + ↑(y.norm_sq) :
-      begin 
-        linarith, 
-      end
-      ... ≤ ↑(x.norm_sq) + 2 * x.norm * y.norm + ↑(y.norm_sq) :
-      begin
-        linarith, 
-      end
-      ... =  ((x.norm + y.norm)^2) :
-      begin 
-        rw add_sq, 
-        dsimp [tuple.norm], simp, refl, 
-      end
-  }, 
-  clear h3 h2 h1, 
-  dsimp [tuple.norm],
-  have i := nnreal.sqrt_le_sqrt_iff.mpr h4, 
-  rw nnreal.sqrt_sq at i,  
-  dsimp [tuple.norm] at i, 
-  exact i, 
+lemma zero_smul : ∀ {n : ℕ} (u : ℝ ^ n), (0 : ℝ) • u = 0 :=
+begin
+  intro n,
+  induction n with n hn,
+  { intro u,
+    cases u,
+    simp,
+    refl, },
+  { intro u,
+    cases u with n hea tail,
+    simp,
+    exact hn tail, },
 end
 
-end tuple
+end tuple -- hide

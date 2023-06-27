@@ -17,20 +17,19 @@ namespace tuple -- hide
 
 -/
 
-lemma scalar_assoc : ∀ {n :ℕ } (c d : ℝ)(u : tuple n),(c ** (d ** u)) = (c * d)** u :=
+lemma scalar_assoc : ∀ {n : ℕ} (c d : ℝ) (u : ℝ ^ n), c • d • u = (c * d) • u :=
 begin 
-  intro n,
-  induction n with n hn, 
-  {intros c d v, 
-  cases v, 
-  simp,},
-  {intros c d v, 
-  cases v,
+  intros n c d,
+  induction n with n hn,
+  { intro v,
+    cases v,
+    simp, },
+  { intro v,
+    cases v,
     simp,
     split,
-    {linarith,},
-    {rw hn,},
-  },
+    { linarith, },
+    { rw hn, }, },
 end
 
 end tuple -- hide

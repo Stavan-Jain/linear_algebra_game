@@ -1,34 +1,32 @@
 import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.level16 --hide
-
+import data.real.basic --hide
+import vectors.tuple.tactics --hide
 namespace tuple -- hide
 
+
 /- 
+
 # Vector world
 
-## Level 17: `Triangle Inequality` 
+## Level 7: `multiplicative identity` 
 
 -/
 
 /- Lemma
-||x + y|| ≤ ||x|| + ||y||
+
 -/
 
-lemma one_smul: ∀ {n : ℕ} (v : tuple n)
-, 1 ** v = v :=
+lemma one_mul : ∀ {n : ℕ} (v : ℝ ^ n), (1 : ℝ) • v = v :=
 begin 
   intro n,
   induction n with n hn,
-  {intro v, cases v,
-  dsimp [tuple.zero, scalar_mul, map],
-  refl,},
-  {intro v,
-  cases v with n v₁ vₙ,
-  simp,
-  rw hn,
-  dsimp [tuple.zero],
-  refl,},
+  { intro v,
+    cases v,
+    simp, },
+  { intro v,
+    cases v with n head tail,
+    simp,
+    exact hn tail, },
 end
 
-end tuple
+end tuple -- hide
