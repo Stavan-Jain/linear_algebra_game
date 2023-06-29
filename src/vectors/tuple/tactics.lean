@@ -49,8 +49,8 @@ end tuple
 namespace tactic
 
 open lean.parser (tk small_nat ident)
-open _root_.interactive (parse)
-open _root_.interactive.types (texpr using_ident)
+open _root_.interactive
+open _root_.interactive.types
 open interactive («have»)
 
 
@@ -87,6 +87,13 @@ meta def interactive.cases_tuple
     rename id nam <|> tactic.fail "Hypothesis or variable not found.",
     cases_tuple_recurse nam n 1 <|>
       tactic.fail "Could not cases tuple. Make sure that it is of the correct type."
+
+
+meta def interactive.simpr (use_iota_eqn : parse $ optional (tk "!"))
+  (trace_lemmas : parse $ optional (tk "?")) (no_dflt : parse only_flag) (hs : parse simp_arg_list)
+  (attr_names : parse with_ident_list) (locat : parse location) (cfg : simp_config_ext := {})
+  : tactic unit :=
+  interactive.simp use_iota_eqn trace_lemmas no_dflt hs attr_names locat cfg  >> interactive.refl
 
 
 end tactic
