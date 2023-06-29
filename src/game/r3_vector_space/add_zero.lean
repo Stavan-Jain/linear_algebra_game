@@ -20,14 +20,8 @@ namespace tuple -- hide
 lemma add_zero : ∀ (u : ℝ ^ 3), u + 0 = u :=
 begin 
   intro u,
-
-  cases u with _ u₁ u_tail,
-  cases u_tail with _ u₂ u_tail,
-  cases u_tail with _ u₃ u_tail,
-  cases u_tail,
-  
-  simp,
-  refl,
+  cases_tuple u 3,
+  simpa,
 end
 
 end tuple -- hide

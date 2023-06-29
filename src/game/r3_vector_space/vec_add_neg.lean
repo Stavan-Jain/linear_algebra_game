@@ -21,14 +21,8 @@ namespace tuple -- hide
 lemma vec_add_neg : ∀ (v : ℝ ^ 3), v + -v = 0 :=
 begin
   intros v,
-
-  cases v with _ v₁ tail,
-  cases tail with _ v₂ tail,
-  cases tail with _ v₃ tail,
-  cases tail,
-
-  simp,
-  refl,
+  cases_tuple v 3,
+  simpa,
 end
 
 end tuple -- hide

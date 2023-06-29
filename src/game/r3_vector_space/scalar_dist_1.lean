@@ -20,20 +20,10 @@ namespace tuple -- hide
 lemma scalar_dist_1 : ∀ (c : ℝ) (u v : ℝ ^ 3), c • (u + v) = c • u + c • v :=
 begin 
   intros c u v,
-
-  cases u with _ u₁ tail,
-  cases tail with _ u₂ tail,
-  cases tail with _ u₃ tail,
-  cases tail,
-
-  cases v with _ v₁ tail,
-  cases tail with _ v₂ tail,
-  cases tail with _ v₃ tail,
-  cases tail,
-
+  cases_tuple u 3,
+  cases_tuple v 3,
   simp,
-  split, ring,
-  split; ring,
+  exact ⟨by ring, by ring, by ring⟩,
 end
 
 end tuple -- hide

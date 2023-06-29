@@ -20,15 +20,9 @@ namespace tuple -- hide
 lemma scalar_assoc : ∀ (c d : ℝ) (u : ℝ ^ 3), c • d • u = (c * d) • u :=
 begin 
   intros c d u,
-
-  cases u with _ u₁ tail,
-  cases tail with _ u₂ tail,
-  cases tail with _ u₃ tail,
-  cases tail,
-
+  cases_tuple u 3,
   simp,
-  split, ring,
-  split; ring,
+  exact ⟨by ring, by ring, by ring⟩,
 end
 
 end tuple -- hide
