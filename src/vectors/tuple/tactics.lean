@@ -70,23 +70,23 @@ private meta def char.to_subscript : char → char
 private meta def string.to_subscript (str : string) : string := ⟨char.to_subscript <$> str.to_list⟩
 
 
-meta def destruct_tuple_core (nam : name) (curr : ℕ) : tactic unit :=
+meta def cases_tuple_core (nam : name) (curr : ℕ) : tactic unit :=
   get_local nam >>= λ e,
     interactive.cases_core e [`_ , ↑(to_string nam ++ string.to_subscript (to_string curr)), nam]
 
-meta def destruct_tuple_recurse (nam : name) : ℕ → ℕ → tactic unit
-| 0 curr := destruct_tuple_core nam curr
-| (n+1) curr := destruct_tuple_core nam curr >> destruct_tuple_recurse n (curr+1)
+meta def cases_tuple_recurse (nam : name) : ℕ → ℕ → tactic unit
+| 0 curr := cases_tuple_core nam curr
+| (n+1) curr := cases_tuple_core nam curr >> cases_tuple_recurse n (curr+1)
 
-meta def interactive.destruct_tuple
+meta def interactive.cases_tuple
   (id : parse ident)
   (n : parse small_nat)
   (name : parse using_ident)
   : tactic unit := do
     let nam := name.get_or_else id,
     rename id nam <|> tactic.fail "Hypothesis or variable not found.",
-    destruct_tuple_recurse nam n 1 <|>
-      tactic.fail "Could not destruct tuple. Make sure that it is of the correct type."
+    cases_tuple_recurse nam n 1 <|>
+      tactic.fail "Could not cases tuple. Make sure that it is of the correct type."
 
 
 end tactic
