@@ -79,13 +79,13 @@ meta def destruct_tuple_recurse (nam : name) : ℕ → ℕ → tactic unit
 | (n+1) curr := destruct_tuple_core nam curr >> destruct_tuple_recurse n (curr+1)
 
 meta def interactive.destruct_tuple
-  (n : parse small_nat)
   (id : parse ident)
+  (n : parse small_nat)
   (name : parse using_ident)
   : tactic unit := do
     let nam := name.get_or_else id,
     rename id nam <|> tactic.fail "Hypothesis or variable not found.",
-    destruct_tuple_recurse (name.get_or_else "v") n 1 <|>
+    destruct_tuple_recurse nam n 1 <|>
       tactic.fail "Could not destruct tuple. Make sure that it is of the correct type."
 
 
