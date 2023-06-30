@@ -2,6 +2,7 @@ import vectors.subspace
 
 namespace vector_spaces
 open tuple
+open set
 
 instance line_through_origin {n : ℕ}: subspace (ℝ ^ n) ℝ univ  := begin 
   constructor, 

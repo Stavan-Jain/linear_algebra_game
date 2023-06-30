@@ -2,6 +2,7 @@ import vectors.subspace
 
 namespace vector_spaces
 open tuple
+open set
 
 instance all_rn {n : ℕ}: subspace (ℝ ^ n) ℝ univ  := begin 
   constructor, 
