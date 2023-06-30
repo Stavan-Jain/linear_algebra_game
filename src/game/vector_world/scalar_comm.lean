@@ -6,12 +6,12 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 6: `Scalars pass through` 
+## Level 6: `Scalars multiplication is commutative` 
 
 -/
 
 /- Lemma
-(cx)·y=c (x·y) for all x, y ∈ ℝⁿ and c ∈ R
+
 -/
 
 lemma scalar_comm : ∀ {n : ℕ} (c d : ℝ) (v : ℝ ^ n), c • d • v = d • c • v :=
