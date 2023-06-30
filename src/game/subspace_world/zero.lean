@@ -3,7 +3,7 @@ import game.vector_world.smul_zero
 import game.vector_spaces_world.vector_space
 namespace vector_spaces
 open tuple
-set_option pp.numeral_types true
+
 instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := begin
   constructor,
   { intros u h1 v h2, 
