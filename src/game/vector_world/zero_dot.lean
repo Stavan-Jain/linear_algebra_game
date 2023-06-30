@@ -17,7 +17,7 @@ namespace tuple -- hide
 
 -/
 
-lemma zero_mul : ∀ {n : ℕ} (u : ℝ ^ n), 0 ⬝ u = 0 :=
+lemma zero_dot : ∀ {n : ℕ} (u : ℝ ^ n), 0 ⬝ u = 0 :=
 begin
   intros n u,
   rw ← zero_smul (0 : ℝ ^ n),

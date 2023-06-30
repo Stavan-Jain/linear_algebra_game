@@ -16,18 +16,16 @@ namespace tuple -- hide
 /- Lemma
 
 -/
-
-lemma zero_smul : ∀ {n : ℕ} (u : ℝ ^ n), (0 : ℝ) • u = 0 :=
+set_option pp.numeral_types true
+lemma smul_zero : ∀ {n : ℕ} (c : ℝ), c • (0 : ℝ ^ n) = 0 :=
 begin
-  intro n,
+  intros n,
   induction n with n hn,
-  { intro u,
-    cases u,
-    simp, },
-  { intro u,
-    cases u with n hea tail,
+  { intro c,
+    refl, },
+  { intro c,
     simp,
-    exact hn tail, },
+    exact hn c,},
 end
 
 end tuple -- hide

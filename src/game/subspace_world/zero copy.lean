@@ -1,5 +1,6 @@
 import vectors.subspace
 import game.vector_world.level7 
+import game.vector_world.zero_dot
 
 namespace vector_spaces
 open tuple
@@ -12,7 +13,7 @@ open tuple
 
 instance dot_prod {n : ℕ} {a : ℝ ^ n}: a ≠ 0 → subspace (ℝ ^ n) ℝ {v : ℝ ^ n | a ⬝ v = 0} := 
 begin
-  intro a,
+  intro h,
   constructor,
   { intros u h₁ v h₂,
     simp at *,
@@ -23,7 +24,7 @@ begin
     rw [dot_comm, scalar_through, dot_comm, h],
     ring, },
   { simp,
-    sorry /- use zero_smul when done-/},
+   rw [dot_comm, zero_dot],},
 end
 
 end vector_spaces

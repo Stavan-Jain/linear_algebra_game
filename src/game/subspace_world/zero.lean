@@ -1,5 +1,5 @@
 import vectors.subspace
-
+import game.vector_world.smul_zero
 namespace vector_spaces
 open tuple
 
@@ -11,18 +11,9 @@ instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := begin
     simp, }, 
   { intros, 
   simp at *, 
-  induction n with n hn,
-  { rw empty_vec_eq_nil v, 
-    simp, 
-    refl, },
-  { cases v with _ v₁ vₙ,
-    simp at H ⊢,
-    split,
-    { right,
-      exact H.left, },
-    { exact hn vₙ H.right, }, },
-  },
-simp, 
+  rw H,
+  exact smul_zero c,}, --explain ambiguous overload
+  { simp at *, },
 end
 
 end vector_spaces
