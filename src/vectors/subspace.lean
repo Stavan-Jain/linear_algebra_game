@@ -1,6 +1,5 @@
 import vectors.tuple
 import vectors.vector_spaces
-import vectors.tuple.v_space
 import vectors.tuple.tactics
 
 
