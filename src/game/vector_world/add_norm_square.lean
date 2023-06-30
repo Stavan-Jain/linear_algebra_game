@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level7-- hide 
+import game.vector_world.dot_dist-- hide 
 namespace tuple -- hide
 
 /- 

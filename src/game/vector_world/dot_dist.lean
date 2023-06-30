@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level6 --hide
+import game.vector_world.scalar_through--hide
 namespace tuple -- hide
 
 /- 

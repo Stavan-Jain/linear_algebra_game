@@ -1,13 +1,13 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level15 --hide
+import game.vector_world.zero_dot --hide
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 16: `Boss level: Cauchy-Schwarz` 
+## Level 18: `Boss level: Cauchy-Schwarz` 
 
 -/
 

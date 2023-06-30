@@ -1,13 +1,13 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level13 --hide
+import game.vector_world.norm_zero_iff --hide
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 14: `Unit vector stuff` 
+## Level 16: `Div norm unit` 
 
 -/
 

@@ -1,13 +1,13 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level14 --hide
+import game.vector_world.div_norm_unit --hide
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 15: `zero dot vector equals zero` 
+## Level 17: `zero dot vector equals zero` 
 
 -/
 
@@ -16,7 +16,7 @@ namespace tuple -- hide
 -/
 
 
-lemma zero_dot: ∀ {n : ℕ} (x : ℝ ^ n), 0 ⬝ x = 0 :=
+lemma zero_mul: ∀ {n : ℕ} (x : ℝ ^ n), 0 ⬝ x = 0 :=
 begin 
    intro n , 
    induction n with d hd, 

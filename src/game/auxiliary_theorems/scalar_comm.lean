@@ -1,12 +1,12 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level5 
+import game.auxiliary_theorems.smul_zero --hide
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 6: `Scalars multiplication is commutative` 
+## Level 3: `Scalars multiplication is commutative` 
 
 -/
 

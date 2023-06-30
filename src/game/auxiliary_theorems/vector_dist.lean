@@ -1,12 +1,12 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level5 
+import game.vector_world.orth_self_unique_zero --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Auxiliary Theorems
 
-## Level 6: `Scalars pass through` 
+## Level 1: `Vector_dist` 
 
 -/
 

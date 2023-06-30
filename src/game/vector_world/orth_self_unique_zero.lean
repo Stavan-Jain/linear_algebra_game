@@ -8,7 +8,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 19: `**0** is uniquely orthogonal to itself` 
+## Level 23: `**0** is uniquely orthogonal to itself` 
 
 -/
 

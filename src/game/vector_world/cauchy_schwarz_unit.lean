@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level9-- hide 
+import game.vector_world.sub_norm_square -- hide 
 
 
 namespace tuple -- hide
@@ -8,7 +8,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 10: `Cauchy-Schwarz Inequality for unit vectors` 
+## Level 12: `Cauchy-Schwarz Inequality for unit vectors` 
 
 -/
 

@@ -8,7 +8,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 18: `Zero orthogonal` 
+## Level 22: `Zero orthogonal to all vectors` 
 
 -/
 
