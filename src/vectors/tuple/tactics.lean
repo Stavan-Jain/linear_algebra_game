@@ -42,6 +42,9 @@ lemma eq_cons_iff_and_eq (u₁ v₁ : α) (uₙ vₙ : α ^ n)
 @[simp]
 lemma empty_vec_eq_nil (v : α ^ 0) : v = nil := by { cases v, refl, }
 
+@[simp]
+lemma zero_empty_vec_eq_nil [has_zero α] : (0 : tuple α 0) = (nil : tuple α 0) := rfl
+
 lemma cast_nnnorm_eq_norm (v : ℝ ^ n) : ↑‖v‖₊ = ‖v‖ := rfl
 lemma nnnorm_eq_sqrt_norm_sq (v : ℝ ^ n) : ‖v‖₊ = nnreal.sqrt (norm_sq v) := rfl
 lemma norm_eq_sqrt_norm_sq (v : ℝ ^ n) : ‖v‖ = ↑(nnreal.sqrt (norm_sq v)) := rfl

@@ -2,6 +2,7 @@ import vectors.subspace
 
 namespace vector_spaces
 open tuple
+open set
 
 open set
 
