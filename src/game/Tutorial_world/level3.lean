@@ -1,12 +1,9 @@
-Union, Intersection, split, cases
-
-
 /- 
 
 # Tutorial World 
 ## Level 3: The `split`, `cases` tactics
 
-In this level we will learn `split` and `cases`. 
+In this level we will learn `split` and `cases`, with the notion of Union and Intersection.   
 
 
 

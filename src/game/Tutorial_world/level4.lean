@@ -4,7 +4,7 @@ import game.world4.level8 -- hide
 namespace mynat -- hide
 
 /-
-# Tutorial World. 
+# Tutorial World 
 ## Level 4: The `Use` and `Ring` tactics
 
 -/

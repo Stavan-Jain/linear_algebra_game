@@ -7,9 +7,21 @@ namespace mynat -- hide
 /- 
 # Tutorial World
 
-## Level 1: The refl & rw tactics
 
-Let's start with the `refl` and `rw`. `refl` stands for "reflexivity". Statements can be proved by `refl` when the left hand side is *exactly equal* to the
+
+### Editor's note: 
+This world is made for students who had zero or little experiences with
+Lean or other automated proof assistants. This aims to provide a quick intro to Lean and 
+the tactics you will need to kickstart the Linear Algebra Game. 
+
+References: Kevin Buzzard's Natural Number Game (https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/).
+
+For readers looking for a more specific tutorial and learning some fundamentals of Lean thoroughly, visit the site above. 
+
+
+
+## Level 1: The refl & rw tactics
+Let's start with `refl` and `rw`. `refl` stands for "reflexivity". Statements can be proved by `refl` when the left hand side is *exactly equal* to the
 right hand side ("definitionally equal"). And `rw` stands for "rewrite", substituting the LHS of an equality in an hypothesis h with the RHS. 
 
 The goal of every theorem will be a mathematical statement with a `⊢` just before it.
@@ -24,7 +36,7 @@ For all natural numbers $x$, we have $x = x$.
 -/
 
 lemma example1 (x: mynat) : x = x  :=
-begin [nat_num_game]
+begin 
   refl,
 
 
@@ -69,15 +81,14 @@ and $y=x+7$, then $2y=2(x+7)$.
 -/
 
 lemma example2 (x y : mynat) (h : y = x + 7) : 2 * y = 2 * (x + 7) :=
-begin [nat_num_game]
+begin 
   rw h,
-  refl,
   
 
 end
 
 /-
-Tactic: refl, rw
+Tactic: rw
 -/
 
 

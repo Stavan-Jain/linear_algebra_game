@@ -1,28 +1,21 @@
 /-
-# Tutorial World. 
+# Tutorial World
 
-## Level 2: The `intro` and `apply` tactics
+## Level 2: The `exact`, `intro`, and `apply` tactics
 
-Let's prove an implication. Let $P$ be a true/false statement,
-and let's prove that $P\implies P$. If you delete the
-`sorry` you will see that our goal is `P → P`. Constructing a term
-of type `P → P` (which is what solving this goal *means*) in this
-case amounts to proving that $P\implies P$, and computer scientists
-think of this as coming up with a function which sends proofs of $P$
-to proofs of $P$.
+`Exact` is the most fundamental tactic when dealing with propositions.
+To some extent, it resembles the `refl` tactic from Level 1.
+
+Let $P$ be a true/false statement,
+and let's prove that $P\implies P$. Constructing a term
+of type `P → P` in this case amounts to proving that $P\implies P$,
+and computer scientists think of this as coming up with a function 
+which sends proofs of $P$ to proofs of $P$.
 
 To define an implication $P\implies Q$ we need to choose an arbitrary
-proof $p : P$ of $P$ and then, perhaps using $p$, construct a proof
-of $Q$.  The Lean way to say "let's assume $P$ is true" is `intro p`,
-i.e., "let's assume we have a proof of $P$".
-
-## Note for worriers.
-
-Those of you who know
-something about the subtle differences between truth and provability
-discovered by Goedel -- these are not relevant here. Imagine we are
-working in a fixed model of mathematics, and when I say "proof"
-I actually mean "truth in the model", or "proof in the metatheory".
+proof $p : P$ of $P$ and then construct a proof of $Q$.  
+The Lean way to say "let's assume $P$ is true" is `intro p`, i.e., 
+"let's assume we have a proof of $P$".
 
 ## Rule of thumb: 
 

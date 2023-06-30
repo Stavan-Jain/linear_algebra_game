@@ -6,7 +6,7 @@ local attribute [instance, priority 10] classical.prop_decidable -- hide
 -/
 lemma not_iff_imp_false (P : Prop) : ¬ P ↔ P → false := iff.rfl -- hide
 /-
-# Tutorial World. 
+# Tutorial World
 
 ## Level 6 : Contrapositive 
 

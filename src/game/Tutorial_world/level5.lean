@@ -4,8 +4,13 @@ import mynat.add -- imports addition.
 namespace mynat -- hide
 
 /-
-# Tutorial World. 
+# Tutorial World 
 ## Level 5: Induction
+
+NB: the use of Induction in this game can sometimes be unatural
+or not intuitive when regarding a natural way of learning Linear Algebra. 
+Because of the nature of LEAN and formalized mathematics, some are inevitable, 
+yet we will give enough hints when you encounter challenges like this. 
 
 
 ## Summary
