@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level8 
+import game.vector_world.add_norm_square
 namespace tuple -- hide
 
 /- 

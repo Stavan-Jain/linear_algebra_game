@@ -18,7 +18,8 @@ We're going to prove that if dot product of a vector with itself is 0 then it mu
 /- Lemma
 x ⬝ x = 0 ↔ x = tuple.zero
 -/
-lemma sub_eq_add_neg {n : ℕ} (v u : ℝ ^ n) : v - u = v + -u :=
+
+lemma sub_eq_add_neg' {n : ℕ} (v u : ℝ ^ n) : v - u = v + -u :=
 begin 
   induction n with n hn generalizing v u,
   { cases v, cases u,

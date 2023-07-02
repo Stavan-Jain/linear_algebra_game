@@ -1,4 +1,3 @@
-import vectors.subspace
 import game.subspace_world.zero
 
 namespace vector_spaces

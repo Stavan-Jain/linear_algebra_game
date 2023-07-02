@@ -1,5 +1,6 @@
 import vectors.subspace
-import game.vector_world.smul_zero
+import game.vector_world.orth_self_unique_zero
+import game.auxiliary_theorems.zero_smul
 import game.vector_spaces_world.vector_space
 namespace vector_spaces
 open tuple
@@ -14,8 +15,7 @@ instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := begin
 
   { intros, 
   simp at *, 
-  rw H,
-  exact smul_zero c,}, --explain ambiguous overload
+  rw H, rw smul_zero', }, --explain ambiguous overload
   { simp at *, },
 end
 

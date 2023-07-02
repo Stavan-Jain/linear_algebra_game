@@ -16,7 +16,7 @@ namespace tuple -- hide
 -/
 
 
-lemma zero_mul: ∀ {n : ℕ} (x : ℝ ^ n), 0 ⬝ x = 0 :=
+lemma zero_dot: ∀ {n : ℕ} (x : ℝ ^ n), 0 ⬝ x = 0 :=
 begin 
    intro n , 
    induction n with d hd, 

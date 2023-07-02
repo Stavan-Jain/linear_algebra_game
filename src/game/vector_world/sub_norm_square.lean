@@ -20,7 +20,7 @@ lemma sub_norm_square: ∀ {n : ℕ} (x y : ℝ ^ n)
 ,  ↑(norm_sq (x - y)) = ↑(norm_sq x) - (2 * (x ⬝ y)) + ↑(norm_sq y) :=
 begin 
   intros n x y,
-  rw sub_eq_add_neg,
+  rw sub_eq_add_neg',
   rw add_norm_square,
   rw neg_eq_neg_mul,
   rw dot_comm x ((-1 : ℝ) • y),

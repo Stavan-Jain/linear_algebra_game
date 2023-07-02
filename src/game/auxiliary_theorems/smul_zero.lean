@@ -9,7 +9,7 @@ namespace tuple -- hide
 
 # Vector world
 
-## Level 2: `zero_smul` 
+## Level 2: `smul_zero` 
 
 -/
 
@@ -17,7 +17,7 @@ namespace tuple -- hide
 
 -/
 
-lemma smul_zero : ∀ {n : ℕ} (c : ℝ), c • (0 : ℝ ^ n) = 0 :=
+lemma smul_zero' : ∀ {n : ℕ} (c : ℝ), c • (0 : ℝ ^ n) = 0 :=
 begin
   intros n,
   induction n with n hn,

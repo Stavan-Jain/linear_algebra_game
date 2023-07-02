@@ -1,6 +1,5 @@
-import vectors.subspace
-import game.vector_world.level7 
-import game.vector_world.zero_dot
+import vectors.subspace 
+import game.vector_world.orth_self_unique_zero
 
 namespace vector_spaces
 open tuple
