@@ -1,14 +1,9 @@
-import vectors.subspace 
-import game.vector_world.orth_self_unique_zero
+import game.subspace_world.line
 
 namespace vector_spaces
 open tuple
 
---explain that if `refl,` doesnt work then try using `simp,` or `simpa,`
---refl not working here might have to do with the fact that we 
---reach a goal state (0 : ℝ) + (0 : ℝ) = (0 : ℝ).
---since real numbers are complicated and are defined as limits of
---cauchy sequences, it may be hard for refl to deal with them
+-- why is a ≠ 0? Shouldn't the statement be true even if a = 0?
 
 instance dot_prod {n : ℕ} {a : ℝ ^ n}: a ≠ 0 → subspace (ℝ ^ n) ℝ {v : ℝ ^ n | a ⬝ v = 0} := 
 begin
