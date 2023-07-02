@@ -7,7 +7,7 @@ open set
 open set
 
 instance all_rn {n : ℕ}: subspace (ℝ ^ n) ℝ univ  := begin 
-  constructor, 
+  split, 
   {
     intros, simp at *,  
   } ,

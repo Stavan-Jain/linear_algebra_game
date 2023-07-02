@@ -8,7 +8,7 @@ open tuple
 instance dot_prod {n : ℕ} {a : ℝ ^ n}: a ≠ 0 → subspace (ℝ ^ n) ℝ {v : ℝ ^ n | a ⬝ v = 0} := 
 begin
   intro h,
-  constructor,
+  split,
   { intros u h₁ v h₂,
     simp at *,
     rw [dot_dist, h₁, h₂],

@@ -5,7 +5,7 @@ open tuple
 open set
 
 instance line_through_origin {n : ℕ} (v : ℝ ^ n): subspace (ℝ ^ n) ℝ {x : ℝ ^ n |∃(c : ℝ), x = c • v}  := begin 
-  constructor, 
+  split, 
   {
     intros, simp at *,
     cases H with c1 H1,
