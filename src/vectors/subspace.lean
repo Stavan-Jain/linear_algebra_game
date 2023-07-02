@@ -1,6 +1,7 @@
 import vectors.tuple
 import vectors.vector_spaces
 import vectors.tuple.tactics
+import game.vector_spaces_world.vector_space
 
 
 namespace vector_spaces
@@ -13,5 +14,8 @@ class subspace (𝕍 : Type*) (𝔽 : Type*) [field 𝔽] [vector_space 𝕍 �
 
 --def zero_set {n : ℕ }: set (ℝ ^ n) := {v : ℝ ^ n | v = 0}
 
+def complement {n : ℕ} (V :set (ℝ ^ n))  
+[v: subspace (ℝ^n) ℝ V] 
+: set (ℝ ^ n) := {x : ℝ ^ n | ∀ v ∈ V, x ⬝ v = 0}
 
 end vector_spaces
