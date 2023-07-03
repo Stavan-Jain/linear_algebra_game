@@ -18,7 +18,7 @@ namespace tuple -- hide
 -/
 
 lemma add_zero : ∀ (u : ℝ ^ 3), u + 0 = u :=
-begin 
+begin
   intro u,
   cases_tuple u 3,
   simpa,
