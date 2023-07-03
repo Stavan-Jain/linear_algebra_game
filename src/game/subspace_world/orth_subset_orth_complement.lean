@@ -6,10 +6,15 @@ open tuple
 
 lemma orth_subset_orth_complement 
 {n : ℕ} (V: set (ℝ ^ n)) (W: set (ℝ ^ n))
-[v : subspace (ℝ ^ n) ℝ V] [w : subspace (ℝ ^ n) ℝ W]: 
-orthogonal V W → V ⊂ orth_complement W  := 
+[V_sub : subspace (ℝ ^ n) ℝ V] [W_sub : subspace (ℝ ^ n) ℝ W]: 
+orthogonal V W → V ⊆  orth_complement W  := 
 begin 
-  sorry, 
+  intro h₁, 
+  rw set.subset_def, 
+  intros v vV, 
+  simp at *,
+  intros w wW,  
+  exact h₁ v w vV wW, 
 end
 
 end vector_spaces
