@@ -7,16 +7,17 @@ instance inter_subspace {n : ℕ} {U V : set (ℝ ^ n)} [u: subspace (ℝ ^ n) �
 begin
   split,
 
-  { intros, 
-  simp at *, 
-  exact ⟨u.1 u_1 H.left v_1 H_1.left, v.1 u_1 H.right v_1 H_1.right⟩,},
+  { intros xᵤ hᵤ xᵥ hᵥ, 
+    simp at *, 
+    exact ⟨u.closed_add xᵤ hᵤ.left xᵥ hᵥ.left, 
+    v.closed_add xᵤ hᵤ.right xᵥ hᵥ.right⟩, },
 
-  { intros, 
-  simp at *, 
-  exact ⟨ u.2 c v_1 H.1, v.2 c v_1 H.2⟩, },
+  { intros c xᵥ h, 
+    simp at *, 
+    exact ⟨u.closed_smul c xᵥ h.left, v.closed_smul c xᵥ h.right⟩, },
 
   { simp at *,
-  exact ⟨u.3, v.3⟩,},
+    exact ⟨u.contains_zero, v.contains_zero⟩, },
 end
 
 end vector_spaces
