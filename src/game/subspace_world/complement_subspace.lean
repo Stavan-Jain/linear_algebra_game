@@ -4,7 +4,7 @@ namespace vector_spaces
 open tuple
 
 
-instance orth_complement_subspace {n : ℕ} {V: set (ℝ ^ n)} [v : subspace (ℝ ^ n) ℝ V]: subspace (ℝ ^ n) ℝ (orth_complement V) := 
+instance orth_complement_subspace {n : ℕ} (V: set (ℝ ^ n)) [v : subspace (ℝ ^ n) ℝ V]: subspace (ℝ ^ n) ℝ (orth_complement V) := 
 begin
   split, 
   {
