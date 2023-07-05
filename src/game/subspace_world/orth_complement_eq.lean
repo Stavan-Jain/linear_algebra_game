@@ -1,5 +1,4 @@
-import game.subspace_world.orth_subset_orth_complement
-
+import game.subspace_world.orth_complement_subset
 namespace vector_spaces
 open tuple
 
