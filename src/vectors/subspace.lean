@@ -15,9 +15,8 @@ class subspace (𝕍 : Type*) (𝔽 : Type*) [field 𝔽] [vector_space 𝕍 �
 --def zero_set {n : ℕ }: set (ℝ ^ n) := {v : ℝ ^ n | v = 0}
 
 @[simp]
-def orth_complement {n : ℕ} (V :set (ℝ ^ n))  
-[v: subspace (ℝ^n) ℝ V] 
-: set (ℝ ^ n) := {x : ℝ ^ n | ∀ v ∈ V, x ⬝ v = 0}
+def orth_complement {n : ℕ} (V : set (ℝ ^ n)) [v : subspace (ℝ ^ n) ℝ V] : set (ℝ ^ n) := 
+{x : ℝ ^ n | ∀ v ∈ V, x ⬝ v = 0}
 
 @[simp]
 def orthogonal {n : ℕ} (V : set (ℝ ^ n)) (W : set (ℝ ^ n)) [subspace (ℝ^ n) ℝ V] [subspace (ℝ^ n) ℝ W]
