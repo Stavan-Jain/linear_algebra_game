@@ -38,7 +38,6 @@ def fin_lin_comb {n : ℕ} (S : 𝕍 ^ n) (c : 𝔽 ^ n) : 𝕍 :=
 lemma lin_comb_of_fin_lin_comb {n : ℕ} (S : 𝕍 ^ n) (c : 𝔽 ^ n)
   : fin_lin_comb 𝔽 S c = lin_comb 𝔽 {v : 𝕍 | v ∈ S} (finth_elem S) (finth c) := rfl
 
-
 lemma fin_lin_comb_of_lin_comb (S : set 𝕍) {n : ℕ} (s : fin n → S) (c : fin n → 𝔽)
   : lin_comb 𝔽 S s c = fin_lin_comb 𝔽 (from_fin_fn (coe ∘ s)) (from_fin_fn c) :=
 begin
@@ -65,8 +64,6 @@ end
 def fin_span {n : ℕ} (S : 𝕍 ^ n) : set 𝕍 :=
   {v : 𝕍 | ∃ (c : 𝔽 ^ n), v = fin_lin_comb 𝔽 S c}
 
-
-
 lemma fin_span_equiv {n : ℕ} (S : 𝕍 ^ n) : fin_span 𝔽 S = span 𝔽 {v : 𝕍 | v ∈ S} :=
 begin
   apply eq_of_subset_of_subset,
@@ -82,6 +79,20 @@ begin
     -- TODO: very hard
     sorry },
 end
+
+
+@[simp]
+def fin_linear_dependent : ∀ {n : ℕ}, 𝕍 ^ n → Prop
+| 0 _ := true
+| (n+1) S := ∃ (m : fin n.succ), (S.finth m) ∈ fin_span 𝔽 (S.remove_finth m)
+
+@[simp]
+def fin_linear_independent {n : ℕ} (S : 𝕍 ^ n) : Prop := ¬ fin_linear_dependent 𝔽 S
+
+
+class fin_basis {n : ℕ} (S : 𝕍 ^ n) : Prop :=
+  (lin_indep : fin_linear_independent 𝔽 S)
+  (spanning : fin_span 𝔽 S = univ)
 
 
 end vector_spaces
