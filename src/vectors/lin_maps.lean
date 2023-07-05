@@ -7,3 +7,7 @@ def linear_transformation {n m : ℕ} (T : ℝ^ n  → ℝ ^ m ) : Prop :=
 @[simp]
 def null_space {n m : ℕ} (T : ℝ^ n  → ℝ ^ m ) : set (ℝ ^ n) := 
 {x : ℝ ^ n | T x = 0}
+
+@[simp]
+def image {n m :ℕ} (T : ℝ ^ n  → ℝ ^ m ) : set (ℝ ^ m) :=
+{b : ℝ ^ m | ∃ (x : ℝ ^ n), T x = b}
