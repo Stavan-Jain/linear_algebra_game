@@ -20,7 +20,7 @@ to the usual definition:
 -/
 
 /- Lemma
-x ⬝ x = 0 ↔ x = 0
+
 -/
 lemma lin_transformation_def2 : ∀ {n m : ℕ} (T : ℝ ^ n → ℝ ^ m),
   linear_transformation T ↔ ∀ (c: ℝ) (x y : ℝ ^ n), (T (c• x)) = c • (T x) ∧ T (x + y) = T x + T y :=
