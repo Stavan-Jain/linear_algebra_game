@@ -46,21 +46,11 @@ end
 
 /-
 ## Technical note
+Remember the side note on Level 2, we can use the `rw` tactic here. 
+-/ 
 
-
-All of that rewriting you did with `rw` in addition world
-was rewriting hypothesis of the form `h : X = Y`, but
-you can also `rw h` if `h : P ↔ Q` (because propositional
-extensionality says that if $P\iff Q$ then $P=Q$, and
-mathematicians use this whether or not they notice.)
--/
 
 /-
-
-
-You already know enough to embark on advanced addition world. But here are just a couple
-more things.
-
 
 
 It's certainly true that $P\land(\lnot P)\implies Q$ for any propositions $P$
@@ -69,7 +59,6 @@ we prove that `false` implies any proposition $Q$? A cheap way of doing it in
 Lean is using the `exfalso` tactic, which changes any goal at all to `false`. 
 You might think this is a step backwards, but if you have a hypothesis `h : ¬ P`
 then after `rw not_iff_imp_false at h,` you can `apply h,` to make progress. 
-Try solving this level without using `cc` or `tauto`, but using `exfalso` instead.
 
 -/
 
@@ -79,6 +68,7 @@ Try solving this level without using `cc` or `tauto`, but using `exfalso` instea
 If $P$ and $Q$ are true/false statements, then
 $$(P\land(\lnot P))\implies Q.$$
 -/
+
 lemma contra (P Q : Prop) : (P ∧ ¬ P) → Q :=
 begin
   intro h,
@@ -100,7 +90,7 @@ commenting out `rw not_iff_imp_false at ...` by putting two minus signs `--`
 before the `rw`. Does it still compile?
 -/
 
-/- Tactic : exfalso
+/- 
 
 ## Summary
 
@@ -116,4 +106,7 @@ so one can achieve the same effect with `apply false.elim`.
 This tactic can be used in a proof by contradiction, where the hypotheses are enough
 to deduce a contradiction and the goal happens to be some random statement (possibly
 a false one) which you just want to simplify to `false`.
+
+## Further Reading (Optional):
+https://leanprover.github.io/logic_and_proof/classical_reasoning.html
 -/

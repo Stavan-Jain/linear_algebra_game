@@ -3,8 +3,7 @@
 
 ## Level 2: The `exact`, `intro`, and `apply` tactics
 
-`Exact` is the most fundamental tactic when dealing with propositions.
-To some extent, it resembles the `refl` tactic from Level 1.
+Lean `Exact` is a fundamental tactic dealing with propositions. 
 
 Let $P$ be a true/false statement,
 and let's prove that $P\implies P$. Constructing a term
@@ -45,6 +44,13 @@ will close the goal. Note that `exact P` will not work -- don't
 confuse a true/false statement (which could be false!) with a proof.
 We will stick with the convention of capital letters for propositions
 and small letters for proofs.
+
+## Side Note: 
+
+All of that rewriting you did with `rw` previously
+was rewriting hypothesis of the form `h : X = Y`, but
+you can also `rw h` if `h : P ↔ Q`. 
+
 -/ 
 
 
@@ -57,3 +63,17 @@ begin
   exact p,
 
 end
+
+
+/-
+
+## Summary
+
+· `exact` 
+
+· `intro`
+
+· `apply`
+
+
+-/

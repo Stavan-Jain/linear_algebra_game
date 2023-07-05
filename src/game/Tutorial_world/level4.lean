@@ -6,21 +6,10 @@ namespace mynat -- hide
 /-
 # Tutorial World 
 ## Level 4: The `Use` and `Ring` tactics
-
--/
-/- Axiom : le_iff_exists_add (a b : mynat)
-  a ≤ b ↔ ∃ (c : mynat), b = a + c
 -/
 
 
-/- Tactic : use
-## Summary
-
-`use` works on the goal. If your goal is `⊢ ∃ c : mynat, 1 + x = x + c`
-then `use 1` will turn the goal into `⊢ 1 + x = x + 1`, and the rather
-more unwise `use 0` will turn it into the impossible-to-prove
-`⊢ 1 + x = x + 0`.
-
+/-
 ## Details
 
 `use` is a tactic which works on goals of the form `⊢ ∃ c, P(c)` where
@@ -31,24 +20,18 @@ the goal into `P(x + y)` and so on.
 -/
 
 /- 
+ If `a` and `b` are naturals, `a ≤ b` is *defined* to mean
 
+`∃ (c : mynat), b = a + c`. 
 
+So, we have the axiom, le_iff_exists_add (a b : mynat)
+  a ≤ b ↔ ∃ (c : mynat), b = a + c
 
-A new import, giving us a new definition. If `a` and `b` are naturals,
-`a ≤ b` is *defined* to mean
-
-`∃ (c : mynat), b = a + c`
-
-The upside-down E means "there exists". So in words, $a\le b$
+In words, $a\le b$
 if and only if there exists a natural $c$ such that $b=a+c$. 
 
 If you really want to change an `a ≤ b` to `∃ c, b = a + c` then
 you can do so with `rw le_iff_exists_add`:
-
-```
-le_iff_exists_add (a b : mynat) :
-  a ≤ b ↔ ∃ (c : mynat), b = a + c
-```
 
 But because `a ≤ b` is *defined as* `∃ (c : mynat), b = a + c`, you
 do not need to `rw le_iff_exists_add`, you can just pretend when you see `a ≤ b`
@@ -84,6 +67,15 @@ which is a powerful AI which will solve any equality in algebra which can
 be proved using the standard rules of addition and multiplication. Now
 look at your proof. We're going to remove a line.
 
+The ring tactic proves identities in commutative rings such as (x+y)^2=x^2+2*x*y+y^2. 
+It works on concrete rings such as ℝ and abstract rings, and will also prove some results in “semirings” such as ℕ.
+Note that ring does not and cannot look at hypotheses.
+
+Ring is a “finishing tactic”; this means that it should only be used to close goals. 
+If ring does not close a goal it will issue a warning that you should use the related tactic ring_nf.
+
+
+
 ## Important
 
 An important time-saver here is to note that because `a ≤ b` is *defined*
@@ -106,4 +98,16 @@ begin
 
 
 end 
+
+
+/- 
+## Summary
+
+· `use` works on the goal. If your goal is `⊢ ∃ c : mynat, 1 + x = x + c`
+then `use 1` will turn the goal into `⊢ 1 + x = x + 1`. 
+
+· `
+
+-/ 
+
 end mynat -- hide

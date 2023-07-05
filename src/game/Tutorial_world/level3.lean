@@ -1,5 +1,5 @@
-/- 
 
+/-
 # Tutorial World 
 ## Level 3: The `split`, `cases` tactics
 
@@ -26,7 +26,6 @@ begin
 
 end 
 
-/- Tactic : split
 
 
 /- 
@@ -64,15 +63,11 @@ begin
 
 end 
 
-/- Tactic : cases
+/- Tactic : cases -/ 
 
+/- -
 ## Summary:
 
-`cases` is a tactic which works on hypotheses.
-If `h : P ∧ Q` or `h : P ↔ Q` is a hypothesis then `cases h with h1 h2` will remove `h`
-from the list of hypotheses and replace it with the "ingredients" of `h`,
-i.e. `h1 : P` and `h2 : Q`, or `h1 : P → Q` and `h2 : Q → P`. Also
-works with `h : P ∨ Q` and `n : mynat`. 
 
 ## Details
 
@@ -148,9 +143,6 @@ a b : mynat
 
 a b : mynat
 ⊢ a + 3 = b + 3 → a = b
-
-
-https://leanprover.github.io/logic_and_proof/classical_reasoning.html
 -/
 
 end mynat -- hide 
