@@ -45,7 +45,7 @@ begin
   {
     simp at *, 
     use 0,  
-    exact zero_in_nullspace T h₁,  
+    exact zero_in_kernel T h₁,  
   }
 end
 

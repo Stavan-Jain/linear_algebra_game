@@ -1,4 +1,4 @@
-import game.linear_map_world.zero_in_nullspace --hide
+import game.linear_map_world.zero_in_kernel --hide
 namespace tuple -- hide
 
 /- 

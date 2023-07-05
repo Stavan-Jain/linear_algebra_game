@@ -18,7 +18,7 @@ namespace tuple -- hide
 /- Lemma
 x ⬝ x = 0 ↔ x = tuple.zero
 -/
-lemma zero_in_nullspace : ∀ {n m : ℕ} (T : ℝ ^ n  → ℝ ^ m),
+lemma zero_in_kernel : ∀ {n m : ℕ} (T : ℝ ^ n  → ℝ ^ m),
   linear_transformation T → (T 0) = 0 :=
 begin 
   intros n m T,
