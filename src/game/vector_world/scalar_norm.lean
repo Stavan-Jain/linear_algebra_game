@@ -31,11 +31,11 @@ When doing a proof it is sometimes useful to change the goal to something that i
 
 -/
 
-lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x: tuple n)
-,(|c| * x.norm : ℝ)  = ((c**x).norm : ℝ)   :=
+lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n)
+, (|c| * ‖x‖ : ℝ)  = ‖c • x‖   :=
 begin 
   intros n c x,
-  dsimp [tuple.norm], simp,
+  simp [has_norm.norm, tuple.norm],
   have j : ∀ (x : real), (0 ≤ x) → x = real.sqrt(x * x),
   {
     intros x xgeq, 
@@ -48,7 +48,6 @@ begin
   have i := j c h, 
   nth_rewrite 0 i, 
   rw ← real.sqrt_mul ,
-  dsimp [norm_sq],
   simp [scalar_through],  
   nth_rewrite 1 dot_comm, 
   simp [scalar_through],  
@@ -95,7 +94,6 @@ begin
   }, 
   rw abs_eq_self.mpr m,
   rw ← real.sqrt_mul ,
-  dsimp [norm_sq],
   simp [scalar_through],    
   nth_rewrite 1 dot_comm, 
   simp [scalar_through], 
