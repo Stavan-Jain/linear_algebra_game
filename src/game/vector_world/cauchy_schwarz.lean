@@ -30,6 +30,7 @@ do with the inner product (which we will cover more extensively later.) Essentia
 way to multiply vectors together to get a scalar, within a vector space. The dot product is thus, 
 a type of inner product. In a real number space, the inner product is simply multiplication. In a complex vector space, 
 the inner product is called the hermitian inner product.
+
 -/
 
 lemma cauchy_schwarz: ∀ {n : ℕ} (x y : ℝ ^ n)
