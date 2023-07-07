@@ -110,6 +110,15 @@ section scalar_mul
 end scalar_mul
 
 
+section mem
+  protected def mem : ∀ {n : ℕ}, α → α ^ n → Prop
+  | 0 _ _ := false
+  | (n+1) x (cons head tail) := x = head ∨ mem x tail
+
+  instance {n : ℕ} : has_mem α (α ^ n) := ⟨tuple.mem⟩
+end mem
+
+
 section dot_product
   variables [has_add α] [has_mul α] [has_zero α]
 
@@ -167,6 +176,35 @@ section nth
   | 0 (i + 1) _ prf := absurd prf (by linarith)
   | (n + 1) 0 (cons _ tail) prf := tail
   | (n + 1) (i + 1) (cons head tail) prf := cons head (remove_nth i tail (by linarith))
+
+
+  lemma nth_elem : ∀ {n : ℕ} (i : ℕ) (v : α ^ n) (prf : i < n), nth i v prf ∈ v := begin
+    intros n i v prf,
+    induction n with n ihn generalizing i,
+    { exfalso,
+      exact i.not_lt_zero prf, },
+    { cases v with n head tail,
+      simp [has_mem.mem],
+      cases i,
+      { left,
+        refl, },
+      { simp [nth],
+        right,
+        exact ihn tail i (nat.lt_of_succ_lt_succ prf), }, },
+  end
+
+
+  def finth {n : ℕ} (v : α ^ n) (i : fin n) : α := nth i v i.prop
+  def finth_elem {n : ℕ} (v : α ^ n) (i : fin n) : {x : α // x ∈ v} := ⟨finth v i, nth_elem i v _⟩
+
+  def update_finth {n : ℕ} (v : α ^ n) (i : fin n) (x : α) : α ^ n := update_nth i v x i.prop
+
+  def remove_finth {n : ℕ} (v : α ^ (n+1)) (i : fin (n+1)) : α ^ n :=
+    remove_nth i v (nat.le_of_lt_succ i.prop)
+
+  def from_fin_fn {α : Type*} : ∀ {n : ℕ}, (fin n → α) → α ^ n
+  | 0 _ := [[ ]]
+  | (n+1) f := cons (f 0) (from_fin_fn (λ (x : fin n), f (x + 1)))
 end nth
 
 
