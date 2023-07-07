@@ -12,7 +12,19 @@ namespace tuple -- hide
 -/
 
 /- Lemma
+
 ||x - y||² = ||x||² - 2 * (x ⬝ y) + ||y||²
+
+Background:
+
+This is very similar to the proof we just did. Let's see if you can develop a structure similar to the last proof for this one!
+
+Good luck!
+
+Strategy:
+
+
+
 -/
 
 

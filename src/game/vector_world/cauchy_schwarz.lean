@@ -13,6 +13,16 @@ namespace tuple -- hide
 
 /- Lemma
 |x · y| ≤ ||x||*||y||
+
+The Cauchy Schwarz inequality is one of the most important concepts you'll be introduced to in an 
+introductory linear algebra course. 
+The Cauchy Schwarz inequality actually deals with the inner product. 
+
+Inner product is a generalization of the dot product. It also takes two vectors and gives a scalar. 
+Dot product operates on euclidean vectors. 
+
+takes dot product and abstracts it. 
+takes two vectors and gives a number maybe complex
 -/
 
 lemma cauchy_schwarz: ∀ {n : ℕ} (x y : ℝ ^ n)
