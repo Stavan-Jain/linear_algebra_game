@@ -6,7 +6,7 @@ open tuple
 
 # Linear Transformation world
 
-## Level 3: `The Null Space of a linear transformation is a subspace` 
+## Level 3: `The Kernel of a linear transformation is a subspace` 
 
 N(A) is a subspace for any linear transformation A. 
 
@@ -16,7 +16,7 @@ N(A) is a subspace for any linear transformation A.
 
 -/
 instance kernel_subspace {n m : ℕ} (T : ℝ ^ n → ℝ ^ m):
-  linear_transformation T →   subspace (ℝ^ n) ℝ (kernel T):=
+  linear_transformation T ℝ →   subspace (ℝ^ n) ℝ (kernel T):=
 begin 
 intro h₁, 
 split, 

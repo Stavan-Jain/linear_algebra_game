@@ -1,5 +1,6 @@
 import game.linear_map_world.zero_in_kernel --hide
-namespace tuple -- hide
+open tuple
+namespace vector_spaces -- hide
 
 /- 
 
@@ -23,7 +24,7 @@ to the usual definition:
 
 -/
 lemma lin_transformation_def2 : ∀ {n m : ℕ} (T : ℝ ^ n → ℝ ^ m),
-  linear_transformation T ↔ ∀ (c: ℝ) (x y : ℝ ^ n), (T (c• x)) = c • (T x) ∧ T (x + y) = T x + T y :=
+  linear_transformation T ℝ ↔ ∀ (c: ℝ) (x y : ℝ ^ n), (T (c• x)) = c • (T x) ∧ T (x + y) = T x + T y :=
 begin 
   intros n m T, 
   split, 
@@ -36,7 +37,7 @@ begin
     exact h₁, 
   }, 
   have h₁ := h 1 1 x y,
-  repeat {rw one_smul at h₁},  
+  repeat {rw tuple.one_smul at h₁},  
   exact h₁,  
   }, 
   {
@@ -54,4 +55,4 @@ begin
 
 end
 
-end tuple -- hide
+end vector_spaces -- hide

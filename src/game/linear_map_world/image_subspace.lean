@@ -1,4 +1,4 @@
-import game.linear_map_world.null_space_subspace --hide
+import game.linear_map_world.kernel_subspace --hide
 namespace vector_spaces
 open tuple
 
@@ -16,7 +16,7 @@ N(A) is a subspace for any linear transformation A.
 
 -/
 instance image_subspace {n m : ℕ} (T : ℝ ^ n → ℝ ^ m):
-  linear_transformation T →  subspace (ℝ^ m) ℝ (image T):=
+  linear_transformation T ℝ →  subspace (ℝ^ m) ℝ (image T):=
 begin 
   intro h₁, 
   split, 
