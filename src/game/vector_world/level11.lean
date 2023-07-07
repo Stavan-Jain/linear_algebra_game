@@ -12,7 +12,25 @@ namespace tuple -- hide
 -/
 
 /- Lemma
+
 ||-x|| = ||x||
+
+Background: 
+
+Here we'll be proving that the magnitude of a vector is equal to the magnitude of it's negative. 
+
+In R² this describes two vectors of same length pointing in exactly opposite directions.
+
+Strategy: 
+
+As we've done before, let's take some vector x of length n. It makes sense to apply induction next. 
+
+Remember, "simp at *"  simplifies all current hypotheses and the current goal
+
+Hint: 
+
+Think about how we can use ||x|| = x . x and try to prove that ||-x||= x . x
+
 -/
 
 

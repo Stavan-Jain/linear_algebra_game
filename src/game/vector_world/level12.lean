@@ -13,14 +13,29 @@ namespace tuple -- hide
 -/
 
 /- Lemma
+
 |c|*||x|| = ||cx||
+
+Background:
+
+Here we'll be proving that multiplying the magnitude of vector x by the scalar c yields the same 
+result as finding the magnitude of the vector cx. 
+
+Strategy and Hints: 
+
+In class you'll probably prove this using the formula for the magnitude of a vector. Here we will do it differently. 
+
+Let's remember that we've already proved "scalar_through" which tells us that (c**x) ⬝ y =c * (x ⬝ y), which looks like it could be useful here. 
+
+When doing a proof it is sometimes useful to change the goal to something that implies that the initial goal is also true. 
+
 -/
 
-lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n)
-, |c| * ‖x‖ = ‖c • x‖   :=
+lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x: tuple n)
+,(|c| * x.norm : ℝ)  = ((c**x).norm : ℝ)   :=
 begin 
   intros n c x,
-  simp [has_norm.norm, tuple.norm],
+  dsimp [tuple.norm], simp,
   have j : ∀ (x : real), (0 ≤ x) → x = real.sqrt(x * x),
   {
     intros x xgeq, 
@@ -32,7 +47,8 @@ begin
 
   have i := j c h, 
   nth_rewrite 0 i, 
-  rw ← real.sqrt_mul,
+  rw ← real.sqrt_mul ,
+  dsimp [norm_sq],
   simp [scalar_through],  
   nth_rewrite 1 dot_comm, 
   simp [scalar_through],  
@@ -79,6 +95,7 @@ begin
   }, 
   rw abs_eq_self.mpr m,
   rw ← real.sqrt_mul ,
+  dsimp [norm_sq],
   simp [scalar_through],    
   nth_rewrite 1 dot_comm, 
   simp [scalar_through], 

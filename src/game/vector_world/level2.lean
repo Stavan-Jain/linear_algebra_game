@@ -15,7 +15,9 @@ For a set of vectors to be basis vectors they must fulfill the following conditi
 
 1. They must be linearly independent 
 2. A space of dimension n must have n vectors in its basis i.e for any finite dimensional vector space, 
-   the dimension of the vector space will equal the number of basis vectors. 
+   the dimension of the vector space will equal the number of basis vectors.
+
+Introduce definition of spanning sets instead of basis 
 
 Now let's move on to our proof :-
 
