@@ -13,15 +13,9 @@ class vector_space (𝕍 : Type*) (𝔽 : Type*) [field 𝔽] extends add_comm_g
 
 instance field_vector_self {𝔽 : Type*} [field 𝔽] : vector_space 𝔽 𝔽 :=
 begin
-  constructor,
-  { intros a b v,
-    simp [mul_assoc], },
-  { intro v,
-    simp, },
-  { intros a u v,
-    simp [left_distrib], },
-  { intros a b v,
-    simp [right_distrib], },
+  constructor;
+  intros;
+  simp [mul_assoc, left_distrib, right_distrib],
 end
 
 
