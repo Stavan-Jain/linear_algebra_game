@@ -1,13 +1,13 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level16 --hide
+import game.vector_world.pythogoras_theorem --hide
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 17: `Triangle Inequality` 
+## Level 21: `Triangle Inequality` 
 
 -/
 

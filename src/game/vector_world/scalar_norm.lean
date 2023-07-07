@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level11 --hide
+import game.vector_world.norm_neg_eq_neg --hide
 
 
 namespace tuple -- hide
@@ -8,7 +8,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 12: `scalar pass through norms` 
+## Level 14: `scalar pass through norms` 
 
 -/
 

@@ -1,28 +1,32 @@
 import vectors.tuple -- hide
-import data.real.basic --hide
-import vectors.tuple.tactics --hide
-import game.vector_world.zero_smul
+import data.real.basic
+import game.vector_world.div_norm_unit --hide
+
 namespace tuple -- hide
 
-
 /- 
-
 # Vector world
 
-## Level 9: `zero_mul` 
+## Level 17: `zero dot vector equals zero` 
 
 -/
 
 /- Lemma
-
+||(1 / ||x|| ) *x || = 1
 -/
 
-lemma zero_mul : ∀ {n : ℕ} (u : ℝ ^ n), 0 ⬝ u = 0 :=
-begin
-  intros n u,
-  rw ← zero_smul (0 : ℝ ^ n),
-  rw scalar_through,
-  simp,
+
+lemma zero_dot: ∀ {n : ℕ} (x : ℝ ^ n), 0 ⬝ x = 0 :=
+begin 
+   intro n , 
+   induction n with d hd, 
+   intro x, 
+   cases x, 
+   dsimp [tuple.zero, dot_product], refl, 
+   intro x, 
+   cases x, 
+   dsimp [tuple.zero, dot_product], simp, 
+   exact hd x_tail,  
 end
 
 end tuple -- hide

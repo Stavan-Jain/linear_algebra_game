@@ -1,7 +1,7 @@
 import vectors.tuple -- hide
 import vectors.orthogonal --hide
 import data.real.basic
-import game.vector_world.orth_self_unique_zero --hide
+import game.vector_world.parallelogram_eq --hide
 
 namespace tuple -- hide
 

@@ -1,13 +1,13 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level12 --hide
+import game.vector_world.scalar_norm --hide
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 13: `Norm is 0 iff zero vector` 
+## Level 15: `Norm is 0 iff zero vector` 
 
 -/
 

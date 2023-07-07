@@ -1,20 +1,19 @@
 import vectors.tuple -- hide
 import vectors.orthogonal --hide
 import data.real.basic
-import game.vector_world.level8 --hide
-import game.vector_world.level9 --hide
+import game.vector_world.cauchy_schwarz --hide
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 18: `Zero orthogonal` 
+## Level 19: `Parallelogram equality` 
 
 -/
 
 /- Lemma
-**0** is orthogonal to all vectors. 
+
 -/
 
 lemma parallelogram_eq: ∀ {n : ℕ} (u v : ℝ ^ n)

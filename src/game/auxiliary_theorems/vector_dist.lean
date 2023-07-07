@@ -1,12 +1,12 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level5 
+import game.vector_world.orth_self_unique_zero --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Auxiliary Theorems
 
-## Level 6: `Scalars pass through` 
+## Level 1: `Vector_dist` 
 
 -/
 
@@ -14,7 +14,7 @@ namespace tuple -- hide
 (cx)·y=c (x·y) for all x, y ∈ ℝⁿ and c ∈ R
 -/
 
-lemma scalar_comm : ∀ {n : ℕ} (c d : ℝ) (v : ℝ ^ n), c • d • v = d • c • v :=
+lemma vector_dist : ∀ {n : ℕ} (c d : ℝ) (v : ℝ ^ n),  (c + d) • v = c • v + d • v :=
 begin 
   intros n c d,
   induction n with n hn,

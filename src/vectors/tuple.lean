@@ -101,12 +101,13 @@ end functor
 
 
 section scalar_mul
-  variable [has_mul α]
-  open has_mul
+  universe v
+  variables {β : Type v} [has_smul β α]
+  open has_smul
 
-  protected def smul {n : ℕ} (c : α) : α ^ n → α ^ n := map (mul c)
+  protected def smul {n : ℕ} (c : β) : α ^ n → α ^ n := map (smul c)
 
-  instance {n : ℕ} : has_smul α (α ^ n) := ⟨tuple.smul⟩
+  instance {n : ℕ} : has_smul β (α ^ n) := ⟨tuple.smul⟩
 end scalar_mul
 
 

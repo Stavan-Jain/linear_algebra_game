@@ -1,7 +1,5 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.level8 --hide
-import game.vector_world.neg_eq_neg_mul --hide 
 import game.vector_world.sub_eq_add_neg -- hide
 
 namespace tuple -- hide
@@ -9,7 +7,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 9 (depends on norm_neg_eq_neg rn): `Subtract norm square` 
+## Level 11: `Subtract norm square` 
 
 -/
 
@@ -22,7 +20,7 @@ lemma sub_norm_square: ∀ {n : ℕ} (x y : ℝ ^ n)
 ,  ↑(norm_sq (x - y)) = ↑(norm_sq x) - (2 * (x ⬝ y)) + ↑(norm_sq y) :=
 begin 
   intros n x y,
-  rw sub_eq_add_neg,
+  rw sub_eq_add_neg',
   rw add_norm_square,
   rw neg_eq_neg_mul,
   rw dot_comm x ((-1 : ℝ) • y),

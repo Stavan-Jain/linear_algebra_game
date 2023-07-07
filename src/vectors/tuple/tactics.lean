@@ -4,8 +4,7 @@ namespace tuple
 
 section simp
 
-universe u
-variables {α : Type u} {n : ℕ}
+variables {α : Type*} {β : Type*}  {n : ℕ}
 
 
 @[simp]
@@ -17,8 +16,12 @@ lemma sub_cons_eq_cons_sub [has_sub α] (u₁ v₁ : α) (uₙ vₙ : α ^ n)
   : (cons u₁ uₙ) - (cons v₁ vₙ) = cons (u₁ - v₁) (uₙ - vₙ) := rfl
 
 @[simp]
-lemma smul_cons_eq_cons_smul [has_mul α] (c head : α) (tail : α ^ n)
+lemma smul_cons_eq_mul_cons_smul [has_mul α] (c head : α) (tail : α ^ n)
   : c • (cons head tail) = cons (c * head) (c • tail) := rfl
+
+@[simp]
+lemma smul_cons_eq_smul_cons_smul [has_smul β α] (c : β) (head : α) (tail : α ^ n)
+  : c • (cons head tail) = cons (c • head) (c • tail) := rfl
 
 @[simp]
 lemma smul_nil [has_mul α] (c : α) : c • (nil : tuple α 0) = nil := rfl
@@ -36,6 +39,12 @@ lemma zero_cons [has_zero α] : (0 : α ^ n.succ) = (cons 0 0) := rfl
 @[simp]
 lemma eq_cons_iff_and_eq (u₁ v₁ : α) (uₙ vₙ : α ^ n)
   : (cons u₁ uₙ) = (cons v₁ vₙ) ↔ (u₁ = v₁) ∧ (uₙ = vₙ) := by simp
+
+@[simp]
+lemma empty_vec_eq_nil (v : α ^ 0) : v = nil := by { cases v, refl, }
+
+@[simp]
+lemma zero_empty_vec_eq_nil [has_zero α] : (0 : tuple α 0) = (nil : tuple α 0) := rfl
 
 lemma cast_nnnorm_eq_norm (v : ℝ ^ n) : ↑‖v‖₊ = ‖v‖ := rfl
 lemma nnnorm_eq_sqrt_norm_sq (v : ℝ ^ n) : ‖v‖₊ = nnreal.sqrt (norm_sq v) := rfl

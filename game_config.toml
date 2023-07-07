@@ -5,7 +5,7 @@ intro = "src/game/intro.lean"
 
 
 [[worlds]]
-name = "Vector world"
+name = "R^3 vector space world"
 id = 1
 levels = [
 	"src/game/vector_world/level1.lean",

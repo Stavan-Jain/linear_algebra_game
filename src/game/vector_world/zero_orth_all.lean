@@ -8,7 +8,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 18: `Zero orthogonal` 
+## Level 22: `Zero orthogonal to all vectors` 
 
 -/
 
@@ -23,8 +23,7 @@ begin
   induction n with n hn,
   { intro x,
     cases x,
-    simp,
-    refl, },
+    simp,},
   { intro x,
     cases x with n head tail,
     simp,
