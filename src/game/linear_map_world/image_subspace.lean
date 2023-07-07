@@ -6,9 +6,9 @@ open tuple
 
 # Linear Transformation world
 
-## Level 4: `The Null Space of a linear transformation is a subspace` 
+## Level 7: `The Image of a linear transformation is a subspace` 
 
-N(A) is a subspace for any linear transformation A. 
+C(A) is a subspace for any linear transformation A. 
 
 -/
 

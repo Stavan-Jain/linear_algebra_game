@@ -1,25 +1,19 @@
-import vectors.tuple -- hide
-import vectors.lin_maps --hide
-import vectors.tuple.tactics --hide
-import data.real.basic
-import game.vector_world.orth_self_unique_zero --hide
-import game.auxiliary_theorems.zero_smul --hide
-import game.vector_spaces_world.vector_space --hide
-namespace tuple -- hide
+import game.linear_map_world.lin_transformation_def2
+namespace vector_spaces -- hide
 
 /- 
 
 # Linear Transformation world
 
-## Level 1: `T(0) = 0` 
+## Level 3: `T(v) = v is a linear transformation` 
 
 -/
 
 /- Lemma
-x ⬝ x = 0 ↔ x = tuple.zero
+
 -/
 lemma id_transformation: ∀ {n : ℕ} (T : ℝ ^ n  → ℝ ^ n),
-  (∀ (v : ℝ ^ n), (T v) = v) → linear_transformation T :=
+  (∀ (v : ℝ ^ n), (T v) = v) → linear_transformation T ℝ:=
 begin 
   intros n T h,
   simp,
@@ -27,4 +21,4 @@ begin
   repeat {rw h},
 end
 
-end tuple -- hide
+end vector_spaces -- hide

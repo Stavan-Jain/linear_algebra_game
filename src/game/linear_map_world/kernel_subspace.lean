@@ -1,4 +1,4 @@
-import game.linear_map_world.lin_transformation_def2 --hide
+import game.linear_map_world.example_1 --hide
 namespace vector_spaces
 open tuple
 
@@ -6,7 +6,7 @@ open tuple
 
 # Linear Transformation world
 
-## Level 3: `The Kernel of a linear transformation is a subspace` 
+## Level 6: `The Kernel of a linear transformation is a subspace` 
 
 N(A) is a subspace for any linear transformation A. 
 
