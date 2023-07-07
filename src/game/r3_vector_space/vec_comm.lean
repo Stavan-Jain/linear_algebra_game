@@ -1,7 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic --hide
-import vectors.tuple.tactics --hide
-import game.vector_spaces_world.vec_assoc --hide
+import game.r3_vector_space.vec_assoc --hide
 namespace tuple -- hide
 
 
@@ -9,7 +6,7 @@ namespace tuple -- hide
 
 # Vector world
 
-## Level 2: `vector_assoc` 
+## Level 2: `vector_comm` 
 
 -/
 
