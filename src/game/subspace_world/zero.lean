@@ -10,8 +10,7 @@ instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := begin
   { intros u h1 v h2, 
     simp at *, 
     rw [h1, h2],
-    simp,
-  },
+    simp, },
 
   { intros, 
   simp at *, 

@@ -3,7 +3,7 @@ namespace vector_spaces
 open tuple
 
 
-lemma orth_complement_eq {n : ℕ} (U: set (ℝ ^ n)) (V: set (ℝ ^ n))
+lemma orth_of_sum_eq_inter_of_orth {n : ℕ} (U: set (ℝ ^ n)) (V: set (ℝ ^ n))
 [U_sub : subspace (ℝ ^ n) ℝ U] [V_sub : subspace (ℝ ^ n) ℝ V]: 
 orth_complement ({x : ℝ ^ n | ∃ u : U, ∃ v : V, x = u + v}) = orth_complement U ∩ orth_complement V := 
 begin 
