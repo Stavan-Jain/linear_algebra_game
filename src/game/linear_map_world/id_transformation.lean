@@ -13,7 +13,7 @@ namespace vector_spaces -- hide
 
 -/
 lemma id_transformation: ∀ {n : ℕ} (T : ℝ ^ n  → ℝ ^ n),
-  (∀ (v : ℝ ^ n), (T v) = v) → linear_transformation T ℝ:=
+  (∀ (v : ℝ ^ n), (T v) = v) → linear_transformation T ℝ :=
 begin 
   intros n T h,
   simp,

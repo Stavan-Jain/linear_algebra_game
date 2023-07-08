@@ -14,7 +14,7 @@ open tuple
 
 -/
 lemma zero_transformation: ∀ {n : ℕ} (T : ℝ ^ n  → ℝ ^ n),
-  (∀ (v : ℝ ^ n), (T v) = (0 : ℝ ^ n)) → linear_transformation T ℝ:=
+  (∀ (v : ℝ ^ n), (T v) = (0 : ℝ ^ n)) → linear_transformation T ℝ :=
 begin 
   intros n T h,
   simp,
