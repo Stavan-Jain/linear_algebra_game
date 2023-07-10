@@ -21,7 +21,7 @@ lemma add_zero : ∀ (u : ℝ ^ 3), u + 0 = u :=
 begin
   intro u,
   cases_tuple u 3,
-  simpa,
+  simp,
 end
 
 end tuple -- hide
