@@ -15,7 +15,7 @@ C(A) is a subspace for any linear transformation A.
 /- Lemma
 
 -/
-instance image_subspace {n m : ℕ} (T : ℝ ^ n → ℝ ^ m):
+instance image_subspace {n m : ℕ} (T : ℝ ^ n → ℝ ^ m) :
   linear_transformation T ℝ → subspace (ℝ^ m) ℝ (image T) :=
 begin 
   intro h, 

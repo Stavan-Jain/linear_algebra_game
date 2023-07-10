@@ -13,7 +13,7 @@ open tuple -- hide
 /- Lemma
 x ⬝ x = 0 ↔ x = tuple.zero
 -/
-lemma example_1: ∀ (T : ℝ ^ 2  → ℝ ^ 2), 
+lemma example_1 : ∀ (T : ℝ ^ 2  → ℝ ^ 2), 
 (∀ (x y : ℝ), (T [[x, y]]) = [[(x + y), y]]) → linear_transformation T ℝ :=
 begin 
   intros T h,

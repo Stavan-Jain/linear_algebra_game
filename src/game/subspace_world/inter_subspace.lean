@@ -3,7 +3,7 @@ import game.subspace_world.dot_prod
 namespace vector_spaces
 open tuple
 
-instance inter_subspace {n : ℕ} {U V : set (ℝ ^ n)} [u : subspace (ℝ ^ n) ℝ U] [v : subspace (ℝ ^ n) ℝ V]:
+instance inter_subspace {n : ℕ} {U V : set (ℝ ^ n)} [u : subspace (ℝ ^ n) ℝ U] [v : subspace (ℝ ^ n) ℝ V] :
 subspace (ℝ ^ n) ℝ (U ∩ V) := 
 begin
   split,

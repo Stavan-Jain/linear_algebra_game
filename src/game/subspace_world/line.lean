@@ -4,7 +4,7 @@ namespace vector_spaces
 open tuple
 open set
 
-instance line_through_origin {n : ℕ} (v : ℝ ^ n): subspace (ℝ ^ n) ℝ {x : ℝ ^ n | ∃(c : ℝ), x = c • v}  := 
+instance line_through_origin {n : ℕ} (v : ℝ ^ n) : subspace (ℝ ^ n) ℝ {x : ℝ ^ n | ∃(c : ℝ), x = c • v} := 
 begin 
   split, 
 

@@ -15,7 +15,7 @@ N(A) is a subspace for any linear transformation A.
 /- Lemma
 
 -/
-instance kernel_subspace {n m : ℕ} (T : ℝ ^ n → ℝ ^ m):
+instance kernel_subspace {n m : ℕ} (T : ℝ ^ n → ℝ ^ m) :
 linear_transformation T ℝ → subspace (ℝ ^ n) ℝ (kernel T) :=
 begin 
 intro h, 

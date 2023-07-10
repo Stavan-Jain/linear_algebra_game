@@ -5,7 +5,7 @@ import game.vector_spaces_world.vector_space
 namespace vector_spaces
 open tuple
 
-instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := 
+instance zero {n : ℕ} : subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := 
 begin
   split,
 

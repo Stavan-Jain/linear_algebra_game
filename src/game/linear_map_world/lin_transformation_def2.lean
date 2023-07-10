@@ -23,7 +23,7 @@ to the usual definition:
 /- Lemma
 
 -/
-lemma lin_transformation_def2: ∀ {n m : ℕ} (T : ℝ ^ n → ℝ ^ m),
+lemma lin_transformation_def2 : ∀ {n m : ℕ} (T : ℝ ^ n → ℝ ^ m),
 linear_transformation T ℝ ↔ ∀ (c : ℝ) (x y : ℝ ^ n), (T (c • x)) = c • (T x) ∧ T (x + y) = T x + T y :=
 begin 
   intros n m T, 
