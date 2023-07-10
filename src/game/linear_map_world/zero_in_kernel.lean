@@ -16,15 +16,14 @@ x ⬝ x = 0 ↔ x = tuple.zero
 -/
 
 lemma zero_in_kernel : ∀ {n m : ℕ} (T : ℝ ^ n → ℝ ^ m),
-  linear_transformation T ℝ → (T 0) = 0 :=
+linear_transformation T ℝ → (T 0) = 0 :=
 begin 
-  intros n m T,
   simp, 
-  intro h, 
-  have h1 := h 0 0 0 0,
-  repeat {rw smul_zero' at h1,  rw zero_smul' at h1}, 
-  simp at h1, 
-  exact h1, 
+  intros n m T h,
+  specialize h 0 0 0 0,
+  repeat {rw smul_zero' at h,  rw zero_smul' at h}, 
+  simp at h, 
+  exact h, 
 end
 
 end vector_spaces -- hide

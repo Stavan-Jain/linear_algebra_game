@@ -4,17 +4,13 @@ namespace vector_spaces
 open tuple
 open set
 
-instance all_rn {n : ℕ}: subspace (ℝ ^ n) ℝ univ  := begin 
+open set
+
+instance all_rn {n : ℕ} : subspace (ℝ ^ n) ℝ univ := begin 
   split, 
-  {
-    intros, simp at *,  
-  } ,
-  {
-    intros, simp at *,  
-  }, 
-  {
-    intros, simp at *, 
-  },
+  { intros, simp at *, },
+  { intros, simp at *, }, 
+  { intros, simp at *, },
 end
 
 end vector_spaces

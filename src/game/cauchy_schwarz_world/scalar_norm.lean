@@ -9,11 +9,26 @@ namespace tuple -- hide
 -/
 
 /- Lemma
+
 |c|*||x|| = ||cx||
+
+Background:
+
+Here we'll be proving that multiplying the magnitude of vector x by the scalar c yields the same 
+result as finding the magnitude of the vector cx. 
+
+Strategy and Hints: 
+
+In class you'll probably prove this using the formula for the magnitude of a vector. Here we will do it differently. 
+
+Let's remember that we've already proved "scalar_through" which tells us that (c**x) ⬝ y =c * (x ⬝ y), which looks like it could be useful here. 
+
+When doing a proof it is sometimes useful to change the goal to something that implies that the initial goal is also true. 
+
 -/
 
 lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n)
-, |c| * ‖x‖ = ‖c • x‖   :=
+, (|c| * ‖x‖ : ℝ)  = ‖c • x‖   :=
 begin 
   intros n c x,
   simp [has_norm.norm, tuple.norm],
@@ -28,7 +43,7 @@ begin
 
   have i := j c h, 
   nth_rewrite 0 i, 
-  rw ← real.sqrt_mul,
+  rw ← real.sqrt_mul ,
   simp [scalar_through],  
   nth_rewrite 1 dot_comm, 
   simp [scalar_through],  
