@@ -1,6 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.dot_pos_def_1 
+import game.dot_prod_world.dot_pos_def_1 --hide
 namespace tuple -- hide
 
 /- 
@@ -11,7 +9,7 @@ The amount that a vector aligns with itself can only be zero if it itself is the
 
 We're going to prove that if dot product of a vector with itself is 0 then it must be the zero vector. 
 
-## Level 5: `dot product is postive definite part 2 ` 
+## Level 3: `dot product is postive definite part 2 ` 
 
 -/
 
