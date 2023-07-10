@@ -1,14 +1,10 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.norm_neg_eq_neg --hide
-
-
+import game.cauchy_schwarz_world.scalar_through --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 14: `scalar pass through norms` 
+## Level 3: `scalar pass through norms` 
 
 -/
 

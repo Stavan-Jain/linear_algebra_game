@@ -1,13 +1,11 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.zero_dot --hide
+import game.cauchy_schwarz_world.norm_zero_iff --hide
 
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 18: `Boss level: Cauchy-Schwarz` 
+## Level 8: `Boss level: Cauchy-Schwarz` 
 
 -/
 

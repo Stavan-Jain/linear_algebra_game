@@ -1,25 +1,20 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.neg_eq_neg_mul --hide
+import game.auxiliary_theorems.neg_eq_neg_mul --hide
 namespace tuple -- hide
 
 /- 
 
-Let's come back to thinking about what the dot product describes. It gives us an idea for how much one vector aligns with another. 
-The amount that a vector aligns with itself can only be zero if it itself is the zero vector. 
-# Vector world
+# Auxiliary Theorems
 
-We're going to prove that if dot product of a vector with itself is 0 then it must be the zero vector. 
 
-## Level 10: `sub equals add neg ` 
+## Level 7: `sub equals add neg ` 
 
 -/
 
 /- Lemma
-x ⬝ x = 0 ↔ x = tuple.zero
+
 -/
 
-lemma sub_eq_add_neg' {n : ℕ} (v u : ℝ ^ n) : v - u = v + -u :=
+lemma sub_eq_add_neg {n : ℕ} (v u : ℝ ^ n) : v - u = v + -u :=
 begin 
   induction n with n hn generalizing v u,
   { cases v, cases u,

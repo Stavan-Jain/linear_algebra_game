@@ -1,13 +1,11 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.scalar_norm --hide
+import game.cauchy_schwarz_world.cauchy_schwarz_unit
 
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz World
 
-## Level 15: `Norm is 0 iff zero vector` 
+## Level 7: `Norm is 0 iff zero vector` 
 
 -/
 

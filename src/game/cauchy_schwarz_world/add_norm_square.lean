@@ -1,12 +1,11 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.dot_dist-- hide 
+import game.dot_prod_world.dot_zero
+import game.auxiliary_theorems.sub_eq_add_neg --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 8: `Add norm square` 
+## Level 1: `Add norm square` 
 
 -/
 
@@ -18,7 +17,7 @@ lemma add_norm_square: ∀ {n : ℕ} (x y : ℝ ^ n)
 ,  ↑(norm_sq (x + y)) = ↑(norm_sq x) + (2 * (x ⬝ y)) + ↑(norm_sq y) :=
 begin 
   intros n x y, 
-  dsimp [norm_sq],  
+  simp,   
   rw dot_dist, 
   rw dot_comm, 
   rw dot_dist, 

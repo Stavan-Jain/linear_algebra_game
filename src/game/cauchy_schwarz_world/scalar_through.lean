@@ -1,12 +1,10 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.dot_pos_def_2 
+import game.cauchy_schwarz_world.add_norm_square
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 6: `Scalars pass through` 
+## Level 2: `Scalars pass through` 
 
 -/
 

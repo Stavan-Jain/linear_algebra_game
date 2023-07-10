@@ -1,13 +1,10 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.norm_zero_iff --hide
-
+import game.cauchy_schwarz_world.sub_norm_square --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 16: `Div norm unit` 
+## Level 5: `Div norm unit` 
 
 -/
 
