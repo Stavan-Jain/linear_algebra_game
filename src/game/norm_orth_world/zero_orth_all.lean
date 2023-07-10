@@ -1,14 +1,11 @@
-import vectors.tuple -- hide
-import vectors.orthogonal --hide
-import data.real.basic
-import game.vector_world.triangle_ineq --hide
+import game.norm_orth_world.orth_self_unique_zero
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 22: `Zero orthogonal to all vectors` 
+## Level 3: `Zero orthogonal to all vectors` 
 
 -/
 

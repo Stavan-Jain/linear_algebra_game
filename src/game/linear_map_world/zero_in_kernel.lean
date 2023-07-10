@@ -1,10 +1,5 @@
-import vectors.tuple -- hide
 import vectors.lin_maps --hide
-import data.real.basic
-import game.vector_world.orth_self_unique_zero --hide
-import game.auxiliary_theorems.zero_smul --hide
-import game.vector_spaces_world.vector_space --hide
-import vectors.subspace --hide
+import game.subspace_world.orth_of_sum_eq_inter_of_orth--hide
 open tuple -- hide
 namespace vector_spaces --hide
 

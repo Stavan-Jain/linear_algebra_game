@@ -57,8 +57,7 @@ protected lemma nsmul_succ {n : ℕ} :
 (∀ (c : ℕ) (v : ℝ ^ n), tuple.nsmul c.succ v = v + tuple.nsmul c v) := λ c v, rfl
 
 
-lemma sub_eq_add_neg {n : ℕ} : (∀ (v u : ℝ ^ n), v - u = v + -u) := 
-begin
+lemma sub_eq_add_neg' {n : ℕ} : (∀ (v u : ℝ ^ n), v - u = v + -u) := begin
   induction n with n hn,
   { intros v u,
     cases v, cases u,

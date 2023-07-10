@@ -1,13 +1,11 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.cauchy_schwarz_unit --hide
-
+import game.cauchy_schwarz_world.cauchy_schwarz --hide
+import vectors.orthogonal --hide
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 13: `norm of neg equals norm` 
+## Level 1: `norm of neg equals norm` 
 
 -/
 

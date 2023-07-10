@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.orth_self_unique_zero --hide
+import vectors.tuple.tactics --hide
+import data.real.basic --hide
 namespace tuple -- hide
 
 /- 

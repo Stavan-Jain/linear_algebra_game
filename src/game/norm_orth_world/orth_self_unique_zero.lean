@@ -1,14 +1,11 @@
-import vectors.tuple -- hide
-import vectors.orthogonal --hide
-import data.real.basic
-import game.vector_world.zero_orth_all --hide
+import game.norm_orth_world.norm_neg_eq_neg --hide
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 23: `**0** is uniquely orthogonal to itself` 
+## Level 2: `**0** is uniquely orthogonal to itself` 
 
 -/
 

@@ -1,6 +1,3 @@
-import vectors.tuple -- hide
-import data.real.basic --hide
-import vectors.tuple.tactics --hide
 import game.auxiliary_theorems.vector_dist --hide
 namespace tuple -- hide
 

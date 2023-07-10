@@ -1,12 +1,12 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.vector_world.scalar_through--hide
+import game.dot_prod_world.dot_pos_def_2--hide
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 7: `Distributive Property` 
+## Level 4: `Distributive Property` 
 
 -/
 

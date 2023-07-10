@@ -1,12 +1,11 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.dot_dist-- hide 
+import game.dot_prod_world.dot_zero
+import game.auxiliary_theorems.sub_eq_add_neg --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 8: `Add norm square` 
+## Level 1: `Add norm square` 
 
 -/
 

@@ -1,6 +1,5 @@
 import vectors.subspace
-import game.vector_world.orth_self_unique_zero
-import game.auxiliary_theorems.zero_smul
+import game.norm_orth_world.triangle_ineq
 import game.vector_spaces_world.vector_space
 namespace vector_spaces
 open tuple

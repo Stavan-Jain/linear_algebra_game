@@ -1,14 +1,10 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.sub_norm_square -- hide 
-
-
+import game.cauchy_schwarz_world.div_norm_unit --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 12: `Cauchy-Schwarz Inequality for unit vectors` 
+## Level 6: `Cauchy-Schwarz Inequality for unit vectors` 
 
 -/
 

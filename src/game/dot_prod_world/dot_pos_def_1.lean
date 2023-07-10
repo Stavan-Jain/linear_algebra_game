@@ -1,6 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.dot_comm --hide
+import game.dot_prod_world.dot_comm --hide
 namespace tuple -- hide
 
 /- 
@@ -18,7 +16,7 @@ is a vector with one element, the product is always positive.
 
 We're going to prove that the dot product is positive definite!
 
-## Level 4: `dot product is postive definite ` 
+## Level 2: `dot product is postive definite ` 
 
 -/
 
