@@ -1,5 +1,5 @@
 import vectors.tuple -- hide
-import data.real.basic 
+import data.real.basic --hide
 import game.vector_world.lin_comb2 --hide
 namespace tuple -- hide
 

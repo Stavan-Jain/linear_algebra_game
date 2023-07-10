@@ -24,7 +24,7 @@ of y on x and z on x then it must be that the dot product of y+z and x is equal 
 
 x ⬝ (y + z) = (x ⬝ y) + (x ⬝ z).
 
-Strategy:
+Strategy:  
 
 Let’s take a minute to get introduced to cases_matching p. This tactic applies cases to a hypothesis h if it type matches the pattern of p. 
 For instance, the following tactic destructs all conjunctions and disjunctions in the current goal.
