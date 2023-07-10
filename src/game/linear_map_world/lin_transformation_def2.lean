@@ -24,35 +24,27 @@ to the usual definition:
 
 -/
 lemma lin_transformation_def2 : ∀ {n m : ℕ} (T : ℝ ^ n → ℝ ^ m),
-  linear_transformation T ℝ ↔ ∀ (c: ℝ) (x y : ℝ ^ n), (T (c• x)) = c • (T x) ∧ T (x + y) = T x + T y :=
+linear_transformation T ℝ ↔ ∀ (c : ℝ) (x y : ℝ ^ n), (T (c • x)) = c • (T x) ∧ T (x + y) = T x + T y :=
 begin 
   intros n m T, 
   split, 
-  {intro h, intros c x y, 
-  split, 
-  {
-    have h₁ := h c 0 x 0, 
-    repeat {rw zero_smul' at h₁},
-    simp at h₁,   
-    exact h₁, 
-  }, 
-  have h₁ := h 1 1 x y,
-  repeat {rw tuple.one_smul at h₁},  
-  exact h₁,  
-  }, 
-  {
-    intro h, 
-    intros c d x y, 
-    have h2 := h c (c• x) (d•y), 
-    cases h2 with h3 h4, 
-    have h5:=  (h c x y).1, 
-    have h6:=  (h d y x).1,
-    rw h5 at h4, 
-    rw h6 at h4, 
-    exact h4, 
-  }
-  
 
+  { intros h c x y, 
+    split, 
+    { specialize h c 0 x 0, 
+      repeat {rw zero_smul' at h},
+      simp at h,   
+      exact h, }, 
+    { specialize h 1 1 x y,
+      repeat {rw tuple.one_smul at h},  
+      exact h, },
+  }, 
+
+  { intros h c d x y,
+    have hc := (h c x y).1,
+    have hd := (h d y x).1,
+    have hT := (h c (c • x) (d • y)).2,
+    rw [hT, hc, hd], },
 end
 
 end vector_spaces -- hide

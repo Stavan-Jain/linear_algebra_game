@@ -17,7 +17,7 @@ namespace tuple -- hide
 
 -/
 
-lemma one_smul {n : ℕ}: ∀ (v : ℝ ^ n ), (1 : ℝ) • v = v :=
+lemma one_smul {n : ℕ} : ∀ (v : ℝ ^ n ), (1 : ℝ) • v = v :=
 begin 
   intros,  
   induction n with d hd,
@@ -25,7 +25,7 @@ begin
    simp, }, 
   { cases v, 
     simp, 
-    rw hd, }
+    rw hd, },
 end
 
 end tuple -- hide

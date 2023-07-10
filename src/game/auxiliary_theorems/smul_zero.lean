@@ -17,6 +17,8 @@ namespace tuple -- hide
 
 -/
 
+set_option pp.numeral_types true
+
 lemma smul_zero' : ∀ {n : ℕ} (c : ℝ), c • (0 : ℝ ^ n) = 0 :=
 begin
   intros n,

@@ -31,14 +31,12 @@ where it could be applied. (This is because counting begins from 0.)
 Also, let's recall the utility 
 -/
 
-lemma add_norm_square: ∀ {n : ℕ} (x y : ℝ ^ n)
-,  ↑(norm_sq (x + y)) = ↑(norm_sq x) + (2 * (x ⬝ y)) + ↑(norm_sq y) :=
+lemma add_norm_square : ∀ {n : ℕ} (x y : ℝ ^ n), 
+↑(norm_sq (x + y)) = ↑(norm_sq x) + (2 * (x ⬝ y)) + ↑(norm_sq y) :=
 begin 
   intros n x y, 
-  dsimp [norm_sq],  
-  rw dot_dist, 
-  rw dot_comm, 
-  rw dot_dist, 
+  simp,  
+  rw [dot_dist, dot_comm, dot_dist],
   nth_rewrite 2 dot_comm, 
   rw dot_dist, 
   nth_rewrite 2 dot_comm,
