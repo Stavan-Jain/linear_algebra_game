@@ -1,98 +1,85 @@
-import data.nat.basic  -- hide
-open nat  -- hide
+import tactic.tauto -- -- hide
+local attribute [instance, priority 10] classical.prop_decidable -- hide
+
+/- Axiom : not_iff_imp_false (P : Prop) :
+¬ P ↔ P → false
+-/
+
+lemma not_iff_imp_false (P : Prop) : ¬ P ↔ P → false := iff.rfl -- hide
 
 /-
-# Tutorial World 
-## Level 7: Induction
+# Tutorial World
 
-NB: the use of Induction later in this game can sometimes be counter-intuitive, 
-regarding a normal (natural) way of proving Linear Algebra theorems. 
-Because of the formalized and computational nature of Lean, these are inevitable, 
-yet we will provide enough hints when such counter-intuitive proofs occur.
+## Level 7 : More on Proof By Contradiction
 
-## Details
-
-If you have a natural number `n : mynat` in your context
-(above the `⊢`) then `induction n with d hd` turns your
-goal into two goals, a base case with `n = 0` and
-an inductive step where `hd` is a proof of the `n = d`
-case and your goal is the `n = succ(d)` case.
-
-
-
-## Data:
-By Piano's Axioms, we have:
-  * a type called natural numbers (`mynat`). 
-  * a term `0 : mynat`, interpreted as the number zero.
-  * a function `succ : mynat → mynat`, with `succ n` interpreted as "the number after `n`".
-  * Usual numerical notation 0,1,2 etc (although 2 onwards will be of no use to us until much later ;-) ).
-  * Addition (with notation `a + b`).
-
-## Theorems:
-
-  * `add_zero (a : mynat) : a + 0 = a`. Use with `rw add_zero`.
-  * `add_succ (a b : mynat) : a + succ(b) = succ(a + b)`. Use with `rw add_succ`.
-  * The principle of mathematical induction. Use with `induction` (see below)
-  
-
-## Tactics:
-
-  * `refl` :  proves goals of the form `X = X`
-  * `rw h` : if h is a proof of `A = B`, changes all A's in the goal to B's.
-  * `induction n with d hd` : we're going to learn this right now.
-
-
-
-OK so let's see induction in action. We're going to prove
-
-  `zero_add (n : mynat) : 0 + n = n`. 
-
-After we start the induction process, we see that we now have *two goals*! The
-induction tactic has generated for us a base case with `n = 0` (the goal at the top)
-and an inductive step (the goal underneath). The golden rule: **Tactics operate on the first goal** --
-the goal at the top. So let's just worry about that top goal now, the base case `⊢ 0 + 0 = 0`.
-
-Remember that `add_zero` (the proof we have already) is the proof of `x + 0 = x`
-(for any $x$) so we can try
-
-`rw add_zero,`
-
- What do you think the goal will
-change to? Remember to just keep
-focussing on the top goal, ignore the other one for now, it's not changing
-and we're not working on it. You should be able to solve the top goal yourself
-now with `refl`.
-
-When you solved this base case goal, we are now be back down
-to one goal -- the inductive step. Take a look at the
-text below the lemma to see an explanation of this goal.
+## `exfalso`
 -/
 
-/- Lemma
-For all natural numbers $n$, we have
-$$0 + n = n.$$
+
+/-
+
+
+It's certainly true that $P\land(\lnot P)\implies Q$ for any propositions $P$
+and $Q$, because the left hand side of the implication is false. But how do
+we prove that `false` implies any proposition $Q$? 
+
+A cheap way of doing it in
+Lean is using the `exfalso` tactic, which changes any goal at all to `false`. 
+You might think this is a step backwards, but if you have a hypothesis `h : ¬ P`
+then after `rw not_iff_imp_false at h,` you can `apply h,` to make progress. 
+
 -/
-lemma zero_add (n : ℕ) : 0 + n = n :=
+
+
+
+/- Lemma : no-side-bar
+If $P$ and $Q$ are true/false statements, then
+$$(P\land(\lnot P))\implies Q.$$
+-/
+
+
+
+lemma contra (P Q : Prop) : (P ∧ ¬ P) → Q :=
 begin
-  induction n with d hd,
-    rw add_zero,
-    refl,
-  rw add_succ,
-  rw hd,
-  refl
+  intro h,
+  cases h with p np,
+  rw not_iff_imp_false at np,
+  exfalso,
+  apply np,
+  exact p,
+
 
 end
 
 /-
+Tactics:
+intro, cases, rw, exfalso, apply (exact)
+-/
+
+/-
+## Pro tip.
+
+`¬ P` is actually `P → false` *by definition*. Try
+commenting out `rw not_iff_imp_false at ...` by putting two minus signs `--`
+before the `rw`. Does it still compile?
+-/
+
+/- 
 
 ## Summary
 
-if `n : mynat` is in our assumptions, then `induction n with d hd`
-attempts to prove the goal by induction on `n`, with the inductive
-assumption in the `succ` case being `hd`.
+`exfalso` changes your goal to `false`. 
 
--/
+## Details
 
-end mynat -- hide
+We know that `false` implies `P` for any proposition `P`, and so if your goal is `P`
+then you should be able to `apply` `false → P` and reduce your goal to `false`. This
+is what the `exfalso` tactic does. The theorem that `false → P` is called `false.elim`
+so one can achieve the same effect with `apply false.elim`. 
 
-//need to import the theorems 
+This tactic can be used in a proof by contradiction, where the hypotheses are enough
+to deduce a contradiction and the goal happens to be some random statement (possibly
+a false one) which you just want to simplify to `false`.
+
+## Further Reading (Optional):
+https://leanprover.github.io/logic_and_proof/classical_reasoning.html -/

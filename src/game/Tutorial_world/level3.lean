@@ -112,13 +112,13 @@ Be warned though -- `rw h` works with `h : P ↔ Q` (`rw` works with
 `=` and `↔`), whereas you cannot rewrite with an implication.
 
 `cases` also works with hypotheses of the form `P ∨ Q` and even
-with `n : mynat`. Here the situation is different however. 
+with `n : ℕ`. Here the situation is different however. 
 To prove `P ∨ Q` you need to give either a proof of `P` *or* a proof
 of `Q`, so if `h : P ∨ Q` then `cases h with p q` will change one goal
 into two, one with `p : P` and the other with `q : Q`. Similarly, each
 natural is either `0` or `succ(d)` for `d` another natural, so if
-`n : mynat` then `cases n with d` also turns one goal into two,
-one with `n = 0` and the other with `d : mynat` and `n = succ(d)`.
+`n : ℕ` then `cases n with d` also turns one goal into two,
+one with `n = 0` and the other with `d : ℕ` and `n = succ(d)`.
 -/
 
 /-

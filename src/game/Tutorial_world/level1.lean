@@ -30,7 +30,7 @@ Let's see how the `refl` tactic works, as a warm-up. If we have the lemma below:
 For all natural numbers $x$, we have $x = x$.
 -/
 
-lemma example1 (x: ℕ) : x = x  :=
+lemma demo (x: ℕ) : x = x  :=
 begin 
   refl,
 
@@ -65,7 +65,6 @@ and $y=x+7$, then $2y=2(x+7)$.
 lemma Rewrite (x y : ℕ) (h : y = x + 7) : 2 * y = 2 * (x + 7) :=
 begin 
   rw h,
-  
 
 
 end

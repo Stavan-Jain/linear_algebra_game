@@ -1,6 +1,6 @@
 import data.nat.basic -- hide
 import tactic.ring -- hide
-open nat
+open nat -- hide
 
 
 /-
@@ -22,10 +22,10 @@ the goal into `P(x + y)` and so on.
 /- 
  If `a` and `b` are naturals, `a ≤ b` is *defined* to mean
 
-`∃ (c : mynat), b = a + c`. 
+`∃ (c : ℕ), b = a + c`. 
 
-So, we have the axiom, le_iff_exists_add (a b : mynat)
-  a ≤ b ↔ ∃ (c : mynat), b = a + c
+So, we have the axiom, le_iff_exists_add (a b : ℕ)
+  a ≤ b ↔ ∃ (c : ℕ), b = a + c
 
 In words, $a\le b$
 if and only if there exists a natural $c$ such that $b=a+c$. 
@@ -33,9 +33,9 @@ if and only if there exists a natural $c$ such that $b=a+c$.
 If you really want to change an `a ≤ b` to `∃ c, b = a + c` then
 you can do so with `rw le_iff_exists_add`:
 
-But because `a ≤ b` is *defined as* `∃ (c : mynat), b = a + c`, you
+But because `a ≤ b` is *defined as* `∃ (c : ℕ), b = a + c`, you
 do not need to `rw le_iff_exists_add`, you can just pretend when you see `a ≤ b`
-that it says `∃ (c : mynat), b = a + c`. You will see a concrete
+that it says `∃ (c : ℕ), b = a + c`. You will see a concrete
 example of this below.
 
 A new construction like `∃` means that we need to learn how to manipulate it.
@@ -117,4 +117,3 @@ then `use 1` will turn the goal into `⊢ 1 + x = x + 1`.
 
 -/ 
 
-end mynat -- hide
