@@ -155,7 +155,9 @@ section norm_real
       exact add_nonneg this hn, },
   end⟩
 
+  
   protected noncomputable def norm {n : ℕ} (v : ℝ ^ n) : nnreal := nnreal.sqrt (norm_sq v)
+  @[simp]
   noncomputable instance {n : ℕ} : has_norm (ℝ ^ n) := ⟨coe ∘ tuple.norm⟩
   noncomputable instance {n : ℕ} : has_nnnorm (ℝ ^ n) := ⟨tuple.norm⟩
 end norm_real

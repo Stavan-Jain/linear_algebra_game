@@ -47,23 +47,16 @@ with another vector y, yields the same result as multiplying the dot product of 
 
 lemma scalar_through: ∀ {n : ℕ} (c : ℝ) (x y : ℝ ^ n), (c • x) ⬝ y = c * (x ⬝ y) :=
 begin 
-  intro n,
+  intros n c x y,
   induction n with d hd, 
-  {intros c x y, 
-  cases x, 
-  cases y, 
-  repeat {dsimp [dot_product, scalar_mul, map]}, simp,  
-  },
-  {
-    intros c x y, 
-    cases x, 
-    cases y, 
+  { cases x, cases y, 
+    simp, },
+  { cases x with _ x₁ xₙ, 
+    cases y with _ y₁ yₙ, 
     simp,
     rw mul_add,
-    rw ← hd c x_tail y_tail,
-    simp,
-    rw mul_assoc, 
-  },
+    rw hd xₙ yₙ,
+    linarith, },
 end
 
 end tuple -- hide

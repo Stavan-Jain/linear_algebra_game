@@ -26,11 +26,12 @@ the dot product of x with itself.
 
 -/
 
-lemma norm_zero_iff: ∀ {n : ℕ} (x : ℝ ^ n)
-, ‖x‖ = 0 ↔ x = 0 :=
-begin
+set_option pp.numeral_types true
+
+lemma norm_zero_iff : ∀ {n : ℕ} (x : ℝ ^ n), ‖x‖ = 0 ↔ x = 0 :=
+begin 
   intros n x,
-  simp [has_norm.norm, tuple.norm, norm_sq],
+  repeat {rw norm_eq_sqrt_norm_sq}, simp,
   split,
   { intro hx,
     rw real.sqrt_eq_zero at hx,
@@ -39,10 +40,11 @@ begin
   { intro hx,
     induction n with n hn,
     { cases x,
-      simp [dot_product], },
+     simp, },
     { rw hx,
-      simp [dot_product],
-      exact hn 0 rfl, }, },
+      simp,
+      exact hn 0 (by refl), }, 
+    },
 end
 
 end tuple -- hide
