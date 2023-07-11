@@ -28,6 +28,7 @@ levels = [
 	"src/game/cauchy_schwarz_world/div_norm_unit.lean",
 	"src/game/cauchy_schwarz_world/cauchy_schwarz_unit.lean",
 	"src/game/cauchy_schwarz_world/norm_zero_iff.lean",
+	"src/game/cauchy_schwarz_world/norm_pos.lean",
 	"src/game/cauchy_schwarz_world/cauchy_schwarz.lean",
 ]
 

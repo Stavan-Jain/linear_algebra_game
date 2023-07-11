@@ -1,4 +1,4 @@
-import game.cauchy_schwarz_world.norm_zero_iff --hide
+import game.cauchy_schwarz_world.norm_pos --hide
 
 namespace tuple -- hide
 
@@ -19,8 +19,8 @@ Here we'll be approaching it differently.
 Strategy:
 As in other proofs it may be best to begin by considering the cases when either or both x and y are equal to zero.
 Remember, cauchy_schwarz_unit may be helpful here.
-modus ponuns 
-modus ponuns reverse -- implication
+modus ponens 
+modus ponens reverse -- implication
 
 More info:
 All though we’re expressing the cauchy schwarz inequality in terms of the dot product, it actually has to 
@@ -56,37 +56,10 @@ begin
         simp [has_norm.norm, tuple.norm, norm_sq],
         rw (dot_pos_def_2 0).mpr rfl,
         simp, }, },
-
-    { have x_norm_pos : ‖x‖ > 0,
-      { have norm_nonzero : ‖x‖ ≠ 0,
-        { intro norm_zero,
-          apply x_zero,
-          exact (norm_zero_iff x).mp norm_zero, },
-        simp [has_norm.norm, tuple.norm, norm_sq],
-        rw lt_iff_le_and_ne,
-        split,
-        { exact dot_pos_def_1 x, },
-        { intro dot_zero,
-          apply norm_nonzero,
-          simp [has_norm.norm, tuple.norm, norm_sq],
-          rw ← dot_zero,
-          exact real.sqrt_zero, }, },
-
-      have y_norm_pos : ‖y‖ > 0,
-      { have norm_nonzero : ‖y‖ ≠ 0,
-        { intro norm_zero,
-          apply y_zero,
-          exact (norm_zero_iff y).mp norm_zero, },
-        simp [has_norm.norm, tuple.norm, norm_sq],
-        rw lt_iff_le_and_ne,
-        split,
-        { exact dot_pos_def_1 y, },
-        { intro dot_zero,
-          apply norm_nonzero,
-          simp [has_norm.norm, tuple.norm, norm_sq],
-          rw ← dot_zero,
-          exact real.sqrt_zero, }, },
-
+     
+    have x_norm_pos := norm_pos x x_zero, 
+    have y_norm_pos := norm_pos y y_zero,   
+    { 
       have unit_dot_le_1 : |(‖x‖⁻¹ • x) ⬝ (‖y‖⁻¹ • y)| ≤ 1,
       { apply cauchy_schwarz_unit,
         { have mul_inv_unit := div_norm_unit x x_zero,
