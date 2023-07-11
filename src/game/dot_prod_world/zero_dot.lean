@@ -1,13 +1,11 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.div_norm_unit --hide
+import game.dot_prod_world.dot_dist --hide
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 17: `zero dot vector equals zero` 
+## Level 5: `zero dot vector equals zero` 
 
 -/
 

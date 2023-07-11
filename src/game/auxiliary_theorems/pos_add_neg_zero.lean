@@ -1,5 +1,3 @@
-import vectors.tuple -- hide
-import data.real.basic
 import game.auxiliary_theorems.scalar_comm --hide
 namespace tuple -- hide
 

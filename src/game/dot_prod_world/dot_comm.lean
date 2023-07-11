@@ -13,7 +13,7 @@ The amount that vector 1 goes in the direction of vector 2 must be the same as t
 
 We're going to prove that the dot product is commutative!  
 
-## Level 3: `dot product is commutative ` 
+## Level 1: `dot product is commutative ` 
 
 -/
 

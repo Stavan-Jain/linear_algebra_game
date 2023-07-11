@@ -1,19 +1,28 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.sub_norm_square -- hide 
-
-
+import game.cauchy_schwarz_world.div_norm_unit --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 12: `Cauchy-Schwarz Inequality for unit vectors` 
+## Level 6: `Cauchy-Schwarz Inequality for unit vectors` 
 
 -/
 
 /- Lemma
+
 |x · y| ≤ 1 if x and y are unit vectors.
+
+In class you can prove this using the formula for the magnitude of the 
+dot product and the bounds of the cosine function. 
+
+Here we'll be approaching it differently. 
+
+Hint: 
+We will be using the fact that |x · y|² is ≥ 1. 
+Applying add_norm_square we see that that |x · y|²= ||x||² + 2 * (x ⬝ y) + ||y||² ≥ 1 
+
+Good luck!
+
 -/
 
 lemma cauchy_schwarz_unit : ∀ {n : ℕ} (x y : ℝ ^ n), 

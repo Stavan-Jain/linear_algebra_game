@@ -16,7 +16,7 @@ instance {n : ℕ} : add_comm_group (ℝ  ^ n) :=
   tuple.nsmul_succ,
   tuple.neg,
   tuple.sub,
-  sub_eq_add_neg,
+  sub_eq_add_neg',
   tuple.zsmul,
   tuple.zsmul_zero,
   tuple.zsmul_succ,

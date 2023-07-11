@@ -1,19 +1,30 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.norm_neg_eq_neg --hide
-
-
+import game.cauchy_schwarz_world.scalar_through --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
-## Level 14: `scalar pass through norms` 
+## Level 3: `scalar pass through norms` 
 
 -/
 
 /- Lemma
+
 |c|*||x|| = ||cx||
+
+Background:
+
+Here we'll be proving that multiplying the magnitude of vector x by the scalar c yields the same 
+result as finding the magnitude of the vector cx. 
+
+Strategy and Hints: 
+
+In class you'll probably prove this using the formula for the magnitude of a vector. Here we will do it differently. 
+
+Let's remember that we've already proved "scalar_through" which tells us that (c**x) ⬝ y =c * (x ⬝ y), which looks like it could be useful here. 
+
+When doing a proof it is sometimes useful to change the goal to something that implies that the initial goal is also true. 
+
 -/
 
 lemma scalar_norm : ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n), |c| * ‖x‖ = ‖c • x‖ :=
@@ -31,7 +42,7 @@ begin
 
   have i := j c h, 
   nth_rewrite 0 i, 
-  rw ← real.sqrt_mul,
+  rw ← real.sqrt_mul ,
   simp [scalar_through],  
   nth_rewrite 1 dot_comm, 
   simp [scalar_through],  

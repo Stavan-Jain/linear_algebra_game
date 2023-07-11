@@ -1,14 +1,11 @@
-import vectors.tuple -- hide
-import vectors.orthogonal --hide
-import data.real.basic
-import game.vector_world.cauchy_schwarz --hide
+import game.norm_orth_world.zero_orth_all
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 19: `Parallelogram equality` 
+## Level 4: `Parallelogram equality` 
 
 -/
 

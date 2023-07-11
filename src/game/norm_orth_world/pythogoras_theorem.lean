@@ -1,14 +1,11 @@
-import vectors.tuple -- hide
-import vectors.orthogonal --hide
-import data.real.basic
-import game.vector_world.parallelogram_eq --hide
+import game.norm_orth_world.parallelogram_eq
 
 namespace tuple -- hide
 
 /- 
 # Vector world
 
-## Level 20: `Pythogaras Theorem` 
+## Level 5: `Pythogaras Theorem` 
 
 -/
 

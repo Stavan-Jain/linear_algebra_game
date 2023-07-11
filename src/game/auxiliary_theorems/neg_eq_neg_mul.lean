@@ -1,6 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.add_norm_square
+import game.auxiliary_theorems.zero_smul
 namespace tuple -- hide
 
 /- 
@@ -11,7 +9,7 @@ The amount that a vector aligns with itself can only be zero if it itself is the
 
 We're going to prove that if dot product of a vector with itself is 0 then it must be the zero vector. 
 
-## Level 9 : `neg_eq_neg_mul` 
+## Level 6 : `neg_eq_neg_mul` 
 
 -/
 
