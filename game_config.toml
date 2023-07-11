@@ -15,6 +15,5 @@ levels = [
 	"src/game/Tutorial_world/level6.lean",
 	"src/game/Tutorial_world/level7.lean",
 	"src/game/Tutorial_world/level8.lean",
-	"src/game/Tutorial_world/level9.lean",
-	"src/game/Tutorial_world/level10.lean"
+	"src/game/Tutorial_world/level9.lean"
 ]

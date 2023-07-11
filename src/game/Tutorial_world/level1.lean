@@ -1,8 +1,6 @@
-import mynat.definition -- imports the natural numbers {0,1,2,3,4,...}.
-import mynat.add -- imports definition of addition on the natural numbers.
-import mynat.mul -- imports definition of multiplication on the natural numbers.
-namespace mynat -- hide
-
+import data.nat.basic  -- hide
+open nat -- hide
+ 
 
 /- 
 # Tutorial World
@@ -32,15 +30,13 @@ Let's see how the `refl` tactic works, as a warm-up. If we have the lemma below:
 For all natural numbers $x$, we have $x = x$.
 -/
 
-lemma example1 (x: mynat) : x = x  :=
+lemma example1 (x: ℕ) : x = x  :=
 begin 
   refl,
 
 
 
 end
-
-//Just showing this but not a puzzle 
 
 /-
 `Refl` here will close the goal. 
@@ -66,10 +62,11 @@ If $x$ and $y$ are natural numbers,
 and $y=x+7$, then $2y=2(x+7)$. 
 -/
 
-lemma Rewrite (x y : mynat) (h : y = x + 7) : 2 * y = 2 * (x + 7) :=
+lemma Rewrite (x y : ℕ) (h : y = x + 7) : 2 * y = 2 * (x + 7) :=
 begin 
   rw h,
   
+
 
 end
 
@@ -92,5 +89,3 @@ of the goal).
 
 
 -/
-
-end mynat -- hide 

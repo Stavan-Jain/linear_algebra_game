@@ -128,5 +128,3 @@ one with `n = 0` and the other with `d : mynat` and `n = succ(d)`.
 · The `cases` tactic deals with the `or` logic. If the hypothesis is `h: P ∧ Q`, then `cases h with p q` will discuss the two cases, i.e.,
 break the hypothesis into `p: P` and `q: Q`, namely, two cases.
 -/ 
-
-end mynat -- hide 

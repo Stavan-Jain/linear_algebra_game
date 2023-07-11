@@ -1,8 +1,6 @@
-import mynat.definition -- hide
-import mynat.add -- hide
-import mynat.mul -- hide
-import tactic.ring -- hide
-namespace mynat -- hide
+import data.nat.basic  -- hide
+open nat  -- hide
+
 
 
 
@@ -45,7 +43,7 @@ If our goal is this:
 For all natural numbers $a,b,c$, we have $a * b * c = c * b * a$.
 -/
 
-lemma simp (∀ a b c : ℕ) : a * b * c = c * b * a  :=
+lemma commuting (a b c : ℕ) : a * b * c = c * b * a  :=
 begin 
   simp,
 

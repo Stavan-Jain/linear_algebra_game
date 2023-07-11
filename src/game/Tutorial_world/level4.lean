@@ -1,7 +1,7 @@
-import mynat.le -- import definition of ≤
-import game.world9.level4 -- hide
-import game.world4.level8 -- hide
-namespace mynat -- hide
+import data.nat.basic -- hide
+import tactic.ring -- hide
+open nat
+
 
 /-
 # Tutorial World 
@@ -97,7 +97,7 @@ before it and comment it out. See that the proof still compiles.
 /- Lemma : no-side-bar
 If $x$ is a natural number, then $x\le 1+x$.
 -/
-lemma one_add_le_self (x : mynat) : x ≤ 1 + x :=
+lemma one_add_le_self (x : ℕ) : x ≤ 1 + x :=
 begin
   rw le_iff_exists_add,
   use 1,

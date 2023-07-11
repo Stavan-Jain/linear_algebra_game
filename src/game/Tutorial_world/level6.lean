@@ -1,4 +1,4 @@
-import tactic.tauto -- useful high-powered tactic
+import tactic.tauto -- -- hide
 local attribute [instance, priority 10] classical.prop_decidable -- hide
 
 /- Axiom : not_iff_imp_false (P : Prop) :

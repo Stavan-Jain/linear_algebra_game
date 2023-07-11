@@ -1,3 +1,6 @@
+import data.nat.basic -- hide
+import tactic.linarith -- hide
+open nat -- hide
 
 
 /-
@@ -17,7 +20,7 @@ then linarith will solve it. Linarith knows how to combine linear relations: it 
 /- Lemma : no-side-bar
 If $x y a b$ are natural numbers, and if $x < y$, $a < b$, then $ x + a <  y + b$.
 -/
-lemma linarith (∀ x y a b : ℕ) (h1 : x < y) (h2: a < b) : x + a < y + b :=
+lemma linarith (x y a b : ℕ) (h1 : x < y) (h2: a < b) : x + a < y + b :=
 begin
   linarith,
 
