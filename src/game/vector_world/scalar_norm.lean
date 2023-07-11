@@ -19,7 +19,7 @@ namespace tuple -- hide
 lemma scalar_norm : ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n), |c| * ‖x‖ = ‖c • x‖ :=
 begin 
   intros n c x,
-  simp [has_norm.norm, tuple.norm],
+  repeat {rw norm_eq_sqrt_norm_sq}, simp,
   have j : ∀ (x : real), (0 ≤ x) → x = real.sqrt(x * x),
   {
     intros x xgeq, 

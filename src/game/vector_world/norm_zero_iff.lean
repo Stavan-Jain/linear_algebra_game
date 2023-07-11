@@ -20,7 +20,7 @@ set_option pp.numeral_types true
 lemma norm_zero_iff : ∀ {n : ℕ} (x : ℝ ^ n), ‖x‖ = 0 ↔ x = 0 :=
 begin 
   intros n x,
-  simp [has_norm.norm, tuple.norm], -- fix later
+  repeat {rw norm_eq_sqrt_norm_sq}, simp,
   split,
   { intro hx,
     rw real.sqrt_eq_zero at hx,

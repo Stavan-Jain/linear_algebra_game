@@ -20,9 +20,10 @@ begin
   intros n x xneq,
   rw ← scalar_norm (‖x‖⁻¹) x,
   have j : 0 ≤ (‖x‖⁻¹ : ℝ),
-  { simp [has_norm.norm], }, -- fix this later
+  { repeat {rw norm_eq_sqrt_norm_sq}, simp,
+    exact real.sqrt_nonneg _, },
   rw abs_eq_self.mpr j,
-  simp [has_norm.norm, tuple.norm],
+  repeat {rw norm_eq_sqrt_norm_sq}, simp,
   apply inv_mul_cancel,
   rw real.sqrt_ne_zero,
   { intro x_dot_0,

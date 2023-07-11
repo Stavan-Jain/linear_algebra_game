@@ -19,7 +19,7 @@ namespace tuple -- hide
 lemma norm_neg_eq_neg : ∀ {n : ℕ} (x : ℝ ^ n), ‖-x‖ = ‖x‖ :=
 begin 
   intros n x,
-  simp [has_norm.norm, tuple.norm], --fix this later
+  repeat {rw norm_eq_sqrt_norm_sq}, simp,
   congr' 1,
   induction n with n hn generalizing x,
   { cases x, 

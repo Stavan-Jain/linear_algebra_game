@@ -21,7 +21,7 @@ x ⬝ x = 0 ↔ x = tuple.zero
 
 lemma sub_eq_add_neg' {n : ℕ} (v u : ℝ ^ n) : v - u = v + -u :=
 begin 
-  induction n with n hn generalizing v u,
+  induction n with n hn,
   { cases v, cases u,
     refl, },
   { cases v with n v₁ vₙ,

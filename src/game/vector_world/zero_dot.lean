@@ -18,15 +18,13 @@ namespace tuple -- hide
 
 lemma zero_dot: ∀ {n : ℕ} (x : ℝ ^ n), 0 ⬝ x = 0 :=
 begin 
-   intro n , 
+   intros n x, 
    induction n with d hd, 
-   intro x, 
-   cases x, 
-   dsimp [tuple.zero, dot_product], refl, 
-   intro x, 
-   cases x, 
-   dsimp [tuple.zero, dot_product], simp, 
-   exact hd x_tail,  
+   { cases x, 
+     simp, },
+   { cases x with n head tail, 
+     simp, 
+     exact hd tail, },
 end
 
 end tuple -- hide
