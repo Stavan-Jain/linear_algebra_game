@@ -45,7 +45,7 @@ If our goal is this:
 For all natural numbers $a,b,c$, we have $a * b * c = c * b * a$.
 -/
 
-lemma simp (a b c: mynat) : a * b * c = c * b * a  :=
+lemma simp (∀ a b c : ℕ) : a * b * c = c * b * a  :=
 begin 
   simp,
 

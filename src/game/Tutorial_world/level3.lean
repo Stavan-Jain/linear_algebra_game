@@ -5,13 +5,13 @@
 
 In this level we will learn `split` and `cases`, with the notion of Union and Intersection.   
 
-
+## split: 
 
 The logical symbol `∧` means "and". If $P$ and $Q$ are propositions, then
 $P\land Q$ is the proposition "$P$ and $Q$". If your *goal* is `P ∧ Q` then
 you can make progress with the `split` tactic, which turns one goal `⊢ P ∧ Q`
 into two goals, namely `⊢ P` and `⊢ Q`. In the level below, after a `split`,
-you will be able to finish off the goals with the `exact` tactic.
+you will be able to finish off the goals with the `exact` or `apply` tactic.
 -/
 
 /- Lemma : no-side-bar
@@ -26,9 +26,21 @@ begin
 
 end 
 
+/-
+### Details
+
+If `P Q : Prop` and the goal is `⊢ P ∧ Q`, then `split` will change it into
+two goals, namely `⊢ P` and `⊢ Q`. 
+
+If `P Q : Prop` and the goal is `⊢ P ↔ Q`, then `split` will change it into
+two goals, namely `⊢ P → Q` and `⊢ Q → P`.  
+
+-/ 
 
 
 /- 
+## cases: 
+
 If `P ∧ Q` is in the goal, then we can make progress with `split`.
 But what if `P ∧ Q` is a hypothesis? In this case, the `cases` tactic will enable
 us to extract proofs of `P` and `Q` from this hypothesis.
@@ -44,7 +56,9 @@ to make progress. Now `h : P ∧ Q` is a hypothesis, and
 `cases h with p q,`
 
 will change `h`, the proof of `P ∧ Q`, into two proofs `p : P`
-and `q : Q`. From there, `split` and `exact` will get you home.
+and `q : Q`. From there, `split` and `exact` will get you home. Below is a demonstration of how
+cases works.
+
 -/
 
 
@@ -57,19 +71,17 @@ begin
   intro h,
   cases h with p q,
   split,
-  exact q,
-  exact p,
+  apply q,
+  apply p,
 
 
 end 
 
-/- Tactic : cases -/ 
 
-/- -
-## Summary:
+/- 
 
 
-## Details
+### Details
 
 How does one prove `P ∧ Q`? The way to do it is to prove `P` and to
 prove `Q`. There are hence two ingredients which go into a proof of
@@ -111,38 +123,10 @@ one with `n = 0` and the other with `d : mynat` and `n = succ(d)`.
 
 /-
 ## Summary:
+· The `split` tactic deals with the `and` logic. If the goal is `P ∧ Q` or `P ↔ Q` then `split` will break it into two goals.
 
-If the goal is `P ∧ Q` or `P ↔ Q` then `split` will break it into two goals.
-
-## Details
-
-If `P Q : Prop` and the goal is `⊢ P ∧ Q`, then `split` will change it into
-two goals, namely `⊢ P` and `⊢ Q`. 
-
-If `P Q : Prop` and the goal is `⊢ P ↔ Q`, then `split` will change it into
-two goals, namely `⊢ P → Q` and `⊢ Q → P`.  
-
-## Example:
-
-If your local context (the top right window) looks like this
-```
-a b : mynat,
-⊢ a = b ↔ a + 3 = b + 3
-```
-
-then after
-
-`split,`
-
-it will look like this:
-
-```
-2 goals
-a b : mynat
-⊢ a = b → a + 3 = b + 3
-
-a b : mynat
-⊢ a + 3 = b + 3 → a = b
--/
+· The `cases` tactic deals with the `or` logic. If the hypothesis is `h: P ∧ Q`, then `cases h with p q` will discuss the two cases, i.e.,
+break the hypothesis into `p: P` and `q: Q`, namely, two cases.
+-/ 
 
 end mynat -- hide 

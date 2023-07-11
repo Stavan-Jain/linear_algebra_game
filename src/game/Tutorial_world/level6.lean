@@ -31,6 +31,7 @@ Or are you?
 If $P$ and $Q$ are propositions, and $P\implies Q$, then
 $\lnot Q\implies \lnot P$. 
 -/
+
 lemma contrapositive (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) :=
 begin
   repeat {rw not_iff_imp_false},
@@ -43,6 +44,8 @@ begin
 
 
 end
+
+// Just showing this but not making it into a puzzle
 
 /-
 ## Technical note

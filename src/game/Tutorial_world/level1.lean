@@ -16,8 +16,6 @@ References: Kevin Buzzard's Natural Number Game (https://www.ma.imperial.ac.uk/~
 
 For additional resources on learning fundamentals of Lean, visit the site above. 
 
-
-
 ## Level 1: The refl & rw tactics
 Let's start with two tactics: `refl` and `rw`. `refl` stands for "reflexivity". Statements can be proved by `refl` when the left hand side is excatly the same as the
 right hand side ("definitionally equal"). And `rw` stands for "rewrite", substituting the LHS of an equality in an hypothesis h with the RHS. 
@@ -42,7 +40,7 @@ begin
 
 end
 
-
+//Just showing this but not a puzzle 
 
 /-
 `Refl` here will close the goal. 
@@ -82,10 +80,12 @@ end
 
 ## Summary
 
-· `refl` proves goals of the form `X = X`.
+· `refl` closes goals of the form `X = X`.
 
 · If `h` is a proof of `X = Y`, then `rw h,` will change
-all `X`s in the goal to `Y`s. Variants: `rw ← h` (changes
+all `X`s in the goal to `Y`s. 
+
+· Variants: `rw ← h` (changes
 `Y` to `X`) and `rw h at h2` (changes `X` to `Y` in hypothesis `h2` instead
 of the goal).
 

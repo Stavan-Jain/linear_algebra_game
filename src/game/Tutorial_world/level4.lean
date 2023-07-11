@@ -10,7 +10,7 @@ namespace mynat -- hide
 
 
 /-
-## Details
+## Use:
 
 `use` is a tactic which works on goals of the form `⊢ ∃ c, P(c)` where
 `P(c)` is some proposition which depends on `c`. With a goal of this
@@ -67,7 +67,14 @@ which is a powerful AI which will solve any equality in algebra which can
 be proved using the standard rules of addition and multiplication. Now
 look at your proof. We're going to remove a line.
 
-The ring tactic proves identities in commutative rings such as (x+y)^2=x^2+2*x*y+y^2. 
+
+## Ring:
+When dealing with complicated equalities, using the basic tactics
+solely relying on the axoims of addition and multiplication can be tedious sometimes. 
+
+Here, we introduce the `ring` tactic, aiming to simply the process. 
+
+The `ring` tactic proves identities in commutative rings such as (x+y)^2=x^2+2*x*y+y^2. 
 It works on concrete rings such as ℝ and abstract rings, and will also prove some results in “semirings” such as ℕ.
 Note that ring does not and cannot look at hypotheses.
 
@@ -106,7 +113,7 @@ end
 · `use` works on the goal. If your goal is `⊢ ∃ c : mynat, 1 + x = x + c`
 then `use 1` will turn the goal into `⊢ 1 + x = x + 1`. 
 
-· `
+· `ring` closes goals when goals can be proved by the ring algebra. 
 
 -/ 
 
