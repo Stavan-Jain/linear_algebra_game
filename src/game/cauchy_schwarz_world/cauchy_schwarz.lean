@@ -1,11 +1,11 @@
-import game.cauchy_schwarz_world.norm_pos --hide
+import game.cauchy_schwarz_world.cauchy_schwarz_yzero --hide
 
 namespace tuple -- hide
 
 /- 
 # Cauchy Schwarz world
 
-## Level 8: `Boss level: Cauchy-Schwarz` 
+## Level 11: `Boss level: Cauchy-Schwarz` 
 
 -/
 
@@ -36,31 +36,14 @@ lemma cauchy_schwarz: ∀ {n : ℕ} (x y : ℝ ^ n)
 begin
   intros n x y,
   by_cases x_zero : x = 0,
-  { cases n,
-    { cases x, cases y,
-      simp [has_norm.norm, tuple.norm, norm_sq], },
-    { rw x_zero,
-      cases y with n head tail,
-      rw zero_dot,
-      simp [has_norm.norm, tuple.norm, norm_sq],
-      rw (dot_pos_def_2 0).mpr rfl,
-      simp, }, },
+  { rw x_zero, 
+    exact cauchy_schwarz_xzero y,  },
   { by_cases y_zero : y = 0,
-    { cases n,
-      { cases x, cases y,
-        simp [has_norm.norm, tuple.norm, norm_sq], },
-      { rw y_zero,
-        cases x with n head tail,
-        rw dot_comm,
-        rw zero_dot,
-        simp [has_norm.norm, tuple.norm, norm_sq],
-        rw (dot_pos_def_2 0).mpr rfl,
-        simp, }, },
-     
+    { rw y_zero, 
+    exact cauchy_schwarz_yzero x,},
     have x_norm_pos := norm_pos x x_zero, 
     have y_norm_pos := norm_pos y y_zero,   
-    { 
-      have unit_dot_le_1 : |(‖x‖⁻¹ • x) ⬝ (‖y‖⁻¹ • y)| ≤ 1,
+    { have unit_dot_le_1 : |(‖x‖⁻¹ • x) ⬝ (‖y‖⁻¹ • y)| ≤ 1,
       { apply cauchy_schwarz_unit,
         { have mul_inv_unit := div_norm_unit x x_zero,
           simp [has_norm.norm, tuple.norm] at mul_inv_unit ⊢,
