@@ -20,10 +20,10 @@ begin
   intros n y,
   cases n,
     { cases y,
-      simp [has_norm.norm, tuple.norm, norm_sq], },
+      repeat {rw norm_eq_sqrt_norm_sq}, simp,  },
     { cases y with n head tail,
       rw zero_dot,
-      simp [has_norm.norm, tuple.norm, norm_sq],
+      repeat {rw norm_eq_sqrt_norm_sq}, simp, 
       rw (dot_pos_def_2 0).mpr rfl,
       simp, }, 
   

@@ -52,7 +52,7 @@ begin
   {intros c x y, 
   cases x, 
   cases y, 
-  repeat {dsimp [dot_product, scalar_mul, map]}, simp,  
+  simp,   
   },
   {
     intros c x y, 
