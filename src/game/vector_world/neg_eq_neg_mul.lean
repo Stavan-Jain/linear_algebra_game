@@ -20,14 +20,13 @@ x ⬝ x = 0 ↔ x = tuple.zero
 -/
 lemma neg_eq_neg_mul : ∀ {n : ℕ} (x : ℝ ^ n), -x = (-1 : ℝ) • x :=
 begin 
-  intro n,
+  intros n x,
   induction n with n hn,
-  { intro x, cases x, refl, },
-  { intro x,
-    cases x with n x₁ xₙ,
+  { cases x, 
+    refl, },
+  { cases x with n x₁ xₙ,
     simp,
-    specialize hn xₙ,
-    exact hn, },
+    exact hn xₙ, },
 end
 
 end tuple -- hide

@@ -16,16 +16,16 @@ namespace tuple -- hide
 -/
 
 
-lemma norm_neg_eq_neg: ∀ {n : ℕ} (x : ℝ ^ n)
-, ‖-x‖ = ‖x‖   :=
+lemma norm_neg_eq_neg : ∀ {n : ℕ} (x : ℝ ^ n), ‖-x‖ = ‖x‖ :=
 begin 
   intros n x,
-  simp [has_norm.norm, tuple.norm, norm_sq],
+  simp [has_norm.norm, tuple.norm], --fix this later
   congr' 1,
   induction n with n hn generalizing x,
-  { cases x, refl, },
+  { cases x, 
+    refl, },
   { cases x with n head tail,
-    simp [dot_product],
+    simp,
     exact hn tail, },
 end
 

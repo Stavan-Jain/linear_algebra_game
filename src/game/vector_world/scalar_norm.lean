@@ -16,8 +16,7 @@ namespace tuple -- hide
 |c|*||x|| = ||cx||
 -/
 
-lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n)
-, |c| * ‖x‖ = ‖c • x‖   :=
+lemma scalar_norm : ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n), |c| * ‖x‖ = ‖c • x‖ :=
 begin 
   intros n c x,
   simp [has_norm.norm, tuple.norm],

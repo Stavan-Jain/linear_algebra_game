@@ -15,16 +15,14 @@ namespace tuple -- hide
 ||(1 / ||x|| ) *x || = 1
 -/
 
-lemma div_norm_unit: ∀ {n : ℕ} (x: ℝ ^ n)
-, x ≠ 0 → ‖ ‖x‖⁻¹ • x‖ = 1 :=
+lemma div_norm_unit : ∀ {n : ℕ} (x : ℝ ^ n), x ≠ 0 → ‖(‖x‖⁻¹ • x)‖ = 1 :=
 begin 
   intros n x xneq,
   rw ← scalar_norm (‖x‖⁻¹) x,
   have j : 0 ≤ (‖x‖⁻¹ : ℝ),
-  { simp [has_norm.norm, tuple.norm, norm_sq],
-    exact real.sqrt_nonneg _, },
+  { simp [has_norm.norm], }, -- fix this later
   rw abs_eq_self.mpr j,
-  simp [has_norm.norm, tuple.norm, norm_sq],
+  simp [has_norm.norm, tuple.norm],
   apply inv_mul_cancel,
   rw real.sqrt_ne_zero,
   { intro x_dot_0,

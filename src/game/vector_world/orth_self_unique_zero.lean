@@ -16,8 +16,7 @@ namespace tuple -- hide
 **0** is the only vector orthogonal to itself
 -/
 
-lemma orth_self_unique_zero: ∀ {n : ℕ} (x: ℝ ^ n)
-,  x ⟂ x → x = 0   :=
+lemma orth_self_unique_zero : ∀ {n : ℕ} (x : ℝ ^ n),  x ⟂ x → x = 0 :=
 begin 
   intros n x perp,
   simp at perp,

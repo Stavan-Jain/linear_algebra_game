@@ -15,12 +15,12 @@ namespace tuple -- hide
 ||x|| = 0 ↔ x = **0**
 -/
 
+set_option pp.numeral_types true
 
-lemma norm_zero_iff: ∀ {n : ℕ} (x : ℝ ^ n)
-, ‖x‖ = 0 ↔ x = 0   :=
+lemma norm_zero_iff : ∀ {n : ℕ} (x : ℝ ^ n), ‖x‖ = 0 ↔ x = 0 :=
 begin 
   intros n x,
-  simp [has_norm.norm, tuple.norm, norm_sq],
+  simp [has_norm.norm, tuple.norm], -- fix later
   split,
   { intro hx,
     rw real.sqrt_eq_zero at hx,
@@ -28,10 +28,12 @@ begin
     { exact dot_pos_def_1 x, }, },
   { intro hx,
     induction n with n hn,
-    { cases x, simp [dot_product], },
+    { cases x,
+     simp, },
     { rw hx,
-      simp [dot_product],
-      exact hn 0 rfl, }, },
+      simp,
+      exact hn 0 (by refl), }, 
+    },
 end
 
 end tuple -- hide

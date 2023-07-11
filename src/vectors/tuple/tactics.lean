@@ -50,6 +50,7 @@ lemma cast_nnnorm_eq_norm (v : ℝ ^ n) : ↑‖v‖₊ = ‖v‖ := rfl
 lemma nnnorm_eq_sqrt_norm_sq (v : ℝ ^ n) : ‖v‖₊ = nnreal.sqrt (norm_sq v) := rfl
 lemma norm_eq_sqrt_norm_sq (v : ℝ ^ n) : ‖v‖ = ↑(nnreal.sqrt (norm_sq v)) := rfl
 
+lemma to_real (v : ℝ ^ n) : ‖v‖ = real.sqrt (v ⬝ v) := by simp [has_norm.norm, tuple.norm]
 
 end simp
 end tuple
