@@ -31,8 +31,7 @@ the inner product is called the hermitian inner product.
 
 -/
 
-lemma cauchy_schwarz: ∀ {n : ℕ} (x y : ℝ ^ n)
-, |x ⬝ y| ≤ ‖x‖ * ‖y‖    :=
+lemma cauchy_schwarz: ∀ {n : ℕ} (x y : ℝ ^ n), |x ⬝ y| ≤ ‖x‖ * ‖y‖ :=
 begin
   intros n x y,
   by_cases x_zero : x = 0,
@@ -46,11 +45,18 @@ begin
     { have unit_dot_le_1 : |(‖x‖⁻¹ • x) ⬝ (‖y‖⁻¹ • y)| ≤ 1,
       { apply cauchy_schwarz_unit,
         { have mul_inv_unit := div_norm_unit x x_zero,
-          simp [has_norm.norm, tuple.norm] at mul_inv_unit ⊢,
+          repeat {rw norm_eq_sqrt_norm_sq x at mul_inv_unit}, 
+          simp at mul_inv_unit,
+          repeat {rw norm_eq_sqrt_norm_sq at mul_inv_unit ⊢}, 
+          simp at *,
           assumption, },
         { have mul_inv_unit := div_norm_unit y y_zero,
-          simp [has_norm.norm, tuple.norm] at mul_inv_unit ⊢,
-          assumption, }, },
+          repeat {rw norm_eq_sqrt_norm_sq y at mul_inv_unit}, 
+          simp at mul_inv_unit,
+          repeat {rw norm_eq_sqrt_norm_sq at mul_inv_unit ⊢}, 
+          simp at *,          
+          assumption, }, 
+        },
 
       have h : ‖x‖⁻¹ * ‖y‖⁻¹ * |x ⬝ y| ≤ 1 := by rwa
         [ ← abs_eq_self.mpr (le_of_lt (inv_pos.mpr x_norm_pos))
@@ -70,7 +76,9 @@ begin
          , div_eq_inv_mul
          ],
       simp,
-      linarith, }, },
+      linarith, 
+      },
+    },
 end
 
 end tuple -- hide

@@ -6,7 +6,7 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# ℝ^3 subspace world
 
 ## Level 1: `vector_assoc` 
 

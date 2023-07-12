@@ -13,8 +13,8 @@ namespace tuple -- hide
 
 -/
 
-lemma parallelogram_eq: ∀ {n : ℕ} (u v : ℝ ^ n)
-, (norm_sq (u + v) : ℝ) + ↑(norm_sq (u - v)) = 2 * (↑(norm_sq u) + ↑(norm_sq v)) :=
+lemma parallelogram_eq : ∀ {n : ℕ} (u v : ℝ ^ n), 
+(norm_sq (u + v) : ℝ) + ↑(norm_sq (u - v)) = 2 * (↑(norm_sq u) + ↑(norm_sq v)) :=
 begin
   intros n u v,
   rw add_norm_square,

@@ -1,12 +1,28 @@
 name = "Linear Algebra Game"
-version = "0.0.1"
+version = "1.0.0"
 extra_files = "extras"
 intro = "src/game/intro.lean"
 
+[[worlds]]
+name = "Tutorial world"
+id = 1
+levels = [
+	"src/game/Tutorial_world/level0.lean",
+	"src/game/Tutorial_world/level1.lean",
+	"src/game/Tutorial_world/level2.lean",
+	"src/game/Tutorial_world/level3.lean",
+	"src/game/Tutorial_world/level4.lean",
+	"src/game/Tutorial_world/level5.lean",
+	"src/game/Tutorial_world/level6.lean",
+	"src/game/Tutorial_world/level7.lean",
+	"src/game/Tutorial_world/level8.lean",
+	"src/game/Tutorial_world/level9.lean",
+]
 
 [[worlds]]
 name = "Dot Product World"
-id = 1
+id = 2
+parents = [1]
 levels = [
 	"src/game/dot_prod_world/dot_comm.lean",
 	"src/game/dot_prod_world/dot_self_nonneg.lean",
@@ -18,8 +34,8 @@ levels = [
 
 [[worlds]]
 name = "Cauchy Schwarz World"
-id = 2
-parents = [1]
+id = 3
+parents = [2]
 levels = [
 	"src/game/cauchy_schwarz_world/add_norm_square.lean",
 	"src/game/cauchy_schwarz_world/scalar_norm.lean",
@@ -36,8 +52,8 @@ levels = [
 
 [[worlds]]
 name = "Norms and Orthogonality World"
-id = 3
-parents = [2]
+id = 4
+parents = [3]
 levels = [
 	"src/game/norm_orth_world/norm_neg_eq_neg.lean", 
 	"src/game/norm_orth_world/orth_self_unique_zero.lean", 
@@ -49,8 +65,8 @@ levels = [
 
 [[worlds]]
 name = "Subspace World"
-id = 4
-parents = [3]
+id = 5
+parents = [4]
 levels = [
 	"src/game/subspace_world/zero.lean",
 	"src/game/subspace_world/rn.lean",
@@ -68,8 +84,8 @@ levels = [
 
 [[worlds]]
 name = "Linear Transformation World"
-id = 5
-parents = [4]
+id = 6
+parents = [5]
 levels = [
 	"src/game/linear_map_world/zero_in_kernel.lean", 
 	"src/game/linear_map_world/lin_transformation_def2.lean", 
@@ -82,7 +98,8 @@ levels = [
 
 [[worlds]]
 name = "R3 Vector Space World"
-id = 6
+id = 7
+parents = [1]
 levels = [
 	"src/game/r3_vector_space/vec_assoc.lean", 
 	"src/game/r3_vector_space/vec_comm.lean", 
@@ -94,8 +111,8 @@ levels = [
 ]
 [[worlds]]
 name = "Rn Vector Space World"
-id = 7
-parents = [6]
+id = 8
+parents = [7]
 levels = [
 	"src/game/vector_spaces_world/vec_assoc.lean",
 	"src/game/vector_spaces_world/vec_comm.lean", 
@@ -105,3 +122,4 @@ levels = [
 	"src/game/vector_spaces_world/scalar_dist_2.lean",
 	"src/game/vector_spaces_world/scalar_assoc.lean",
 ]
+

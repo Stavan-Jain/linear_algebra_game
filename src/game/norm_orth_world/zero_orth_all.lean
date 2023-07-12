@@ -16,13 +16,11 @@ namespace tuple -- hide
 lemma zero_orth_all: ∀ {n : ℕ} (x: ℝ ^ n)
 ,  orthogonal 0 x   :=
 begin
-  intro n,
+  intros n x,
   induction n with n hn,
-  { intro x,
-    cases x,
-    simp,},
-  { intro x,
-    cases x with n head tail,
+  { cases x,
+    simp, },
+  { cases x with n head tail,
     simp,
     exact hn tail, },
 end

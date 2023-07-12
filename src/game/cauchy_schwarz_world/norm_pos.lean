@@ -24,7 +24,7 @@ begin
         simp [has_norm.norm, tuple.norm, norm_sq],
         rw lt_iff_le_and_ne,
         split,
-        { exact dot_pos_def_1 x, },
+        { exact dot_self_nonneg x, },
         { intro dot_zero,
           apply norm_nonzero,
           simp [has_norm.norm, tuple.norm, norm_sq],

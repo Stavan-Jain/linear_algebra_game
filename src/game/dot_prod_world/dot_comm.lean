@@ -20,13 +20,17 @@ We're going to prove that the dot product is commutative!
 /- Lemma
 v ⬝ w = w ⬝ v for all vectors v, w ∈ ℝⁿ
 -/
-lemma dot_comm: ∀ {n : ℕ} (v: ℝ ^ n) (w : ℝ ^ n),  v ⬝ w = w ⬝ v :=
+lemma dot_comm : ∀ {n : ℕ} (v : ℝ ^ n) (w : ℝ ^ n),  v ⬝ w = w ⬝ v :=
 begin 
-  intros n,
+  intros n v w,
   induction n with d hd,
-  { intros v w, cases v, cases w, dsimp [tuple.dot_product], refl,},
-  { intros v w, cases v, cases w, dsimp [tuple.dot_product], 
-  rw mul_comm, simp, exact hd v_tail w_tail  },
+  { cases v, cases w,
+    simp, },
+  { cases v, cases w, 
+    simp, 
+    rw mul_comm,
+    simp,
+    exact hd v_tail w_tail, },
 end
 
 end tuple -- hide

@@ -5,7 +5,7 @@ namespace tuple -- hide
 /- 
 # Cauchy Schwarz world
 
-## Level 10: `Cauchy-Schwarz when x = 0` 
+## Level 10: `Cauchy-Schwarz when y = 0` 
 
 The Cauchy Schwarz Inequality when one of the vectors is 0. 
 -/
@@ -24,7 +24,7 @@ begin
     { cases x with n head tail,
       rw dot_zero,
       simp [has_norm.norm, tuple.norm, norm_sq],
-      rw (dot_pos_def_2 0).mpr rfl,
+      rw (dot_self_zero 0).mpr rfl,
       simp, }, 
 end
 

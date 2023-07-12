@@ -25,20 +25,14 @@ Strategy:
 -/
 
 
-lemma sub_norm_square: ∀ {n : ℕ} (x y : ℝ ^ n)
-,  ↑(norm_sq (x - y)) = ↑(norm_sq x) - (2 * (x ⬝ y)) + ↑(norm_sq y) :=
+lemma sub_norm_square : ∀ {n : ℕ} (x y : ℝ ^ n),
+↑(norm_sq (x - y)) = ↑(norm_sq x) - (2 * (x ⬝ y)) + ↑(norm_sq y) :=
 begin 
   intros n x y,
-  rw sub_eq_add_neg,
-  rw add_norm_square,
-  rw neg_eq_neg_mul,
-  rw dot_comm x ((-1 : ℝ) • y),
-  rw scalar_through,
-  rw dot_comm y x,
+  rw [sub_eq_add_neg, add_norm_square, neg_eq_neg_mul],
+  rw [dot_comm x, scalar_through, dot_comm y],
   simp,
-  rw scalar_through,
-  rw dot_comm y,
-  rw scalar_through,
+  rw [scalar_through, dot_comm y, scalar_through],
   linarith,
 end
 

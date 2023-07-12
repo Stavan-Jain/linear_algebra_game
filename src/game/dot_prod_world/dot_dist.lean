@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.dot_prod_world.dot_pos_def_2--hide
+import game.dot_prod_world.dot_self_zero--hide
 namespace tuple -- hide
 
 /- 
@@ -31,29 +31,19 @@ For instance, the following tactic destructs all conjunctions and disjunctions i
 
 -/
 
-lemma dot_dist: ∀ {n : ℕ} (x: ℝ ^ n) (y : ℝ ^ n) (z : ℝ ^ n)
-,  x ⬝ (y + z) = (x ⬝ y) + (x ⬝ z) :=
+lemma dot_dist: ∀ {n : ℕ} (x y z : ℝ ^ n), x ⬝ (y + z) = (x ⬝ y) + (x ⬝ z) :=
 begin 
-  intro n,
+  intros n x y z,
   induction n with d hd, 
-  {intros x y z, 
-  casesm* (ℝ ^ 0),
-  dsimp [dot_product],
-  rw add_zero, 
-  },
-  {
-    intros x y z, 
-    casesm* (ℝ ^ d.succ),
-    simp [tuple.dot_product],
-    have i : x_head * y_head + x_tail ⬝ y_tail + (x_head * z_head + x_tail ⬝ z_tail)
-    = x_tail ⬝ y_tail + x_tail ⬝ z_tail +  x_head * y_head + x_head * z_head , 
-    {
-      linarith, 
-    }, 
-    rw i, 
-    rw ← hd x_tail y_tail z_tail,  
-    linarith, 
-  },
+  { casesm* (ℝ ^ 0),
+    simp, },
+  { cases x with _ x₁ xₙ,
+    cases y with _ y₁ yₙ,
+    cases z with _ z₁ zₙ,
+    simp,
+    calc x₁ * (y₁ + z₁) + xₙ ⬝ (yₙ + zₙ) = x₁ * y₁ + x₁ * z₁ + xₙ ⬝ (yₙ + zₙ) : by ring_nf
+      ... = x₁ * y₁ + x₁ * z₁ + (xₙ ⬝ yₙ + xₙ ⬝ zₙ) : by rw hd xₙ yₙ zₙ
+      ... = x₁ * y₁ + xₙ ⬝ yₙ + (x₁ * z₁ + xₙ ⬝ zₙ) : by ring_nf, },
 end
 
 end tuple -- hide

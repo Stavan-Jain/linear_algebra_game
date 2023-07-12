@@ -1,7 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic --hide
-import vectors.tuple.tactics --hide
-import game.vector_spaces_world.scalar_dist_1 --hide
+import game.r3_vector_space.scalar_dist_1
 namespace tuple -- hide
 
 

@@ -24,7 +24,7 @@ begin
     { cases y with n head tail,
       rw zero_dot,
       repeat {rw norm_eq_sqrt_norm_sq}, simp, 
-      rw (dot_pos_def_2 0).mpr rfl,
+      rw (dot_self_zero 0).mpr rfl,
       simp, }, 
   
 end
