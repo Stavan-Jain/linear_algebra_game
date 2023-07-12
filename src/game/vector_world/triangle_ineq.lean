@@ -7,12 +7,27 @@ namespace tuple -- hide
 /- 
 # Vector world
 
+Background:
+When you're introduced to the triangle inquality in an introductory geometry class it states that 
+in a triangle with sides of length a, b, and c the length of any one side a is less than or 
+equal to the sum of lenghts of the other two sides b and c, (a being equal to b + c when all 
+three sides lie on the same line.) 
+The triangle inequality can be extrpolated to Rⁿ to show that for any two vectors x and y 
+the magnitude of their sum is less than or equal to the sum of their individual lengths.  
+In class, you may prove this case by case, considering the possibility that either or both x, y are 0, x is positive while y is negative (or vice versa),
+or they're both either postive or negative. 
+
+Strategy:
+
+
 ## Level 21: `Triangle Inequality` 
 
 -/
 
 /- Lemma
 ||x + y|| ≤ ||x|| + ||y||
+
+
 -/
 
 lemma triangle_ineq: ∀ {n : ℕ} (x: ℝ ^ n) (y : ℝ ^ n) 

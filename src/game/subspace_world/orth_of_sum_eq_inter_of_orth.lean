@@ -2,6 +2,20 @@ import game.subspace_world.orth_complement_subset
 namespace vector_spaces
 open tuple
 
+/-
+
+# Subspace World
+
+Background: 
+Here we will be proving that, given two subspaces U and V, the orthogonal complement of U + V is the intersection of the orthogonal complement of U and the orthogonal complement of V. 
+
+# Level
+
+
+-/
+
+/- Lemma 
+-/
 
 lemma orth_of_sum_eq_inter_of_orth {n : ℕ} (U: set (ℝ ^ n)) (V: set (ℝ ^ n))
 [U_sub : subspace (ℝ ^ n) ℝ U] [V_sub : subspace (ℝ ^ n) ℝ V]: 

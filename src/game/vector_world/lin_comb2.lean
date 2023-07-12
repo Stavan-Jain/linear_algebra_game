@@ -5,6 +5,8 @@ namespace tuple -- hide
 
 /- 
 
+# Vector world
+
 Here we'll be looking at another application of linear combinations. 
 
 First, let's review what basis vectors are. A set of vectors can be called the basis of 
@@ -21,7 +23,6 @@ Introduce definition of spanning sets instead of basis
 
 Now let's move on to our proof :-
 
-# Vector world
 
 We're going to prove that { [0, 1] , [1, 0] } forms a basis for ℝ² 
 

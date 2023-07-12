@@ -6,14 +6,6 @@ namespace tuple -- hide
 
 /- 
 # Vector world
-
-## Level 15: `Norm is 0 iff zero vector` 
-
--/
-
-/- Lemma
-||x|| = 0 ↔ x = **0**
-
 Background: 
 
 Here we'll be proving that the magnitude of a vector is 0 if and only if it is the zero vector. 
@@ -24,6 +16,14 @@ Strategy:
 
 As we've seen repeatedly it might also be helpful in this case to express the magnitude of x as 
 the dot product of x with itself. 
+
+## Level 15: `Norm is 0 iff zero vector` 
+
+-/
+
+/- Lemma
+||x|| = 0 ↔ x = **0**
+
 
 
 -/

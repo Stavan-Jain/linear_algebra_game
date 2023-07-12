@@ -5,16 +5,7 @@ namespace tuple -- hide
 
 /- 
 # Vector world
-
-## Level 6: `Scalars pass through` 
-
--/
-
-/- Lemma
-(cx)·y=c (x·y) for all x, y ∈ ℝⁿ and c ∈ R
-
-Background
-
+Background:
 
 In this level we'll be proving that multiplying a vector x by a scalar c and then computing the dot product of that new vector cx
 with another vector y, yields the same result as multiplying the dot product of vectors x and y with scalar c.
@@ -24,8 +15,7 @@ This follows from the definition of the dot product. By multiplying vector x wit
 On dotting this new vector cx with y, c can be taken out as common and multiplied with the dot product of x and y. This shows that (cx)·y = c(x·y)
 
 
-Optional
-
+Optional:
 
 The dot product of x and y, is the projection of x onto y, multiplied by the magnitude of y.
 Let's first think of the definition of projection in R2. It is essentially the "shadow"
@@ -44,6 +34,14 @@ Also, if the projection of x on y is multiplied by c, then we attain the project
 
 This allows us to understand why multiplying a vector x by a scalar c and then computing the dot product of that new vector cx
 with another vector y, yields the same result as multiplying the dot product of vectors x and y with scalar c.
+
+## Level 6: `Scalars pass through` 
+
+-/
+
+/- Lemma
+(cx)·y=c (x·y) for all x, y ∈ ℝⁿ and c ∈ R
+
 
 -/
 

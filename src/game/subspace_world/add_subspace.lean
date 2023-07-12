@@ -1,7 +1,26 @@
-import game.subspace_world.inter_subspace
+import game.subspace_world.inter_subspace --hide
 
-namespace vector_spaces
-open tuple
+namespace vector_spaces --hide
+open tuple --hide
+/-
+# Subspace World
+
+Background:\  
+
+Here we will prove that given subspaces U and V (that together make up R^n(?)), U+V is also a subspace. We know that for U+V to be a subspace, it must contain 0 and be closed under 
+addition and scalar multiplicaiton. Let us imagine that for some x1:(U+V), x₁= u₁ + v₁ for some u₁: U and v₁:V, and that for some other x₂:(U+V) x₂= u₂+v₂ for some u₂:U and v₂:V. 
+If we can prove that x1+x2 is a part of U+V and that cx₁ is a part of U+V, then that is enough to show that U+V is also a subspace. 
+
+Strategy:
+
+
+# For subspaces U and V, U + V is also a subspace
+-/
+
+
+/- Lemma:
+
+-/
 
 instance add_subspace {n : ℕ} {U V : set (ℝ ^ n)} [u : subspace (ℝ ^ n) ℝ U] [v : subspace (ℝ ^ n) ℝ V] :
 subspace (ℝ ^ n) ℝ {x : ℝ ^ n | ∃ u : U, ∃ v : V, x = u + v}:= 

@@ -8,15 +8,24 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 20: `Pythogaras Theorem` 
+Background:
+The Pythagoras theorem tells us that in a right angled triangle the sum of the sqaures of the perpendicular and the base gives the square
+of the hypotenuse. Let us see how to prove the Pythagoras theorem formally in Lean. 
+
+Strategy:
+As before, it may be helpful to rewrite ||x||² as x ⬝ x. 
+
+## Level 20: `Pythagoras Theorem` 
 
 -/
 
 /- Lemma
 x ⟂ y iff ||x+y||² = ||x||² + ||y||²  
+
+
 -/
 
-lemma pythogaras_theorem: ∀ {n : ℕ} (x y : ℝ ^ n)
+lemma pythagoras_theorem: ∀ {n : ℕ} (x y : ℝ ^ n)
 ,  x ⟂ y ↔ (x + y).norm_sq = x.norm_sq + y.norm_sq   :=
 begin 
   intros n x y, 

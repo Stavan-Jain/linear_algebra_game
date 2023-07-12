@@ -4,6 +4,7 @@ import game.vector_world.dot_comm --hide
 namespace tuple -- hide
 
 /- 
+# Vector world
 
 Now we're gonna try and prove that the dot product is positive definite. 
 Positive definiteness relates to symmetric matrices (A is symmetric if A and A^T are equal.)
@@ -14,7 +15,7 @@ What does this have to do with the dot product?
 
 We can treat the dot product itself as a matrix of one element. On computing x^T A x such that x 
 is a vector with one element, the product is always positive.
-# Vector world
+
 
 We're going to prove that the dot product is positive definite!
 
