@@ -7,7 +7,7 @@
 
 `Intro` is a fundamental tactic dealing with propositions in Lean, and here you'll learn how to use it.
 
-If we have a true/false statement $P$, let's prove a intuitive result: $P\implies P$. 
+If we have a true/false statement $P$, let's prove something trivial: $P\implies P$. 
 
 Constructing a term of type `P → P` in this case amounts to proving that $P\implies P$,
 and computer scientists think of this as coming up with a function 
@@ -44,7 +44,7 @@ Our job now is to construct a proof of $P$.
 that $P\implies Q$, and `p: P` is a proof of `P`. Then `exact h(p)` will close the goal `⊢Q` (if we have a proof for P, namely `p`, then h(p) is a proof for Q). 
 Yet, for most of the cases, you can use the `apply` tactic, will be introduced later, to substitute `exact`. 
 
-Continue what we left there, we need to construct of proof for $P$. But, by definition, $p$ is a proof of $P$. 
+Continue what we left there, we need to construct of proof for $P$. But, by assumption, $p$ is a proof of $P$. 
 
 So, `exact p,` will close the goal. 
 
@@ -78,7 +78,7 @@ end
 The argument term should be a term well-formed in the local context of the main goal. In other words, `apply h` will simplify the goal by applying the 
 hypothesis h (a proof) on it. 
 
-(try using `apply p` to close the lemma!)
+(try using `apply p` above to close the lemma!)
 -/
 
 /-
@@ -89,7 +89,7 @@ hypothesis h (a proof) on it.
 
 · `intro p` means let's assume we have a proof of $P$. 
 
-· `apply p` means to use the implication p we're assuiming. 
+· `apply p` means let's use the implication described by p. 
 
 
 -/

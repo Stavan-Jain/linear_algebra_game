@@ -7,6 +7,7 @@ intro = "src/game/intro.lean"
 name = "Tutorial world"
 id = 1
 levels = [
+	"src/game/Tutorial_world/level0.lean",
 	"src/game/Tutorial_world/level1.lean",
 	"src/game/Tutorial_world/level2.lean",
 	"src/game/Tutorial_world/level3.lean",

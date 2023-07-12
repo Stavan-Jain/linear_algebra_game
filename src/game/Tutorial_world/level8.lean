@@ -21,7 +21,7 @@ case and your goal is the `n = succ(d)` case.
 
 
 ## Data:
-By Piano's Axioms, we have:
+By Peano's Axioms, we have:
   * a type called natural numbers (`ℕ`). 
   * a term `0 : ℕ`, interpreted as the number zero.
   * a function `succ : ℕ → ℕ`, with `succ n` interpreted as "the number after `n`".
@@ -72,7 +72,7 @@ text below the lemma to see an explanation of this goal.
 For all natural numbers $n$, we have
 $$0 + n = n.$$
 -/
-lemma zero_adding (n : ℕ) : 0 + n = n :=
+lemma zero_add_1 (n : ℕ) : 0 + n = n :=
 begin
   induction n with d hd,
   rw add_zero,
