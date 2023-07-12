@@ -9,8 +9,8 @@ name = "Dot Product World"
 id = 1
 levels = [
 	"src/game/dot_prod_world/dot_comm.lean",
-	"src/game/dot_prod_world/dot_pos_def_1.lean",
-	"src/game/dot_prod_world/dot_pos_def_2.lean",
+	"src/game/dot_prod_world/dot_self_nonneg.lean",
+	"src/game/dot_prod_world/dot_self_zero.lean",
 	"src/game/dot_prod_world/dot_dist.lean",
 	"src/game/dot_prod_world/zero_dot.lean",
 	"src/game/dot_prod_world/dot_zero.lean",
