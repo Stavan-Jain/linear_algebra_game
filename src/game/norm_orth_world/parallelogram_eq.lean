@@ -3,7 +3,13 @@ import game.norm_orth_world.zero_orth_all
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Norm Orth World
+
+Background:
+The parallelogram equality for R² states that the sum of the squares of the diagonals of a parallelogram is equal to twice the sum of the squares of it's adjacent sides. 
+
+Strategy:
+As we have seen before, it may be helpful to use the fact that ||x||² can be written as x ⬝ x. 
 
 ## Level 4: `Parallelogram equality` 
 

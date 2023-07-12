@@ -5,6 +5,7 @@ namespace tuple -- hide
 
 
 /- 
+# Vector world
 
 Introduction
 
@@ -14,7 +15,6 @@ a linear combination of another set of vectors if it can be obtained by adding s
 Essentially, vec(z) is a linear combination of vec(x) and vec(y) if there exist scalars a, b such that 
 a(vec(x)) + b(vec(y)) = vec(c)
 
-# Vector world
 
 We're going to prove that [3, 4] is a linear combination of the standard basis vectors in ℝ²  
 

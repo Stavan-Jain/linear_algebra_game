@@ -3,7 +3,14 @@ import game.norm_orth_world.parallelogram_eq
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Norm Orth World
+
+Background:
+The Pythagoras theorem tells us that in a right angled triangle the sum of the sqaures of the perpendicular and the base gives the square
+of the hypotenuse. Let us see how to prove the Pythagoras theorem formally in Lean. 
+
+Strategy:
+As before, it may be helpful to rewrite ||x||² as x ⬝ x. 
 
 ## Level 5: `Pythogaras Theorem` 
 

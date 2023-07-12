@@ -3,6 +3,33 @@ import game.subspace_world.add_subspace
 namespace vector_spaces
 open tuple
 
+/-
+
+# Subspace World
+
+Background: 
+Here we will be proving that the orthogonal complement of subspace V is also a subpsace.
+Recall that if Vᗮ is denoted as the orthogonal complement of a subpsace V, then every vector in Vᗮ is orthogonal to every vector in V.
+Here we must show that Vᗮ fulfils the conditions needed for a subspace: 
+ 1. It contains the 0 vector 
+ 2. It is closed under addition 
+ 3. It is closed under scalar multiplication 
+
+Strategy: 
+
+Think about how you can go about proving the above conditions with Lean one by one. 
+The split tactic will break the goal into the three conditions needed to prove that something is a subspace.  
+
+
+# Prove orthogonal complement Vᗮ of subspace V is also a subspace
+
+
+-/
+
+/- Lemma 
+The orthogonal complement Vᗮ of subspace V is also a subspace.
+-/
+
 
 instance orth_complement_subspace {n : ℕ} (V: set (ℝ ^ n)) [v : subspace (ℝ ^ n) ℝ V] : subspace (ℝ ^ n) ℝ (orth_complement V) := 
 begin
