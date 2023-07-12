@@ -1,7 +1,7 @@
 .PHONY: all
 all: html
 
-html: $(shell find src -not -name '*.olean' | sed 's/ /\\ /g')
+html: game_config.toml $(shell find src -not -name '*.olean' | sed 's/ /\\ /g')
 	$(MAKE) clean
 	make-lean-game --devmode
 	touch html

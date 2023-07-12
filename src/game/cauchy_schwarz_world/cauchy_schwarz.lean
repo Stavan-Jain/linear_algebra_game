@@ -1,4 +1,4 @@
-import game.cauchy_schwarz_world.norm_zero_iff --hide
+import game.cauchy_schwarz_world.cauchy_schwarz_yzero --hide
 
 namespace tuple -- hide
 
@@ -12,8 +12,8 @@ Here we'll be approaching it differently.
 Strategy:
 As in other proofs it may be best to begin by considering the cases when either or both x and y are equal to zero.
 Remember, cauchy_schwarz_unit may be helpful here.
-modus ponuns 
-modus ponuns reverse -- implication
+modus ponens 
+modus ponens reverse -- implication
 
 More info:
 All though we’re expressing the cauchy schwarz inequality in terms of the dot product, it actually has to 
@@ -22,7 +22,7 @@ way to multiply vectors together to get a scalar, within a vector space. The dot
 a type of inner product. In a real number space, the inner product is simply multiplication. In a complex vector space, 
 the inner product is called the hermitian inner product.
 
-## Level 18: `Boss level: Cauchy-Schwarz` 
+## Level 11: `Boss level: Cauchy-Schwarz` 
 
 -/
 
@@ -35,63 +35,14 @@ lemma cauchy_schwarz: ∀ {n : ℕ} (x y : ℝ ^ n), |x ⬝ y| ≤ ‖x‖ * ‖
 begin
   intros n x y,
   by_cases x_zero : x = 0,
-
-  { cases n,
-    { cases x, cases y,
-      repeat {rw norm_eq_sqrt_norm_sq}, simp, },
-    { rw x_zero,
-      cases y with n head tail,
-      rw zero_dot,
-      repeat {rw norm_eq_sqrt_norm_sq}, simp,
-      rw (dot_self_zero 0).mpr rfl,
-      simp, }, 
-    },
-
+  { rw x_zero, 
+    exact cauchy_schwarz_xzero y,  },
   { by_cases y_zero : y = 0,
-    { cases n,
-      { cases x, cases y,
-        repeat {rw norm_eq_sqrt_norm_sq}, simp, },
-      { rw y_zero,
-        cases x with n head tail,
-        rw [dot_comm, zero_dot],
-        repeat {rw norm_eq_sqrt_norm_sq}, simp,
-        rw (dot_self_zero 0).mpr rfl,
-        simp, }, 
-      },
-
-    { have x_norm_pos : ‖x‖ > 0,
-      { have norm_nonzero : ‖x‖ ≠ 0,
-        { intro norm_zero,
-          apply x_zero,
-          exact (norm_zero_iff x).mp norm_zero, },
-        repeat {rw norm_eq_sqrt_norm_sq}, simp,
-        rw lt_iff_le_and_ne,
-        split,
-        { exact dot_self_nonneg x, },
-        { intro dot_zero,
-          apply norm_nonzero,
-          repeat {rw norm_eq_sqrt_norm_sq}, simp,
-          rw ← dot_zero,
-          exact real.sqrt_zero, },
-        },
-
-      have y_norm_pos : ‖y‖ > 0,
-      { have norm_nonzero : ‖y‖ ≠ 0,
-        { intro norm_zero,
-          apply y_zero,
-          exact (norm_zero_iff y).mp norm_zero, },
-        repeat {rw norm_eq_sqrt_norm_sq}, simp,
-        rw lt_iff_le_and_ne,
-        split,
-        { exact dot_self_nonneg y, },
-        { intro dot_zero,
-          apply norm_nonzero,
-          repeat {rw norm_eq_sqrt_norm_sq}, simp,
-          rw ← dot_zero,
-          exact real.sqrt_zero, }, 
-        },
-
-      have unit_dot_le_1 : |(‖x‖⁻¹ • x) ⬝ (‖y‖⁻¹ • y)| ≤ 1,
+    { rw y_zero, 
+    exact cauchy_schwarz_yzero x,},
+    have x_norm_pos := norm_pos x x_zero, 
+    have y_norm_pos := norm_pos y y_zero,   
+    { have unit_dot_le_1 : |(‖x‖⁻¹ • x) ⬝ (‖y‖⁻¹ • y)| ≤ 1,
       { apply cauchy_schwarz_unit,
         { have mul_inv_unit := div_norm_unit x x_zero,
           repeat {rw norm_eq_sqrt_norm_sq x at mul_inv_unit}, 
