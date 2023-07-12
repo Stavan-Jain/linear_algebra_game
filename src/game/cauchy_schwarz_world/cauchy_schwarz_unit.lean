@@ -1,12 +1,8 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.sub_norm_square -- hide 
-
-
+import game.cauchy_schwarz_world.div_norm_unit --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
 Background:
 Here we will be proving the following: |x · y| ≤ 1 if x and y are unit vectors.
@@ -31,8 +27,8 @@ Good luck!
 
 -/
 
-lemma cauchy_schwarz_unit: ∀ {n : ℕ} (x y : ℝ ^ n)
-, (norm_sq x) = 1 → (norm_sq y) = 1 → | x ⬝ y| ≤ 1 :=
+lemma cauchy_schwarz_unit : ∀ {n : ℕ} (x y : ℝ ^ n), 
+(norm_sq x) = 1 → (norm_sq y) = 1 → |x ⬝ y| ≤ 1 :=
 begin 
   intros n x y x_unit y_unit, 
   have i := add_norm_square x y, 

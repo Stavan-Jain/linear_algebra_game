@@ -1,7 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic --hide
-import vectors.tuple.tactics --hide
-import game.vector_spaces_world.vec_comm --hide
+import game.r3_vector_space.vec_comm--hide
 namespace tuple -- hide
 
 
@@ -21,7 +18,7 @@ lemma add_zero : ∀ (u : ℝ ^ 3), u + 0 = u :=
 begin
   intro u,
   cases_tuple u 3,
-  simpa,
+  simp,
 end
 
 end tuple -- hide

@@ -1,6 +1,3 @@
-import vectors.tuple -- hide
-import data.real.basic --hide
-import vectors.tuple.tactics --hide
 import game.auxiliary_theorems.vector_dist --hide
 namespace tuple -- hide
 
@@ -16,6 +13,8 @@ namespace tuple -- hide
 /- Lemma
 
 -/
+
+set_option pp.numeral_types true
 
 lemma smul_zero' : ∀ {n : ℕ} (c : ℝ), c • (0 : ℝ ^ n) = 0 :=
 begin

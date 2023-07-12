@@ -1,6 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.dot_comm --hide
+import game.dot_prod_world.dot_comm --hide
 namespace tuple -- hide
 
 /- 
@@ -19,28 +17,24 @@ is a vector with one element, the product is always positive.
 
 We're going to prove that the dot product is positive definite!
 
-## Level 4: `dot product is postive definite ` 
+## Level 2: `dot product is postive definite ` 
 
 -/
 
 /- Lemma
 v ⬝ w = w ⬝ v for all vectors v, w ∈ ℝⁿ
 -/
-lemma dot_pos_def_1: ∀ {n : ℕ} (x: ℝ ^ n),  x ⬝ x ≥ 0 :=
+lemma dot_pos_def_1 : ∀ {n : ℕ} (x : ℝ ^ n), x ⬝ x ≥ 0 :=
 begin 
-  intro n, 
+  intros n x, 
   induction n with d hd,
-  { intro x, cases x, dsimp [dot_product], refl},
-  {intro x, cases x with head tail, dsimp [dot_product], 
-  have i: tail * tail ≥ 0, 
-  {
-    exact mul_self_nonneg tail, 
-  }, 
-  have j :x_tail ⬝ x_tail ≥ 0, 
-  {
-    exact hd x_tail, 
-  } , 
-  exact add_nonneg i j},
+  { cases x, 
+    simp, },
+  { cases x with head tail, 
+    simp,
+    have i := mul_self_nonneg tail, 
+    have j := hd x_tail, 
+    exact add_nonneg i j, },
 end
 
 end tuple -- hide

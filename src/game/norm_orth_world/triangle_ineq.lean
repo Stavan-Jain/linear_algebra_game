@@ -1,6 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.pythogoras_theorem --hide
+import game.norm_orth_world.pythogoras_theorem --hide
 
 namespace tuple -- hide
 
@@ -20,7 +18,7 @@ or they're both either postive or negative.
 Strategy:
 
 
-## Level 21: `Triangle Inequality` 
+## Level 6: `Triangle Inequality` 
 
 -/
 

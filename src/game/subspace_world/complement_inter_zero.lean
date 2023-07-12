@@ -33,15 +33,14 @@ lemma complement_inter_zero {n : ℕ} {V : set (ℝ ^ n)} [v : subspace (ℝ ^ n
 begin 
   apply set.eq_of_subset_of_subset,   
   { simp, 
-    intros y y_in_V h₁, 
-    have orth_self := h₁ y y_in_V, 
-    exact (dot_pos_def_2 y).1 orth_self, }, 
+    intros y hᵥ h, 
+    specialize h y hᵥ, 
+    exact (dot_pos_def_2 y).1 h, }, 
 
   { simp,  
     split, 
     { exact v.contains_zero, }, 
-    { have h₁:= vector_spaces.orth_complement_subspace V,
-      intros x x_in_V,  
+    { intros x hₓ,  
       exact zero_dot x, },
     },
 end

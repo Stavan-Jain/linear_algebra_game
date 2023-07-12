@@ -1,6 +1,5 @@
 import vectors.subspace
-import game.vector_world.orth_self_unique_zero
-import game.auxiliary_theorems.zero_smul
+import game.norm_orth_world.triangle_ineq
 import game.vector_spaces_world.vector_space
 namespace vector_spaces
 open tuple
@@ -14,19 +13,21 @@ the following :-
  3. It is closed under scalar multiplication 
 
 
-Just 0 is a subspace
+
 -/
 
 instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := begin
   split,
+
   { intros u h1 v h2, 
     simp at *, 
     rw [h1, h2],
     simp, },
 
   { intros, 
-  simp at *, 
-  rw H, rw smul_zero', }, 
+    simp at *, 
+    rw [H, smul_zero'], }, 
+    
   { simp at *, },
 end
 

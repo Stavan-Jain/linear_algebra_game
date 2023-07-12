@@ -1,7 +1,5 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.cauchy_schwarz_unit --hide
-
+import game.cauchy_schwarz_world.cauchy_schwarz --hide
+import vectors.orthogonal --hide
 namespace tuple -- hide
 
 /- 
@@ -20,7 +18,7 @@ Hint:
 Think about how we can use ||x|| = x ⬝ x and try to prove that ||-x||= x ⬝ x
 
 
-## Level 13: `norm of neg equals norm` 
+## Level 1: `norm of neg equals norm` 
 
 -/
 
@@ -31,16 +29,16 @@ Think about how we can use ||x|| = x ⬝ x and try to prove that ||-x||= x ⬝ x
 -/
 
 
-lemma norm_neg_eq_neg: ∀ {n : ℕ} (x : ℝ ^ n)
-, ‖-x‖ = ‖x‖   :=
+lemma norm_neg_eq_neg : ∀ {n : ℕ} (x : ℝ ^ n), ‖-x‖ = ‖x‖ :=
 begin 
   intros n x,
-  simp [has_norm.norm, tuple.norm, norm_sq],
+  repeat {rw norm_eq_sqrt_norm_sq}, simp,
   congr' 1,
   induction n with n hn generalizing x,
-  { cases x, refl, },
+  { cases x, 
+    refl, },
   { cases x with n head tail,
-    simp [dot_product],
+    simp,
     exact hn tail, },
 end
 

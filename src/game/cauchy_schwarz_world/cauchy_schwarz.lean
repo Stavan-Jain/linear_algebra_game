@@ -1,11 +1,9 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.zero_dot --hide
+import game.cauchy_schwarz_world.norm_zero_iff --hide
 
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
 The Cauchy Schwarz inequality is one of the most important concepts you'll learn in an 
 introductory linear algebra course. In class you may prove this using the formulas for the dot product and the bounds of the cosine function. 

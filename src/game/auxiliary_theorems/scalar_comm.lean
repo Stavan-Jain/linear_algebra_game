@@ -1,5 +1,3 @@
-import vectors.tuple -- hide
-import data.real.basic
 import game.auxiliary_theorems.smul_zero --hide
 namespace tuple -- hide
 

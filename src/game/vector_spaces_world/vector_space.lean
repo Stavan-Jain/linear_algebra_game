@@ -16,7 +16,7 @@ instance {n : ℕ} : add_comm_group (ℝ  ^ n) :=
   tuple.nsmul_succ,
   tuple.neg,
   tuple.sub,
-  sub_eq_add_neg,
+  sub_eq_add_neg',
   tuple.zsmul,
   tuple.zsmul_zero,
   tuple.zsmul_succ,
@@ -30,17 +30,15 @@ instance {n : ℕ} : add_comm_group (ℝ  ^ n) :=
 open vector_spaces
 instance {n : ℕ} : vector_space (ℝ ^ n) ℝ := 
 begin
- split, 
- { intros, rw scalar_assoc, }, 
- {
-  intros, rw one_smul, 
- }, 
- {
-  intros, rw scalar_dist_1, 
- }, 
- {
-  intros, rw scalar_dist_2, 
- }
+  split, 
+  { intros, 
+    rw scalar_assoc, }, 
+  { intros, 
+    rw one_smul, }, 
+  { intros, 
+    rw scalar_dist_1, }, 
+  { intros, 
+    rw scalar_dist_2, },
 end
 
 end tuple

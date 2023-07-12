@@ -23,24 +23,21 @@ Let's take a minute to get introduced to a tactic called ext. "ext" applies as m
 (U+V)ᗮ = Uᗮ ∩ Vᗮ
 -/
 
-lemma orth_of_sum_eq_inter_of_orth {n : ℕ} (U: set (ℝ ^ n)) (V: set (ℝ ^ n))
-[U_sub : subspace (ℝ ^ n) ℝ U] [V_sub : subspace (ℝ ^ n) ℝ V]: 
+lemma orth_of_sum_eq_inter_of_orth {n : ℕ} (U : set (ℝ ^ n)) (V : set (ℝ ^ n)) [U_sub : subspace (ℝ ^ n) ℝ U] [V_sub : subspace (ℝ ^ n) ℝ V] : 
 orth_complement ({x : ℝ ^ n | ∃ u : U, ∃ v : V, x = u + v}) = orth_complement U ∩ orth_complement V := 
 begin 
-  ext x,
-  split,
-  { intro h,
+  apply set.eq_of_subset_of_subset,
+
+  { intros x h,
     simp at *,
     split,
     { intros u u_pos,
-      specialize h u u u_pos 0 V_sub.contains_zero (by simp), -- explain specialize
-      exact h, },
+      exact h u u u_pos 0 V_sub.contains_zero (by simp), },
     { intros v v_pos,
-      specialize h v 0 U_sub.contains_zero v v_pos (by simp),
-      exact h,}, 
+      exact h v 0 U_sub.contains_zero v v_pos (by simp), }, 
     },
 
-  { intro h,
+  { intros x h,
     cases h with h₁ h₂,
     simp at *,
     intros v x₁ x₁_pos x₂ x₂_pos hᵥ,

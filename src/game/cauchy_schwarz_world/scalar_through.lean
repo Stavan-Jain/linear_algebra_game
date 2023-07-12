@@ -1,6 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.dot_pos_def_2 
+import game.cauchy_schwarz_world.add_norm_square
 namespace tuple -- hide
 
 /- 
@@ -35,7 +33,7 @@ Also, if the projection of x on y is multiplied by c, then we attain the project
 This allows us to understand why multiplying a vector x by a scalar c and then computing the dot product of that new vector cx
 with another vector y, yields the same result as multiplying the dot product of vectors x and y with scalar c.
 
-## Level 6: `Scalars pass through` 
+## Level 2: `Scalars pass through` 
 
 -/
 
@@ -47,23 +45,16 @@ with another vector y, yields the same result as multiplying the dot product of 
 
 lemma scalar_through: ∀ {n : ℕ} (c : ℝ) (x y : ℝ ^ n), (c • x) ⬝ y = c * (x ⬝ y) :=
 begin 
-  intro n,
+  intros n c x y,
   induction n with d hd, 
-  {intros c x y, 
-  cases x, 
-  cases y, 
-  repeat {dsimp [dot_product, scalar_mul, map]}, simp,  
-  },
-  {
-    intros c x y, 
-    cases x, 
-    cases y, 
+  { cases x, cases y, 
+    simp, },
+  { cases x with _ x₁ xₙ, 
+    cases y with _ y₁ yₙ, 
     simp,
     rw mul_add,
-    rw ← hd c x_tail y_tail,
-    simp,
-    rw mul_assoc, 
-  },
+    rw hd xₙ yₙ,
+    linarith, },
 end
 
 end tuple -- hide

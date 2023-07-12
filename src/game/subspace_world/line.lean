@@ -20,7 +20,7 @@ Now let us see how to approach this proof is lean!
 Strategy:
 
 As before, we will have to prove that a line through the origin fulfils the three defining conditions for a subspace.
-Cases!
+
 
 
 -/
@@ -28,24 +28,22 @@ Cases!
 instance line_through_origin {n : ℕ} (v : ℝ ^ n): subspace (ℝ ^ n) ℝ {x : ℝ ^ n |∃(c : ℝ), x = c • v}  := 
 begin 
   split, 
-  {
-    intros, simp at *,
-    cases H with c1 H1,
-    cases H_1 with c2 H2, 
-    use (c1 + c2), 
-    rw [H1, H2], rw vector_dist, 
-  } ,
-  {
-    intros, 
-    simp at *,  
-    cases H with c2 H,
-    rw H, 
-    use (c * c2),
-    rw scalar_assoc,  
-  }, 
-  {
-    intros, simp at *, use 0, rw zero_smul',    
-  },
+
+  { intros xᵤ hᵤ xᵥ hᵥ,
+    -- simp at *,
+    cases hᵤ with c₁ hᵤ,
+    cases hᵥ with c₂ hᵥ, 
+    use (c₁ + c₂), 
+    rw [hᵤ, hᵥ, vector_dist], },
+
+  { intros c xᵥ hᵥ,   
+    cases hᵥ with c₁ hᵥ,
+    rw hᵥ, 
+    use (c * c₁),
+    rw scalar_assoc, },
+ 
+  { use 0,
+    rw zero_smul', },
 end
 
 end vector_spaces

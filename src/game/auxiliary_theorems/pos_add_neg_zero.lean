@@ -1,5 +1,3 @@
-import vectors.tuple -- hide
-import data.real.basic
 import game.auxiliary_theorems.scalar_comm --hide
 namespace tuple -- hide
 
@@ -20,9 +18,11 @@ We're going to prove that if dot product of a vector with itself is 0 then it mu
 -/
 lemma self_neg_eq_zero : ∀ {n : ℕ} (x : ℝ ^ n), x - x = 0 :=
 begin 
-  intros n,
+  intro n,
   induction n with n hn,
-  { intro v, cases v, refl, },
+  { intro v,
+    cases v,
+    refl, },
   { intro v,
     cases v with n head tail,
     simp,

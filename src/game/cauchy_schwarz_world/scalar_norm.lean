@@ -1,12 +1,8 @@
-import vectors.tuple -- hide
-import data.real.basic
-import game.vector_world.norm_neg_eq_neg --hide
-
-
+import game.cauchy_schwarz_world.scalar_through --hide
 namespace tuple -- hide
 
 /- 
-# Vector world
+# Cauchy Schwarz world
 
 
 Background:
@@ -23,7 +19,7 @@ When doing a proof it is sometimes useful to change the goal to something that i
 by_cases is a handy tactic that may be useful here. It splits the main goal into two cases assuming that h:p in the first branch and h: not p in the second. 
 
 
-## Level 14: `scalar pass through norms` 
+## Level 2: `scalar pass through norms` 
 
 -/
 
@@ -32,11 +28,10 @@ by_cases is a handy tactic that may be useful here. It splits the main goal into
 
 -/
 
-lemma scalar_norm: ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n)
-, (|c| * ‖x‖ : ℝ)  = ‖c • x‖   :=
+lemma scalar_norm : ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n), |c| * ‖x‖ = ‖c • x‖ :=
 begin 
   intros n c x,
-  simp [has_norm.norm, tuple.norm],
+  repeat {rw norm_eq_sqrt_norm_sq}, simp,
   have j : ∀ (x : real), (0 ≤ x) → x = real.sqrt(x * x),
   {
     intros x xgeq, 

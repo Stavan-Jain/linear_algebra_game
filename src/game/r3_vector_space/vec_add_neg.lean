@@ -1,7 +1,4 @@
-import vectors.tuple -- hide
-import data.real.basic --hide
-import vectors.tuple.tactics --hide
-import game.vector_spaces_world.add_zero --hide
+import game.r3_vector_space.add_zero --hide
 
 namespace tuple -- hide
 
