@@ -39,9 +39,9 @@ begin
   rw real.sqrt_ne_zero,
   { intro x_dot_0,
     apply xneq,
-    rw ← dot_pos_def_2,
+    rw ← dot_self_zero,
     exact x_dot_0, },
-  { exact dot_pos_def_1 x, },
+  { exact dot_self_nonneg x, },
 end
 
 end tuple -- hide

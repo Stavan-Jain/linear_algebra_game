@@ -17,7 +17,7 @@ lemma orth_self_unique_zero : ∀ {n : ℕ} (x : ℝ ^ n),  x ⟂ x → x = 0 :=
 begin 
   intros n x perp,
   simp at perp,
-  rwa dot_pos_def_2 at perp,
+  rwa dot_self_zero at perp,
 end
 
 end tuple
