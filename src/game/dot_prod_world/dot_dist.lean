@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.dot_prod_world.dot_pos_def_2--hide
+import game.dot_prod_world.dot_self_zero--hide
 namespace tuple -- hide
 
 /- 

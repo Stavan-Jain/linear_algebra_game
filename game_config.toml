@@ -1,21 +1,21 @@
 name = "Linear Algebra Game"
-version = "0.0.1"
+version = "1.0.0"
 extra_files = "extras"
 intro = "src/game/intro.lean"
 
-
 [[worlds]]
-name = "R^3 vector space world"
+name = "Tutorial world"
 id = 1
 levels = [
-	"src/game/vector_world/level1.lean",
-	"src/game/vector_world/level2.lean",
-	"src/game/vector_world/level3.lean",
-	"src/game/vector_world/level4.lean",
-	"src/game/vector_world/level5.lean",
-	"src/game/vector_world/level6.lean",
-	"src/game/vector_world/level7.lean",
-	"src/game/vector_world/level8.lean",
-	"src/game/vector_world/level9.lean",
-	"src/game/vector_world/level10.lean",
+	"src/game/Tutorial_world/level0.lean",
+	"src/game/Tutorial_world/level1.lean",
+	"src/game/Tutorial_world/level2.lean",
+	"src/game/Tutorial_world/level3.lean",
+	"src/game/Tutorial_world/level4.lean",
+	"src/game/Tutorial_world/level5.lean",
+	"src/game/Tutorial_world/level6.lean",
+	"src/game/Tutorial_world/level7.lean",
+	"src/game/Tutorial_world/level8.lean",
+	"src/game/Tutorial_world/level9.lean",
 ]
+

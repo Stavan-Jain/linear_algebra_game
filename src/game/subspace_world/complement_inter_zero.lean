@@ -35,7 +35,7 @@ begin
   { simp, 
     intros y hᵥ h, 
     specialize h y hᵥ, 
-    exact (dot_pos_def_2 y).1 h, }, 
+    exact (dot_self_zero y).1 h, }, 
 
   { simp,  
     split, 

@@ -45,8 +45,8 @@ begin
       ... ≤ ↑(x.norm_sq) + 2 * ‖x‖ * ‖y‖ + ↑(y.norm_sq) : by { simp, linarith, }
       ... =  ((‖x‖ + ‖y‖)^2) : begin
         rw add_sq,
-        have hx_sqrt := real.sq_sqrt(dot_pos_def_1 x),
-        have hy_sqrt := real.sq_sqrt(dot_pos_def_1 y),
+        have hx_sqrt := real.sq_sqrt(dot_self_nonneg x),
+        have hy_sqrt := real.sq_sqrt(dot_self_nonneg y),
         simp [norm_eq_sqrt_norm_sq, hx_sqrt, hy_sqrt],
       end
   }, 

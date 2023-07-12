@@ -31,50 +31,28 @@ lemma cauchy_schwarz_unit : ∀ {n : ℕ} (x y : ℝ ^ n),
 (norm_sq x) = 1 → (norm_sq y) = 1 → |x ⬝ y| ≤ 1 :=
 begin 
   intros n x y x_unit y_unit, 
-  have i := add_norm_square x y, 
-  have j := sub_norm_square x y, 
-  rw x_unit at i, 
-  rw y_unit at i, 
-  simp at i, 
-  have j1: 1 + 2 * x ⬝ y + 1 = 2* (1 + x ⬝ y), 
-  {
-    linarith, 
-  }, 
-  rw j1 at i, 
-  clear j1 , 
-  rw x_unit at j, 
-  rw y_unit at j,
-  simp at j,
-  have j1: 1 - 2 * x ⬝ y + 1 = 2* (1 - x ⬝ y), 
-  {
-    linarith, 
-  }, 
-  rw j1 at j, 
-  clear j1 ,
-  refine abs_le.mpr _, 
+  have h₁ := add_norm_square x y, 
+  have h₂ := sub_norm_square x y, 
+  rw x_unit at h₁, 
+  rw y_unit at h₁, 
+  simp at h₁, 
+  have : 1 + 2 * x ⬝ y + 1 = 2 * (1 + x ⬝ y) := by linarith, 
+  rw this at h₁, 
+  clear this, 
+  rw x_unit at h₂, 
+  rw y_unit at h₂,
+  simp at h₂,
+  have : 1 - 2 * x ⬝ y + 1 = 2* (1 - x ⬝ y) := by linarith, 
+  rw this at h₂, 
+  clear this,
+  apply abs_le.mpr,
   split, 
-  {
-    have : (x+ y).norm_sq ≥ 0, 
-    {
-      simp, 
-    }, 
-    have j : 2 * (1 + x ⬝ y) ≥0 , 
-    {
-      exact eq.trans_ge i this, 
-    }, 
-    linarith, 
-  }, 
-  {
-    have : (x- y).norm_sq ≥ 0, 
-    {
-      simp, 
-    }, 
-    have j : 2 * (1 - x ⬝ y) ≥0 , 
-    {
-      exact eq.trans_ge j this, 
-    }, 
-    linarith, 
-  }
+  { have i : (x+ y).norm_sq ≥ 0 := by simp, 
+    have j : 2 * (1 + x ⬝ y) ≥0 := by exact eq.trans_ge h₁ i, 
+    linarith, }, 
+  { have i : (x- y).norm_sq ≥ 0 := by simp, 
+    have j : 2 * (1 - x ⬝ y) ≥0 := by exact eq.trans_ge h₂ i,
+    linarith, },
 end
 
 end tuple -- hide
