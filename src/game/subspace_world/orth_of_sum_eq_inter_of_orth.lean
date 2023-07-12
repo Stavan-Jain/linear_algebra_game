@@ -7,14 +7,20 @@ open tuple
 # Subspace World
 
 Background: 
-Here we will be proving that, given two subspaces U and V, the orthogonal complement of U + V is the intersection of the orthogonal complement of U and the orthogonal complement of V. 
+Here we will be proving that, given two subspaces U and V, the orthogonal complement of U + V is the intersection of Uᗮ and Vᗮ.
+Every element in (U+V)ᗮ should be orthogonal to every element in U _and_ every element in V. What can we conclude from this? Let
+us see how we can go about doing this proof in Lean. 
 
-# Level
+Strategy:
+Let's take a minute to get introduced to a tactic called ext. "ext" applies as many extensionality lemmas as possible; 
+
+# Proving that (U+V)ᗮ = Uᗮ ∩ Vᗮ
 
 
 -/
 
 /- Lemma 
+(U+V)ᗮ = Uᗮ ∩ Vᗮ
 -/
 
 lemma orth_of_sum_eq_inter_of_orth {n : ℕ} (U: set (ℝ ^ n)) (V: set (ℝ ^ n))
