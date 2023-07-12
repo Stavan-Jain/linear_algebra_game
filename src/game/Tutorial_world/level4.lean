@@ -14,7 +14,7 @@ open nat -- hide
 
 `use` is a tactic which works on goals of the form `⊢ ∃ c, P(c)` where
 `P(c)` is some proposition which depends on `c`. With a goal of this
-form, `use 0` will turn the goal into `⊢ P(0)`, `use x + y` (assuming
+form, `use 0` will turn the goal into `⊢ P(0)`. `use x + y` (assuming
 `x` and `y` are natural numbers in your local context) will turn
 the goal into `P(x + y)` and so on.
 -/
@@ -69,10 +69,11 @@ look at your proof. We're going to remove a line.
 
 
 ## Ring:
-When dealing with complicated equalities, using the basic tactics
-solely relying on the axoims of addition and multiplication can be tedious sometimes. 
+When dealing with equalities with basic algebraic manipulation, using the tactics we've described so far
+and relying on the axoims of addition and multiplication can be tedious sometimes. 
 
-Here, we introduce the `ring` tactic, aiming to simply the process. 
+Here, we introduce the `ring` tactic, which can serve to reduce the tedium by closing 
+some goals. 
 
 The `ring` tactic proves identities in commutative rings such as (x+y)^2=x^2+2*x*y+y^2. 
 It works on concrete rings such as ℝ and abstract rings, and will also prove some results in “semirings” such as ℕ.
@@ -86,11 +87,11 @@ If ring does not close a goal it will issue a warning that you should use the re
 ## Important
 
 An important time-saver here is to note that because `a ≤ b` is *defined*
-as `∃ c : mynat, b = a + c`, you *do not need to write* `rw le_iff_exists_add`.
+as `∃ c : ℕ, b = a + c`, you *do not need to write* `rw le_iff_exists_add`.
 The `use` tactic will work directly on a goal of the form `a ≤ b`. Just
 use the difference `b - a` (note that we have not defined subtraction so
 this does not formally make sense, but you can do the calculation in your head).
-If you have written `rw le_iff_exists_add` below, then just put two minus signs `--`
+If you have written `rw le_iff_exists_add` below, then just put two dashes `--`
 before it and comment it out. See that the proof still compiles.
 -/
 
@@ -110,7 +111,7 @@ end
 /- 
 ## Summary
 
-· `use` works on the goal. If your goal is `⊢ ∃ c : mynat, 1 + x = x + c`
+· `use` works on the goal. If your goal is `⊢ ∃ c : ℕ, 1 + x = x + c`
 then `use 1` will turn the goal into `⊢ 1 + x = x + 1`. 
 
 · `ring` closes goals when goals can be proved by the ring algebra. 

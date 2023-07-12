@@ -3,7 +3,7 @@
 # Tutorial World 
 ## Level 3: The `split`, `cases` tactics
 
-In this level we will learn `split` and `cases`, with the notion of Union and Intersection.   
+In this level we will learn `split` and `cases` in the context of logical 'and' (∧) and 'or' (∨).   
 
 ## split: 
 
@@ -46,7 +46,7 @@ But what if `P ∧ Q` is a hypothesis? In this case, the `cases` tactic will ena
 us to extract proofs of `P` and `Q` from this hypothesis.
 
 The lemma below asks us to prove `P ∧ Q → Q ∧ P`, that is,
-symmetry of the "and" relation. The obvious first move is
+symmetry of the "and" relation. The first move is
 
 `intro h,`
 

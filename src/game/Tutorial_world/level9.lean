@@ -1,10 +1,6 @@
 import algebra.group.defs  -- hide
 open nat  -- hide
 
-
-
-
-
 /-
 
 # Tutorial World
@@ -57,7 +53,7 @@ variables (G : Type) [group G] (a b c : G)
 
 lemma fancy_algebraic_manipulation : a * a⁻¹ * 1 * b = b * c * c⁻¹ :=
 begin
-  simp
+  simp, 
 end
 
 /-
