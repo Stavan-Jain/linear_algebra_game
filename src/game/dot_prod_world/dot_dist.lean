@@ -6,13 +6,6 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 4: `Distributive Property` 
-
--/
-
-/- Lemma
-x ⬝ (y + z) = (x ⬝ y) + (x ⬝ z)
-
 Before proving the distributivity of the dot product algebraically, let’s attempt to understand it geometrically in R2. 
 For convenience, let us rewrite x ⬝ (y + z) as (y+z) ⬝ x, (x.y) as (y.x), and (x.z) as (z.x). 
 (We have already shown that the dot product is commutative.) Now let’s return to the idea of projections and shadows. 
@@ -28,6 +21,15 @@ Strategy:
 
 Let’s take a minute to get introduced to cases_matching p. This tactic applies cases to a hypothesis h if it type matches the pattern of p. 
 For instance, the following tactic destructs all conjunctions and disjunctions in the current goal.
+
+
+## Level 4: `Distributive Property` 
+
+-/
+
+/- Lemma
+x ⬝ (y + z) = (x ⬝ y) + (x ⬝ z)
+
 
 -/
 

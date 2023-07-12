@@ -4,26 +4,27 @@ namespace tuple -- hide
 /- 
 # Cauchy Schwarz world
 
-## Level 3: `scalar pass through norms` 
-
--/
-
-/- Lemma
-
-|c|*||x|| = ||cx||
 
 Background:
 
 Here we'll be proving that multiplying the magnitude of vector x by the scalar c yields the same 
-result as finding the magnitude of the vector cx. 
+result as finding the magnitude of the vector cx. In class you'll probably prove this using the formula for the magnitude of a vector. 
+Here we will do it differently. 
 
 Strategy and Hints: 
 
-In class you'll probably prove this using the formula for the magnitude of a vector. Here we will do it differently. 
-
 Let's remember that we've already proved "scalar_through" which tells us that (c**x) ⬝ y =c * (x ⬝ y), which looks like it could be useful here. 
-
 When doing a proof it is sometimes useful to change the goal to something that implies that the initial goal is also true. 
+
+by_cases is a handy tactic that may be useful here. It splits the main goal into two cases assuming that h:p in the first branch and h: not p in the second. 
+
+
+## Level 2: `scalar pass through norms` 
+
+-/
+
+/- Lemma
+|c|*||x|| = ||cx||
 
 -/
 

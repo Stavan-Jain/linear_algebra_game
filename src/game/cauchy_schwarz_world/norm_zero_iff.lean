@@ -3,7 +3,16 @@ import game.cauchy_schwarz_world.cauchy_schwarz_unit
 namespace tuple -- hide
 
 /- 
-# Cauchy Schwarz World
+# Vector world
+Background: 
+
+Here we'll be proving that the magnitude of a vector is 0 if and only if it is the zero vector. 
+Let's think about this in R². Let's say that there is some vector who's magnitude is found to be 0. This can only be true it's length in 0, i.e. it is the zero vector.
+
+Strategy: 
+
+As we've seen repeatedly it might also be helpful in this case to express the magnitude of x as 
+the dot product of x with itself. 
 
 ## Level 7: `Norm is 0 iff zero vector` 
 
@@ -12,16 +21,6 @@ namespace tuple -- hide
 /- Lemma
 ||x|| = 0 ↔ x = **0**
 
-Background: 
-
-Here we'll be proving that the magnitude of a vector is 0 if and only if it is the zero vector. 
-
-Let's think about this in R². Let's say that there is some vector who's magnitude is found to be 0. This can only be true it's length in 0, i.e. it is the zero vector.
-
-Strategy: 
-
-As we've seen repeatedly it might also be helpful in this case to express the magnitude of x as 
-the dot product of x with itself. 
 
 
 -/

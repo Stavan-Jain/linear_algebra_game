@@ -4,13 +4,7 @@ namespace tuple -- hide
 /- 
 # Cauchy Schwarz world
 
-## Level 5: `Div norm unit` 
-
--/
-
-/- Lemma
-||(1 / ||x|| ) *x || = 1
-
+Background:
 Here we'll be proving that dividing a vector x by it's magnitude yields a unit vector. (Provided that it is not the zero vector.)
 
 In class you are likely to prove this using the formula for the magnitude of a vector. Here we'll be doing it differently. 
@@ -22,7 +16,13 @@ but has unit magnitude. (Imagine a vector of magnitude a. Cut it into a pieces. 
 Strategy:
 
 
+## Level 16: `Div norm unit` 
 
+-/
+
+/- Lemma
+
+||(1 / ||x|| ) *x || = 1
 
 -/
 

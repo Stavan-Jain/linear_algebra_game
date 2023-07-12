@@ -5,12 +5,6 @@ namespace tuple -- hide
 /- 
 # Cauchy Schwarz world
 
-## Level 1: `Add norm square` 
-
--/
-
-/- Lemma
-
 ||x + y||² = ||x||² + 2 * (x ⬝ y) + ||y||²
 
 Background: 
@@ -27,7 +21,13 @@ Let's first get introduced to a tactic called nth_rewrite n rules. It applies th
 to the nth possible rule. For instance, nth_rewrite 2 add_comm would apply add_comm to the third possible instance 
 where it could be applied. (This is because counting begins from 0.) 
 
-Also, let's recall the utility 
+## Level 8: `Add norm square` 
+
+-/
+
+/- Lemma
+
+
 -/
 
 lemma add_norm_square : ∀ {n : ℕ} (x y : ℝ ^ n), 

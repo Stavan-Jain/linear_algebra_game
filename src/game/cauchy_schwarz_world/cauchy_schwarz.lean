@@ -5,13 +5,6 @@ namespace tuple -- hide
 /- 
 # Cauchy Schwarz world
 
-## Level 8: `Boss level: Cauchy-Schwarz` 
-
--/
-
-/- Lemma
-|x · y| ≤ ||x||*||y||
-
 The Cauchy Schwarz inequality is one of the most important concepts you'll learn in an 
 introductory linear algebra course. In class you may prove this using the formulas for the dot product and the bounds of the cosine function. 
 Here we'll be approaching it differently. 
@@ -28,6 +21,13 @@ do with the inner product (which we will cover more extensively later.) Essentia
 way to multiply vectors together to get a scalar, within a vector space. The dot product is thus, 
 a type of inner product. In a real number space, the inner product is simply multiplication. In a complex vector space, 
 the inner product is called the hermitian inner product.
+
+## Level 18: `Boss level: Cauchy-Schwarz` 
+
+-/
+
+/- Lemma
+|x · y| ≤ ||x||*||y||
 
 -/
 
