@@ -1,4 +1,4 @@
-import game.dot_prod_world.dot_pos_def_1 --hide
+import game.dot_prod_world.dot_self_nonneg --hide
 namespace tuple -- hide
 
 /- 
@@ -16,7 +16,7 @@ We're going to prove that if dot product of a vector with itself is 0 then it mu
 /- Lemma
 x ⬝ x = 0 ↔ x = tuple.zero
 -/
-lemma dot_pos_def_2 : ∀ {n : ℕ} (x : ℝ ^ n),  x ⬝ x = 0 ↔ x = 0 :=
+lemma dot_self_zero : ∀ {n : ℕ} (x : ℝ ^ n),  x ⬝ x = 0 ↔ x = 0 :=
 begin 
   intros n x, 
   induction n with d hd,
@@ -31,7 +31,7 @@ begin
         have : tail ⬝ tail  = - (head * head), 
         { linarith, }, 
         linarith, }, 
-      have tgt_zero := dot_pos_def_1 tail,
+      have tgt_zero := dot_self_nonneg tail,
       have t_eq_zero : tail ⬝ tail = 0, 
       { linarith, }, 
       specialize hd tail,
