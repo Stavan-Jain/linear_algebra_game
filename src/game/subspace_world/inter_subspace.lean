@@ -21,11 +21,12 @@ Let's take a minute to get introduced to the tactics "left" and "right" in lean.
 p ∧ q, left and right consider the left or right side of the ∧ symbol respectively.
 
 
-# Level
+# Level 5: U ∩ V is a subspace
 
 -/
 
 /- Lemma 
+U ∩ V is a subspace
 -/
 
 instance inter_subspace {n : ℕ} {U V : set (ℝ ^ n)} [u: subspace (ℝ ^ n) ℝ U] [v : subspace (ℝ ^ n) ℝ V]: subspace (ℝ ^ n) ℝ (U ∩ V):= 

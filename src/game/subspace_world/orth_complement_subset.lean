@@ -17,7 +17,7 @@ Remember, set.subset_def allows us to say that if  s ⊆ t, then for every x ∈
 Also, keep in mind that "simp at *"  simplifies all current hypotheses and the current goal, which here may help in relating the definition of 
 orthogonality with the dot product. 
 
-# If V  ⊆ W then Wᗮ ⊆ Vᗮ 
+# Level 9: If V  ⊆ W then Wᗮ ⊆ Vᗮ 
 
 -/
 

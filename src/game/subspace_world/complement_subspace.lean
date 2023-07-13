@@ -21,7 +21,7 @@ Think about how you can go about proving the above conditions with Lean one by o
 The split tactic will break the goal into the three conditions needed to prove that something is a subspace.  
 
 
-# Prove orthogonal complement Vᗮ of subspace V is also a subspace
+# Level 6: Prove orthogonal complement Vᗮ of subspace V is also a subspace
 
 
 -/

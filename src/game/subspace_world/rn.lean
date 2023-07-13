@@ -17,8 +17,12 @@ Rⁿ fulfils the following:
  3. It is closed under scalar multiplication 
 
 Strategy:
-In Lean you will also have to show that Rⁿ fulfils these conditions individually.#check
-# Level 
+In Lean you will also have to show that Rⁿ fulfils these conditions individually. The split tactic helps do this.
+
+Hint:
+Remember, "simp at *"  simplifies all current hypotheses and the current goal.
+
+# Level 2: Rⁿ is a a subspace of itself
 
 -/
 

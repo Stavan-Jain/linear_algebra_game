@@ -20,8 +20,7 @@ Recall the properties of the dot product you've alread proved in dot product wor
 Good luck!
 
 
-# The set of all vectors v: R ^ n, such that a ⬝ v= 0 is a subspace. 
-
+# Level 4: The set of all vectors v: R ^ n, such that a ⬝ v= 0 is a subspace. 
 
 -/
 
