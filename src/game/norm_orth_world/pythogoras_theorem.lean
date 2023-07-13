@@ -21,7 +21,7 @@ x ⟂ y ↔ ||x+y||² = ||x||² + ||y||²
 -/
 
 lemma pythogaras_theorem : ∀ {n : ℕ} (x y : ℝ ^ n),  
-x ⟂ y ↔ (x + y).norm_sq = x.norm_sq + y.norm_sq :=
+x ⟂ y ↔ ‖(x + y)‖² = ‖x‖² + ‖y‖² :=
 begin 
   intros n x y, 
   split, 

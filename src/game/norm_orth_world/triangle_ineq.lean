@@ -38,11 +38,11 @@ begin
   {
     exact le_abs_self (x ⬝ y), 
   },
-  have h4 : ((x + y).norm_sq) ≤ ((‖x‖₊ + ‖y‖₊)^2),
+  have h4 : (‖(x + y)‖²) ≤ ((‖x‖₊ + ‖y‖₊)^2),
   {
-    calc ↑((x + y).norm_sq) = ↑(x.norm_sq) + 2 * x ⬝ y + ↑(y.norm_sq) : h1
-      ... ≤ ↑(x.norm_sq) + 2 * |x ⬝ y| + ↑(y.norm_sq) : by linarith
-      ... ≤ ↑(x.norm_sq) + 2 * ‖x‖ * ‖y‖ + ↑(y.norm_sq) : by { simp, linarith, }
+    calc ↑(‖(x + y)‖²) = ↑(‖x‖²) + 2 * x ⬝ y + ↑(‖y‖²) : h1
+      ... ≤ ↑(‖x‖²) + 2 * |x ⬝ y| + ↑(‖y‖²) : by linarith
+      ... ≤ ↑(‖x‖²) + 2 * ‖x‖ * ‖y‖ + ↑(‖y‖²) : by { simp, linarith, }
       ... =  ((‖x‖ + ‖y‖)^2) : begin
         rw add_sq,
         have hx_sqrt := real.sq_sqrt(dot_self_nonneg x),
