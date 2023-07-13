@@ -20,7 +20,7 @@ Let's first get introduced to a tactic called nth_rewrite n rules. It applies th
 to the nth possible rule. For instance, nth_rewrite 2 add_comm would apply add_comm to the third possible instance 
 where it could be applied. (This is because counting begins from 0.) 
 
-## Level 8: `Add norm square` 
+## Level 6: `Add norm square` 
 
 -/
 

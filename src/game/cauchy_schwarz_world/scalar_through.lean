@@ -34,7 +34,7 @@ Also, if the projection of x on y is multiplied by c, then we attain the project
 This allows us to understand why multiplying a vector x by a scalar c and then computing the dot product of that new vector cx
 with another vector y, yields the same result as multiplying the dot product of vectors x and y with scalar c.
 
-## Level 2: `Scalars pass through` 
+## Level 1: `Scalars pass through` 
 
 -/
 

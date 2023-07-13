@@ -18,7 +18,7 @@ Applying add_norm_square we see that that |x · y|²= ||x||² + 2 * (x ⬝ y) + 
 
 Good luck!
 
-## Level 12: `Cauchy-Schwarz Inequality for unit vectors` 
+## Level 8: `Cauchy-Schwarz Inequality for unit vectors` 
 
 -/
 

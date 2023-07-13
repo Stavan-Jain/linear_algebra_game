@@ -23,7 +23,7 @@ Let’s take a minute to get introduced to cases_matching p. This tactic applies
 For instance, the following tactic destructs all conjunctions and disjunctions in the current goal.
 
 
-## Level 4: `Distributive Property` 
+## Level 2: `Distributive Property` 
 
 -/
 

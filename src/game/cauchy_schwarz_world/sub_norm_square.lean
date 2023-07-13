@@ -13,7 +13,7 @@ Good luck!
 Strategy:
 
 
-## Level 4: `Subtract norm square` 
+## Level 7: `Subtract norm square` 
 
 -/
 

@@ -17,7 +17,7 @@ is a vector with one element, the product is always positive.
 
 We're going to prove that the dot product is positive definite!
 
-## Level 2: `dot product is postive definite ` 
+## Level 5: `dot product is postive definite ` 
 
 -/
 

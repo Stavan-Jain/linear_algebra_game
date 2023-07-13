@@ -13,7 +13,7 @@ Strategy:
 As we've seen repeatedly it might also be helpful in this case to express the magnitude of x as 
 the dot product of x with itself. 
 
-## Level 7: `Norm is 0 iff zero vector` 
+## Level 3: `Norm is 0 iff zero vector` 
 
 -/
 

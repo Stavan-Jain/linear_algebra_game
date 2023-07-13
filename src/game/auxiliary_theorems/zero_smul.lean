@@ -1,4 +1,4 @@
-import game.auxiliary_theorems.pos_add_neg_zero --hide
+import game.auxiliary_theorems.self_neg_eq_zero --hide
 namespace tuple -- hide
 
 
