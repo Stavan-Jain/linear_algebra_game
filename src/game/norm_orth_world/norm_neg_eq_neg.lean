@@ -15,7 +15,7 @@ As we've done before, let's take some vector x of length n. It makes sense to ap
 Remember, "simp at *"  simplifies all current hypotheses and the current goal
 
 Hint: 
-Think about how we can use ||x|| = x ⬝ x and try to prove that ||-x||= x ⬝ x
+Think about how we can use ||x||² = x ⬝ x and try to prove that ||-x||²= x ⬝ x
 
 
 ## Level 1: `norm of neg equals norm` 
