@@ -5,6 +5,9 @@ namespace tuple -- hide
 /- 
 # Vector world
 
+Strategy:
+Think about how we can use zero_dot to prove dot_zero.
+
 ## Level 4: `vector dot zero is zero` 
 
 -/
