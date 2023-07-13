@@ -1,5 +1,4 @@
-import game.dot_prod_world.dot_self_zero
-import game.auxiliary_theorems.sub_eq_add_neg --hide
+import game.cauchy_schwarz_world.div_norm_unit--hide
 namespace tuple -- hide
 
 /- 

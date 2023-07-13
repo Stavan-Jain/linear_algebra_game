@@ -1,4 +1,5 @@
-import game.cauchy_schwarz_world.add_norm_square
+import game.dot_prod_world.dot_self_zero
+import game.auxiliary_theorems.sub_eq_add_neg --hide
 namespace tuple -- hide
 
 /- 
