@@ -17,7 +17,7 @@ If we can prove that x1+x2 is a part of U+V and that cx₁ is a part of U+V, the
 Strategy:
 rcases is a tactic that will perform cases recursively, according to a pattern. It is used to destructure hypotheses or expressions composed 
 of inductive types like h1 : a ∧ b ∧ c ∨ d or h2 : ∃ x y, trans_rel R x y
-
+(rcases applies cases repeatedly to every hypothesis that is being generated.) 
 
 # Level 5: For subspaces U and V, U + V is also a subspace of R^n 
 -/
