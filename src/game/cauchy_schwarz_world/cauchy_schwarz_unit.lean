@@ -1,4 +1,4 @@
-import game.cauchy_schwarz_world.div_norm_unit --hide
+import game.cauchy_schwarz_world.sub_norm_square --hide
 namespace tuple -- hide
 
 /- 
@@ -18,7 +18,7 @@ Applying add_norm_square we see that that |x · y|²= ||x||² + 2 * (x ⬝ y) + 
 
 Good luck!
 
-## Level 12: `Cauchy-Schwarz Inequality for unit vectors` 
+## Level 8: `Cauchy-Schwarz Inequality for unit vectors` 
 
 -/
 

@@ -1,6 +1,6 @@
 import vectors.tuple -- hide
 import data.real.basic
-import game.dot_prod_world.dot_self_zero--hide
+import game.dot_prod_world.dot_comm --hide
 namespace tuple -- hide
 
 /- 
@@ -23,7 +23,7 @@ Let’s take a minute to get introduced to cases_matching p. This tactic applies
 For instance, the following tactic destructs all conjunctions and disjunctions in the current goal.
 
 
-## Level 4: `Distributive Property` 
+## Level 2: `Distributive Property` 
 
 -/
 

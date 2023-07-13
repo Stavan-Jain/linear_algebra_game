@@ -1,4 +1,4 @@
-import game.cauchy_schwarz_world.norm_pos --hide
+import game.cauchy_schwarz_world.cauchy_schwarz_unit --hide
 
 namespace tuple -- hide
 

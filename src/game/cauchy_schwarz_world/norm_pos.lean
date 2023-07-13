@@ -5,7 +5,7 @@ namespace tuple -- hide
 /- 
 # Cauchy Schwarz world
 
-## Level 8: `Norm is positive if the vector is nonzero` 
+## Level 4: `Norm is positive if the vector is nonzero` 
 
 -/
 

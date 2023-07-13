@@ -1,4 +1,4 @@
-import game.cauchy_schwarz_world.scalar_norm --hide
+import game.cauchy_schwarz_world.add_norm_square --hide
 namespace tuple -- hide
 
 /- 
@@ -13,7 +13,7 @@ Good luck!
 Strategy:
 
 
-## Level 4: `Subtract norm square` 
+## Level 7: `Subtract norm square` 
 
 -/
 

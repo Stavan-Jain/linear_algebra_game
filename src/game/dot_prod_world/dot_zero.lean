@@ -5,7 +5,7 @@ namespace tuple -- hide
 /- 
 # Vector world
 
-## Level 6: `vector dot zero is zero` 
+## Level 4: `vector dot zero is zero` 
 
 -/
 

@@ -9,7 +9,7 @@ namespace tuple -- hide
 
 # Vector world
 
-## Level 6: `scalar_assoc` 
+## Level 7: `scalar_assoc` 
 
 -/
 

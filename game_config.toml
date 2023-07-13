@@ -25,11 +25,11 @@ id = 2
 parents = [1]
 levels = [
 	"src/game/dot_prod_world/dot_comm.lean",
-	"src/game/dot_prod_world/dot_self_nonneg.lean",
-	"src/game/dot_prod_world/dot_self_zero.lean",
 	"src/game/dot_prod_world/dot_dist.lean",
 	"src/game/dot_prod_world/zero_dot.lean",
 	"src/game/dot_prod_world/dot_zero.lean",
+	"src/game/dot_prod_world/dot_self_nonneg.lean",
+	"src/game/dot_prod_world/dot_self_zero.lean",
 ]
 
 [[worlds]]
@@ -38,13 +38,14 @@ id = 3
 parents = [2]
 levels = [
 	"src/game/cauchy_schwarz_world/add_norm_square.lean",
-	"src/game/cauchy_schwarz_world/scalar_norm.lean",
 	"src/game/cauchy_schwarz_world/scalar_through.lean",
-	"src/game/cauchy_schwarz_world/sub_norm_square.lean",
-	"src/game/cauchy_schwarz_world/div_norm_unit.lean",
-	"src/game/cauchy_schwarz_world/cauchy_schwarz_unit.lean",
+	"src/game/cauchy_schwarz_world/scalar_norm.lean",
 	"src/game/cauchy_schwarz_world/norm_zero_iff.lean",
 	"src/game/cauchy_schwarz_world/norm_pos.lean",
+	"src/game/cauchy_schwarz_world/div_norm_unit.lean",
+	"src/game/cauchy_schwarz_world/add_norm_square.lean",
+	"src/game/cauchy_schwarz_world/sub_norm_square.lean",
+	"src/game/cauchy_schwarz_world/cauchy_schwarz_unit.lean",
 	"src/game/cauchy_schwarz_world/cauchy_schwarz_xzero.lean",
 	"src/game/cauchy_schwarz_world/cauchy_schwarz_yzero.lean",
 	"src/game/cauchy_schwarz_world/cauchy_schwarz.lean",

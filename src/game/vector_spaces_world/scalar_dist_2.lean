@@ -9,7 +9,7 @@ namespace tuple -- hide
 
 # Vector world
 
-## Level 8: `Distributive property 2` 
+## Level 6: `Distributive property 2` 
 
 -/
 

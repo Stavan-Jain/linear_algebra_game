@@ -1,5 +1,4 @@
-import game.dot_prod_world.dot_zero
-import game.auxiliary_theorems.sub_eq_add_neg --hide
+import game.cauchy_schwarz_world.div_norm_unit--hide
 namespace tuple -- hide
 
 /- 
@@ -21,7 +20,7 @@ Let's first get introduced to a tactic called nth_rewrite n rules. It applies th
 to the nth possible rule. For instance, nth_rewrite 2 add_comm would apply add_comm to the third possible instance 
 where it could be applied. (This is because counting begins from 0.) 
 
-## Level 8: `Add norm square` 
+## Level 6: `Add norm square` 
 
 -/
 
