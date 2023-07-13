@@ -18,7 +18,7 @@ Strategy:
 Remember, how a subset is defined in Lean, (Hint: set.subset_def says that if x ⊆ t then a ∈ x → a ∈ t.)
 and how to express that if V⊆ Wᗮ every v ∈ V must be ⟂ to every w ∈ W. 
 
-# Level : V ⟂ W → V ⊆ Wᗮ 
+# Level 8: V ⟂ W → V ⊆ Wᗮ 
 
 -/
 

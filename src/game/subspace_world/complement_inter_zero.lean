@@ -22,11 +22,12 @@ vector in V.
 
 
 
-# Level
+# Level 7: V ∩ (Vᗮ) only contains the zero vector
 
 -/
 
 /- Lemma 
+V ∩ (Vᗮ) = {x : ℝ ^ n | x = 0}
 -/
 
 lemma complement_inter_zero {n : ℕ} {V : set (ℝ ^ n)} [v : subspace (ℝ ^ n) ℝ V] : V ∩ (Vᗮ) = {x : ℝ ^ n | x = 0} := 

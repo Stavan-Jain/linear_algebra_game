@@ -25,7 +25,7 @@ Notation:
 ^⟂ : `^\perp`
 Due to limitations of the game web editor you might need to use the ^⟂ notation. However, if you're using VSCode, both notations work.
 
-# Prove orthogonal complement Vᗮ of subspace V is also a subspace
+# Level 6: Prove orthogonal complement Vᗮ of subspace V is also a subspace
 
 
 -/

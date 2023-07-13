@@ -7,18 +7,25 @@ open tuple --hide
 /- 
 # Subspace World
 Background: 
-Here we will be proving that the zero vector itself is a subspace. As before, we will have to prove that the zero vector fulfils
+Here we will be proving that the set containing only the zero vector is a subspace. We will have to prove that this set fulfils
 the following :-
  1. It contains the 0 vector 
  2. It is closed under addition 
  3. It is closed under scalar multiplication 
 
-# Level : 0 is a subspace
+Strategy:
+Using split at the beginning will split the goal into the three conditions needed to prove that {0} is a subspace of R^n. 
+
+Hint:
+
+tuple.smul_zero' : ∀ {n : ℕ} (c : ℝ), c • 0 = 0
+
+# Level 1: {0} is a subspace of Rⁿ 
 -/
 
 /- 
 Lemma: 
-0 is a subsapce 
+0 is a subsapce of Rⁿ 
 -/
 
 instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := begin
