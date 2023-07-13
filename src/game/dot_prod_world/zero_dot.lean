@@ -12,7 +12,7 @@ Background:
  As seen before, it may make sense to begin with induction, and first prove that 0 ⬝ x = 0  for x equal to the zero vector. 
  Good luck!
 
-## Level 5: `zero dot vector equals zero` 
+## Level 3: `zero dot vector equals zero` 
 
 -/
 

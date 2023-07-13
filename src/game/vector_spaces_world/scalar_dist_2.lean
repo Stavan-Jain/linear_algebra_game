@@ -12,7 +12,7 @@ namespace tuple -- hide
 Strategy:
 This level will give you more practice with induction!
 
-## Level 8: `Distributive property 2` 
+## Level 6: `Distributive property 2` 
 
 -/
 

@@ -28,73 +28,24 @@ by_cases is a handy tactic that may be useful here. It splits the main goal into
 
 -/
 
-lemma scalar_norm : ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n), |c| * ‖x‖ = ‖c • x‖ :=
+lemma scalar_norm : ∀ {n : ℕ} (c : ℝ) (x : ℝ ^ n), (|c| * ‖x‖ : ℝ)  = ‖c • x‖ :=
 begin 
   intros n c x,
-  repeat {rw norm_eq_sqrt_norm_sq}, simp,
-  have j : ∀ (x : real), (0 ≤ x) → x = real.sqrt(x * x),
-  {
-    intros x xgeq, 
-    simp [xgeq],   
-  },
-  by_cases c ≥ 0,
-  {
-  rw abs_eq_self.mpr h, 
-
-  have i := j c h, 
-  nth_rewrite 0 i, 
-  rw ← real.sqrt_mul ,
-  simp [scalar_through],  
-  nth_rewrite 1 dot_comm, 
-  simp [scalar_through],  
-  rw mul_assoc, 
-  exact mul_nonneg h h},
-  
-  have clt : c < 0 , 
-  {
-    linarith, 
-  }, 
-  have r : ∀(x :real), (x < 0)→ ∃ y ≥ 0, x = -y, {
-    intros x xleq, use (-x), 
-    split, 
-    refine neg_nonneg.mpr _,
-    linarith, 
-    linarith,
-  },
-  have s : ∀ (y: real), (-y)*(-y) = y * y , 
-  {
-    intro y, 
-    linarith,
-  },
-  
-  have k : ∀ (x : real), (x < 0) → x = - real.sqrt(x * x),
-  {
-    intros x xleq, 
-    have y := r x xleq,
-    cases y with y1 y2, 
-    cases y2,
-    rw y2_h , 
-    rw s, 
-    rw ← j y1 y2_w,  
-    
-  },
-  nth_rewrite 0 k c clt,
-  have : -real.sqrt (c * c) * real.sqrt ↑(x.norm_sq) = -(real.sqrt (c * c) * real.sqrt ↑(x.norm_sq)), 
-  {
-    linarith, 
-  },
+  repeat {rw norm_eq_sqrt_norm_sq}, 
   simp, 
-  have m : real.sqrt (c * c) ≥ 0 ,
-  {
-    exact real.sqrt_nonneg (c*c), 
-  }, 
-  rw abs_eq_self.mpr m,
-  rw ← real.sqrt_mul ,
-  simp [scalar_through],    
-  nth_rewrite 1 dot_comm, 
-  simp [scalar_through], 
-  rw mul_assoc,
-  exact mul_self_nonneg c,
+  have h : ∀ (x : real), (0 ≤ x) → x = real.sqrt(x * x),
+  { intros x xgeq, 
+    simp [xgeq], },
+  have h₁ : |c| = real.sqrt(|c|*|c|) := by exact h (|c|) (by simp),  
+  rw h₁,
+  simp,
+  rw ← real.sqrt_mul,
+  { congr' 1,  
+    rw [scalar_through, dot_comm],
+    rw dot_comm x (c • x), 
+    rw ← scalar_through,  
+    rw [scalar_through, scalar_through c, mul_assoc], },
+ { exact mul_self_nonneg c, },
 end
 
 end tuple -- hide

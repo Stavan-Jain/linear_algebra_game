@@ -19,3 +19,108 @@ levels = [
 	"src/game/Tutorial_world/level9.lean",
 ]
 
+[[worlds]]
+name = "Dot Product World"
+id = 2
+parents = [1]
+levels = [
+	"src/game/dot_prod_world/dot_comm.lean",
+	"src/game/dot_prod_world/dot_dist.lean",
+	"src/game/dot_prod_world/zero_dot.lean",
+	"src/game/dot_prod_world/dot_zero.lean",
+	"src/game/dot_prod_world/dot_self_nonneg.lean",
+	"src/game/dot_prod_world/dot_self_zero.lean",
+]
+
+[[worlds]]
+name = "Cauchy Schwarz World"
+id = 3
+parents = [2]
+levels = [
+	"src/game/cauchy_schwarz_world/add_norm_square.lean",
+	"src/game/cauchy_schwarz_world/scalar_through.lean",
+	"src/game/cauchy_schwarz_world/scalar_norm.lean",
+	"src/game/cauchy_schwarz_world/norm_zero_iff.lean",
+	"src/game/cauchy_schwarz_world/norm_pos.lean",
+	"src/game/cauchy_schwarz_world/div_norm_unit.lean",
+	"src/game/cauchy_schwarz_world/add_norm_square.lean",
+	"src/game/cauchy_schwarz_world/sub_norm_square.lean",
+	"src/game/cauchy_schwarz_world/cauchy_schwarz_unit.lean",
+	"src/game/cauchy_schwarz_world/cauchy_schwarz_xzero.lean",
+	"src/game/cauchy_schwarz_world/cauchy_schwarz_yzero.lean",
+	"src/game/cauchy_schwarz_world/cauchy_schwarz.lean",
+]
+
+[[worlds]]
+name = "Norms and Orthogonality World"
+id = 4
+parents = [3]
+levels = [
+	"src/game/norm_orth_world/norm_neg_eq_neg.lean", 
+	"src/game/norm_orth_world/orth_self_unique_zero.lean", 
+	"src/game/norm_orth_world/zero_orth_all.lean", 
+	"src/game/norm_orth_world/parallelogram_eq.lean", 
+	"src/game/norm_orth_world/pythogoras_theorem.lean", 
+	"src/game/norm_orth_world/triangle_ineq.lean", 
+]
+
+[[worlds]]
+name = "Subspace World"
+id = 5
+parents = [4]
+levels = [
+	"src/game/subspace_world/zero.lean",
+	"src/game/subspace_world/rn.lean",
+	"src/game/subspace_world/line.lean",
+	"src/game/subspace_world/dot_prod.lean",
+	"src/game/subspace_world/inter_subspace.lean",
+	"src/game/subspace_world/add_subspace.lean",
+	"src/game/subspace_world/complement_subspace.lean",
+	"src/game/subspace_world/complement_inter_zero.lean",
+	"src/game/subspace_world/orth_subset_orth_complement.lean",
+	"src/game/subspace_world/orth_complement_subset.lean",
+	"src/game/subspace_world/orth_of_sum_eq_inter_of_orth.lean",
+]
+
+
+[[worlds]]
+name = "Linear Transformation World"
+id = 6
+parents = [5]
+levels = [
+	"src/game/linear_map_world/zero_in_kernel.lean", 
+	"src/game/linear_map_world/lin_transformation_def2.lean", 
+	"src/game/linear_map_world/id_transformation.lean", 
+	"src/game/linear_map_world/zero_transformation.lean", 
+	"src/game/linear_map_world/example_1.lean", 
+	"src/game/linear_map_world/kernel_subspace.lean", 
+	"src/game/linear_map_world/image_subspace.lean", 
+]
+
+[[worlds]]
+name = "R3 Vector Space World"
+id = 7
+parents = [1]
+levels = [
+	"src/game/r3_vector_space/vec_assoc.lean", 
+	"src/game/r3_vector_space/vec_comm.lean", 
+	"src/game/r3_vector_space/add_zero.lean", 
+	"src/game/r3_vector_space/vec_add_neg.lean", 
+	"src/game/r3_vector_space/scalar_dist_1.lean", 
+	"src/game/r3_vector_space/scalar_assoc.lean", 
+
+]
+[[worlds]]
+name = "Rn Vector Space World"
+id = 8
+parents = [7]
+levels = [
+	"src/game/vector_spaces_world/vec_assoc.lean",
+	"src/game/vector_spaces_world/vec_comm.lean", 
+	"src/game/vector_spaces_world/add_zero.lean",
+	"src/game/vector_spaces_world/vec_add_neg.lean",
+	"src/game/vector_spaces_world/scalar_dist_1.lean",
+	"src/game/vector_spaces_world/scalar_dist_2.lean",
+	"src/game/vector_spaces_world/scalar_assoc.lean",
+]
+

@@ -8,20 +8,19 @@ namespace vector_spaces -- hide
 
 ## Level 2: `Equivalent definition of linear transformation` 
 
-We've defined a linear transformation as a map T that satisfies 
-
-T(cx + dy) = cT(x) + dT(y)
-
-for all vectors x, y and scalars c. We're now going to prove that this is equivalent
-to the usual definition: 
-
+Background: We've defined a linear transformation as a map T that satisfies 
+T(cx + dy) = cT(x) + dT(y) for all vectors x, y and scalars c. 
+We're now going to prove that this is equivalent to the usual definition
+which has been mentioned before: 
 1. T(x + y) = T(x) + T(y)
 2. T(cx) = cT(x)
+
+Hint: Remember to use theorem zero_smul' and tuple.one_smul!
 
 -/
 
 /- Lemma
-
+T(cx + dy) = cT(x) + dT(y) ↔ T(x + y) = T(x) + T(y), T(cx) = cT(x)
 -/
 lemma lin_transformation_def2 : ∀ {n m : ℕ} (T : ℝ ^ n → ℝ ^ m),
 linear_transformation T ℝ ↔ ∀ (c : ℝ) (x y : ℝ ^ n), (T (c • x)) = c • (T x) ∧ T (x + y) = T x + T y :=

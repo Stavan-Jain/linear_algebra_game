@@ -16,7 +16,7 @@ def linear_transformation {𝕍₁ : Type*} {𝕍₂ : Type*} (T : 𝕍₁ → �
 
 
 @[simp]
-def kernel {n m : ℕ} (T : ℝ^ n  → ℝ ^ m ) : set (ℝ ^ n) := 
+def kernel {n m : ℕ} (T : ℝ ^ n  → ℝ ^ m ) : set (ℝ ^ n) := 
 {x : ℝ ^ n | T x = 0}
 
 @[simp]

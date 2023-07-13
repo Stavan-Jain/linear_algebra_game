@@ -1,4 +1,4 @@
-import game.cauchy_schwarz_world.sub_norm_square --hide
+import game.cauchy_schwarz_world.norm_pos --hide
 namespace tuple -- hide
 
 /- 
@@ -16,7 +16,7 @@ but has unit magnitude. (Imagine a vector of magnitude a. Cut it into a pieces. 
 Strategy:
 
 
-## Level 16: `Div norm unit` 
+## Level 5: `Div norm unit` 
 
 -/
 
