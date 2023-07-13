@@ -12,7 +12,7 @@ of the hypotenuse. Let us see how to prove the Pythagoras theorem formally in Le
 Strategy:
 As before, it may be helpful to rewrite ||x||² as x ⬝ x. 
 
-## Level 5: `Pythogaras Theorem` 
+## Level 5: `Pythogoras Theorem` 
 
 -/
 
