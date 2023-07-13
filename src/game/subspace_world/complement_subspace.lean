@@ -31,7 +31,7 @@ The orthogonal complement Vᗮ of subspace V is also a subspace.
 -/
 
 
-instance orth_complement_subspace {n : ℕ} (V: set (ℝ ^ n)) [v : subspace (ℝ ^ n) ℝ V] : subspace (ℝ ^ n) ℝ (orth_complement V) := 
+instance orth_complement_subspace {n : ℕ} (V: set (ℝ ^ n)) [v : subspace (ℝ ^ n) ℝ V] : subspace (ℝ ^ n) ℝ (Vᗮ) := 
 begin
   split, 
 
