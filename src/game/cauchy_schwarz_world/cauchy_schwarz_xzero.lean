@@ -11,7 +11,7 @@ The Cauchy Schwarz Inequality when one of the vectors is 0.
 -/
 
 /- Lemma
-
+|0 ⬝ y| ≤ ‖0‖ * ‖y‖ ∀y ∈ Rⁿ 
 -/
 
 lemma cauchy_schwarz_xzero: ∀ {n : ℕ} ( y : ℝ ^ n)

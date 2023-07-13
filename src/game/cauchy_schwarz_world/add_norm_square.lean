@@ -25,8 +25,7 @@ where it could be applied. (This is because counting begins from 0.)
 -/
 
 /- Lemma
-
-
+(x+y)² = x² + 2x⬝y + y² ∀x, y ∈ Rⁿ 
 -/
 
 lemma add_norm_square : ∀ {n : ℕ} (x y : ℝ ^ n), 

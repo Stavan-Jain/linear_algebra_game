@@ -15,7 +15,7 @@ Here we will have to prove that the two sides of the equation are equal.
 -/
 
 /- Lemma
-u + 0 = u
+u + 0 = u ∀u ∈ R³   
 -/
 
 lemma add_zero : ∀ (u : ℝ ^ 3), u + 0 = u :=

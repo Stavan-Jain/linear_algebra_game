@@ -15,7 +15,7 @@ The ring tactic which helps in proving various commutative rings (e.g. applying 
 -/
 
 /- Lemma
-c • d • u = (c * d) • u
+c • d • u = (c * d) • u  ∀c,d ∈ R, u ∈ R³
 -/
 
 lemma scalar_assoc : ∀ (c d : ℝ) (u : ℝ ^ 3), c • d • u = (c * d) • u :=

@@ -160,6 +160,7 @@ section norm_real
   @[simp]
   noncomputable instance {n : ℕ} : has_norm (ℝ ^ n) := ⟨coe ∘ tuple.norm⟩
   noncomputable instance {n : ℕ} : has_nnnorm (ℝ ^ n) := ⟨tuple.norm⟩
+  notation `‖`x`‖²` := norm_sq x
 end norm_real
 
 

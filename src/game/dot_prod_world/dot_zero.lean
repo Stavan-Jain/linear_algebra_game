@@ -10,7 +10,7 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-
+x ⬝ 0 = 0 ∀x ∈ Rⁿ 
 -/
 
 

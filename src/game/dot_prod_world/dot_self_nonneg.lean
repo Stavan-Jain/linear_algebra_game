@@ -22,7 +22,7 @@ We're going to prove that the dot product is positive definite!
 -/
 
 /- Lemma
-v ⬝ w = w ⬝ v for all vectors v, w ∈ ℝⁿ
+x ⬝ x ≥ 0 ∀x ∈ Rⁿ 
 -/
 lemma dot_self_nonneg : ∀ {n : ℕ} (x : ℝ ^ n), x ⬝ x ≥ 0 :=
 begin 

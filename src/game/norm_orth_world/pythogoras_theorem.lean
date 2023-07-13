@@ -17,7 +17,7 @@ As before, it may be helpful to rewrite ||x||² as x ⬝ x.
 -/
 
 /- Lemma
-x ⟂ y iff ||x+y||² = ||x||² + ||y||²  
+x ⟂ y ↔ ||x+y||² = ||x||² + ||y||²  
 -/
 
 lemma pythogaras_theorem : ∀ {n : ℕ} (x y : ℝ ^ n),  
