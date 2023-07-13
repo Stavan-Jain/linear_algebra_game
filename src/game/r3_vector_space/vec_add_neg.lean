@@ -12,7 +12,7 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-
+v + -v = 0 ∀v ∈ R³
 -/
 
 lemma vec_add_neg : ∀ (v : ℝ ^ 3), v + -v = 0 :=

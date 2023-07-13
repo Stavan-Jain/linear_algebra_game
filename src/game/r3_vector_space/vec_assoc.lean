@@ -13,7 +13,7 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-
+u + (v + w) = u + v + w  ∀u,v,w ∈ R³
 -/
 
 lemma vec_assoc : ∀ (u v w : ℝ ^ 3), u + (v + w) = u + v + w :=

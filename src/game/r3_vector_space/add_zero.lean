@@ -11,7 +11,7 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-
+u + 0 = u ∀u ∈ R³   
 -/
 
 lemma add_zero : ∀ (u : ℝ ^ 3), u + 0 = u :=

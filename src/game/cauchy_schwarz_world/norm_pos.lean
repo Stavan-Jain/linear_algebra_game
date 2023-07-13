@@ -10,7 +10,7 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-
+x ≠ 0 → ‖x‖ > 0 ∀x ∈ Rⁿ 
 -/
 
 lemma norm_pos: ∀ {n : ℕ} (x : ℝ ^ n)

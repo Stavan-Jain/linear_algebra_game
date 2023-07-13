@@ -11,7 +11,7 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-
+u + v = v + u ∀u,v ∈ R³
 -/
 
 lemma vec_comm : ∀ (u v : ℝ ^ 3), u + v = v + u :=
