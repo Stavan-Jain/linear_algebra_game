@@ -22,5 +22,6 @@ def orth_complement {n : ℕ} (V : set (ℝ ^ n)) [v : subspace (ℝ ^ n) ℝ V]
 def orthogonal {n : ℕ} (V : set (ℝ ^ n)) (W : set (ℝ ^ n)) [subspace (ℝ^ n) ℝ V] [subspace (ℝ^ n) ℝ W]
 : Prop := ∀ v : ℝ ^ n, ∀ w : ℝ ^ n , v ∈ V  → w ∈ W → v ⬝ w = 0 
 
+notation V`ᗮ`:1200 := orth_complement V
 
 end vector_spaces

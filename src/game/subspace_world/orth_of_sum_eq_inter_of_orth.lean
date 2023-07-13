@@ -24,7 +24,7 @@ Let's take a minute to get introduced to a tactic called ext. "ext" applies as m
 -/
 
 lemma orth_of_sum_eq_inter_of_orth {n : ℕ} (U : set (ℝ ^ n)) (V : set (ℝ ^ n)) [U_sub : subspace (ℝ ^ n) ℝ U] [V_sub : subspace (ℝ ^ n) ℝ V] : 
-orth_complement ({x : ℝ ^ n | ∃ u : U, ∃ v : V, x = u + v}) = orth_complement U ∩ orth_complement V := 
+({x : ℝ ^ n | ∃ u : U, ∃ v : V, x = u + v})ᗮ = Uᗮ ∩ Vᗮ := 
 begin 
   apply set.eq_of_subset_of_subset,
 

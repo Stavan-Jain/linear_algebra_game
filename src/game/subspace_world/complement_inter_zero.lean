@@ -29,7 +29,7 @@ vector in V.
 /- Lemma 
 -/
 
-lemma complement_inter_zero {n : ℕ} {V : set (ℝ ^ n)} [v : subspace (ℝ ^ n) ℝ V] : V ∩ (orth_complement V) = {x : ℝ ^ n | x = 0} := 
+lemma complement_inter_zero {n : ℕ} {V : set (ℝ ^ n)} [v : subspace (ℝ ^ n) ℝ V] : V ∩ (Vᗮ) = {x : ℝ ^ n | x = 0} := 
 begin 
   apply set.eq_of_subset_of_subset,   
   { simp, 

@@ -27,7 +27,7 @@ V  ⊆ W → Wᗮ ⊆ Vᗮ
 
 
 lemma orth_complement_subset {n : ℕ} (V : set (ℝ ^ n)) (W : set (ℝ ^ n)) [V_sub : subspace (ℝ ^ n) ℝ V] 
-[W_sub : subspace (ℝ ^ n) ℝ W] : V ⊆ W → orth_complement W ⊆ orth_complement V := 
+[W_sub : subspace (ℝ ^ n) ℝ W] : V ⊆ W → Wᗮ ⊆ Vᗮ := 
 begin 
   intro v_sub_w, 
   rw set.subset_def, 
