@@ -4,7 +4,10 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# R³ Vector Space World 
+
+Strategy:
+"cases_tuple v 3" and "ring" may come in handy here as well. 
 
 ## Level 5: `Distributive property 1` 
 

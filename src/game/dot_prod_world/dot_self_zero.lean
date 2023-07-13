@@ -3,11 +3,15 @@ namespace tuple -- hide
 
 /- 
 # Dot Product World
-
+ Background:
 Let's come back to thinking about what the dot product describes. It gives us an idea for how much one vector aligns with another. 
 The amount that a vector aligns with itself can only be zero if it itself is the zero vector. 
 
 We're going to prove that if dot product of a vector with itself is 0 then it must be the zero vector. 
+
+Strategy:
+Let's get introduced to a very handy tactic called linarith. Linarith helps in proving linear inequalities and equalities. Very often linarith can resolve goals using the following: {<, ≤, =, ≥, >}. 
+(What it does is tries to prove a goal of false by linear arithmetic on a hypothesis. If the goal is a linear (in)equality, it tries to prove it by contradiction. If the goal is not false (an equality), applies exfalso and tries linarith on the hypothesis.)
 
 ## Level 6: `dot product is postive definite part 2 ` 
 

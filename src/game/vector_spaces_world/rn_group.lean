@@ -2,7 +2,9 @@ import game.vector_spaces_world.scalar_dist_2
 import vectors.vector_spaces
 namespace tuple
 
-
+/- 
+# Vector Spaces World
+-/
 lemma add_assoc {n : ℕ} : ∀ (u v w : ℝ  ^ n), u + v + w = u + (v + w) := 
 begin
   induction n with n hn,

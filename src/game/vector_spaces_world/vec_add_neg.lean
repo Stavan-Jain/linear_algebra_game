@@ -8,14 +8,18 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+
+# Vector Spaces World
+
+Strategy:
+This level will give you more practice with induction!
 
 ## Level 4: `additive inverse` 
 
 -/
 
 /- Lemma
-
+v + -v = 0
 -/
 
 lemma vec_add_neg : ∀ {n : ℕ} (v : ℝ ^ n), v + -v = 0 :=

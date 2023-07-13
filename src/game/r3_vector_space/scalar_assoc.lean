@@ -4,7 +4,11 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# R³ Vector Space World 
+
+Strategy:
+The ring tactic which helps in proving various commutative rings (e.g. applying ring to  "a • b • c = a • c • b" resolves the goal by applying commutativity as needed ) may be helpful here.
+
 
 ## Level 6: `scalar_assoc` 
 

@@ -4,7 +4,11 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# R³ Vector Space World 
+
+Strategy:
+Here we will have to prove that the two sides of the equation are equal.
+"cases_tuple v 3" allows you to express a vector v as a tuple with 3 elements : [[v1, v2, v3]].
 
 ## Level 3: `add_zero` 
 

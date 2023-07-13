@@ -4,7 +4,10 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# R^3 world
+
+Strategy:
+Here we will be proving that vector addition is commutative. 
 
 ## Level 2: `vector_comm` 
 

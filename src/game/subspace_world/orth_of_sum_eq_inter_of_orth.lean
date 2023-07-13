@@ -1,6 +1,6 @@
-import game.subspace_world.orth_complement_subset
-namespace vector_spaces
-open tuple
+import game.subspace_world.orth_complement_subset --hide
+namespace vector_spaces --hide
+open tuple --hide
 
 /-
 
@@ -12,10 +12,19 @@ Every element in (U+V)ᗮ should be orthogonal to every element in U _and_ every
 us see how we can go about doing this proof in Lean. 
 
 Strategy:
-Let's take a minute to get introduced to a tactic called ext. "ext" applies as many extensionality lemmas as possible; 
+
+Remember the following:
+
+1. Another way of showing that A=B is by saying that A ⊆ B and B ⊆ A. The way to represent this in Lean is using 
+set.eq_of_subset_of_subset.
+
+2. "simp at *"  simplifies all current hypotheses and the current goal. It shows what you need to do prove a goal.
+
+3. The tactic specialize h a₁ ... aₙ works on local hypothesis h. The premises of this hypothesis, either universal 
+quantifications or non-dependent implications, are instantiated by concrete terms coming either from arguments a₁ ... aₙ. 
+The tactic adds a new hypothesis with the same name h := h a₁ ... aₙ and tries to clear the previous one.
 
 # Proving that (U+V)ᗮ = Uᗮ ∩ Vᗮ
-
 
 -/
 
@@ -48,4 +57,4 @@ begin
 
 end
 
-end vector_spaces
+end vector_spaces --hide
