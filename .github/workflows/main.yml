@@ -18,8 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-
     - name: install elan
       run: |
         set -o pipefail
@@ -50,6 +48,9 @@ jobs:
         ./node_modules/.bin/webpack --mode=production
         cd ../..
         python3 -m pip install .
+
+    - name: checkout project
+      uses: actions/checkout@v3
 
     - name: get mathlib cache
       run: leanproject get-mathlib-cache
