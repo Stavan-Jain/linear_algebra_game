@@ -16,7 +16,7 @@ As we have seen before, it may be helpful to use the fact that ||x||² can be wr
 -/
 
 /- Lemma
-
+(u+v)² + (u-v)² = 2 (u² + v²)
 -/
 
 lemma parallelogram_eq : ∀ {n : ℕ} (u v : ℝ ^ n), 

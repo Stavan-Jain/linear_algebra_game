@@ -11,7 +11,7 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-
+c • (u + v) = c • u + c • v  ∀c ∈ R, u,v ∈ R³
 -/
 
 lemma scalar_dist_1 : ∀ (c : ℝ) (u v : ℝ ^ 3), c • (u + v) = c • u + c • v :=

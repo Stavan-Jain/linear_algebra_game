@@ -11,7 +11,7 @@ namespace tuple -- hide
 -/
 
 /- Lemma
-
+c • d • u = (c * d) • u  ∀c,d ∈ R, u ∈ R³
 -/
 
 lemma scalar_assoc : ∀ (c d : ℝ) (u : ℝ ^ 3), c • d • u = (c * d) • u :=
