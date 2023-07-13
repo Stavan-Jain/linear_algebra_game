@@ -26,7 +26,7 @@ Strategy:
 
 
 lemma sub_norm_square : ∀ {n : ℕ} (x y : ℝ ^ n),
-↑(‖(x - y)‖²) = ↑(‖x‖²) - (2 * (x ⬝ y)) + ↑(‖y‖²) :=
+↑‖x - y‖² = ↑‖x‖² - (2 * (x ⬝ y)) + ↑‖y‖² :=
 begin 
   intros n x y,
   rw [sub_eq_add_neg, add_norm_square, neg_eq_neg_mul],

@@ -28,7 +28,7 @@ Good luck!
 -/
 
 lemma cauchy_schwarz_unit : ∀ {n : ℕ} (x y : ℝ ^ n), 
-(‖x‖²) = 1 → (‖y‖²) = 1 → |x ⬝ y| ≤ 1 :=
+‖x‖² = 1 → ‖y‖² = 1 → |x ⬝ y| ≤ 1 :=
 begin 
   intros n x y x_unit y_unit, 
   have h₁ := add_norm_square x y, 
@@ -47,10 +47,10 @@ begin
   clear this,
   apply abs_le.mpr,
   split, 
-  { have i : ‖(x + y)‖² ≥ 0 := by simp, 
+  { have i : ‖x + y‖² ≥ 0 := by simp, 
     have j : 2 * (1 + x ⬝ y) ≥0 := by exact eq.trans_ge h₁ i, 
     linarith, }, 
-  { have i : ‖(x- y)‖² ≥ 0 := by simp, 
+  { have i : ‖x - y‖² ≥ 0 := by simp, 
     have j : 2 * (1 - x ⬝ y) ≥0 := by exact eq.trans_ge h₂ i,
     linarith, },
 end

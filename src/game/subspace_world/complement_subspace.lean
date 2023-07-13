@@ -23,7 +23,7 @@ The split tactic will break the goal into the three conditions needed to prove t
 Notation:
 ᗮ : `\^perp`
 ^⟂ : `^\perp`
-Due to limitations of the game web editor you might need to use the ^⟂ notation. However, if you're using VS Code, both notations work.
+Due to limitations of the game web editor you might need to use the ^⟂ notation. However, if you're using VSCode, both notations work.
 
 # Prove orthogonal complement Vᗮ of subspace V is also a subspace
 
