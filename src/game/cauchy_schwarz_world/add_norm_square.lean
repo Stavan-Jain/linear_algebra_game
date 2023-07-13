@@ -29,7 +29,7 @@ where it could be applied. (This is because counting begins from 0.)
 -/
 
 lemma add_norm_square : ∀ {n : ℕ} (x y : ℝ ^ n), 
-↑(norm_sq (x + y)) = ↑(norm_sq x) + (2 * (x ⬝ y)) + ↑(norm_sq y) :=
+↑‖x + y‖² = ↑‖x‖² + (2 * (x ⬝ y)) + ↑‖y‖² :=
 begin 
   intros n x y, 
   simp,  
