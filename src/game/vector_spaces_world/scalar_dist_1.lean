@@ -7,14 +7,17 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# Vector Spaces World
+
+Strategy:
+This level will give you more practice with induction!
 
 ## Level 5: `Distributive property 1` 
 
 -/
 
 /- Lemma
-
+c • (u + v) = c • u + c • v
 -/
 
 lemma scalar_dist_1 : ∀ {n : ℕ} (c : ℝ) (u v : ℝ ^ n), c • (u + v) = c • u + c • v :=

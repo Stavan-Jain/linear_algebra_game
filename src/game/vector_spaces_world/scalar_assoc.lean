@@ -7,13 +7,18 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# Vector Spaces World
+
+Strategy:
+This will give you more practice with mathematical induction. 
+Rememeber, linarith and ring can come useful for proving goals of the following nature: {<, ≤, =, ≥, >}. 
 
 ## Level 6: `scalar_assoc` 
 
 -/
 
 /- Lemma
+c • d • u = (c * d) • u
 
 -/
 

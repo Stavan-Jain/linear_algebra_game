@@ -7,14 +7,18 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# Vector Spaces World
 
-## Level 2: `vector_assoc` 
+Strategy:
+"casesm" (short for cases_matching) allows you to apply cases in a spcific manner. 
+(Remmeber, cases can be used to decompose any element of an inductively defined type. It breaks a vector of length n
+into a two tuple, with first element ∈ R and second element being of length n-1.)
 
+## Level 2: `vector_comm` 
 -/
 
 /- Lemma
-
+u + v = v + u
 -/
 
 lemma vec_comm : ∀ {n : ℕ} (u v : ℝ ^ n), u + v = v + u :=

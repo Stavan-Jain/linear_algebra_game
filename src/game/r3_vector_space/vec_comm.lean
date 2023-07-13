@@ -4,14 +4,17 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# R^3 world
+
+Strategy:
+Here we will be proving that vector addition is commutative. 
 
 ## Level 2: `vector_comm` 
 
 -/
 
 /- Lemma
-
+u + v = v + u
 -/
 
 lemma vec_comm : ∀ (u v : ℝ ^ 3), u + v = v + u :=

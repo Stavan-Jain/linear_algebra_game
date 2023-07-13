@@ -7,13 +7,17 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# Vector Spaces World
+
+Strategy:
+This level will give you more practice with induction!
 
 ## Level 8: `Distributive property 2` 
 
 -/
 
 /- Lemma
+(a + b) • v = a • v + b • v
 
 -/
 

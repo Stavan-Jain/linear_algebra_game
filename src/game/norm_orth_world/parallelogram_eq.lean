@@ -6,7 +6,7 @@ namespace tuple -- hide
 # Norm Orth World
 
 Background:
-The parallelogram equality for R² states that the sum of the squares of the diagonals of a parallelogram is equal to twice the sum of the squares of it's adjacent sides. 
+The parallelogram equality for R² states that the sum of the squares of the diagonals of a parallelogram is equal to twice the sum of the squares of its adjacent sides. 
 
 Strategy:
 As we have seen before, it may be helpful to use the fact that ||x||² can be written as x ⬝ x. 
@@ -16,6 +16,8 @@ As we have seen before, it may be helpful to use the fact that ||x||² can be wr
 -/
 
 /- Lemma
+
+||u + v||² + ||u - v||² = 2||u||² + 2||v||²
 
 -/
 

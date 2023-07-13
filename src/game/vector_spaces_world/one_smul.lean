@@ -7,7 +7,10 @@ namespace tuple -- hide
 
 /- 
 
-# Vector world
+# Vector Spaces World
+
+Strategy:
+This will give you more practice with induction!
 
 ## Level 7: `one_smul` 
 
