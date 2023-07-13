@@ -34,7 +34,7 @@ For this lemma, the `refl` tactic will close the goal, as both side are *exactly
 For all natural numbers $x$, we have $x = x$.
 -/
 
-lemma demo (x: ℕ) : x = x  :=
+lemma demo (x : ℕ) : x = x :=
 begin 
   refl,
 

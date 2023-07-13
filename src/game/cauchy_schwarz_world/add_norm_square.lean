@@ -1,4 +1,4 @@
-import game.dot_prod_world.dot_zero
+import game.dot_prod_world.dot_self_zero
 import game.auxiliary_theorems.sub_eq_add_neg --hide
 namespace tuple -- hide
 

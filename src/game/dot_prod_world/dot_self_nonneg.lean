@@ -1,4 +1,4 @@
-import game.dot_prod_world.dot_comm --hide
+import game.dot_prod_world.dot_zero --hide
 namespace tuple -- hide
 
 /- 
