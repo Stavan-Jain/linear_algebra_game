@@ -1,7 +1,7 @@
-import game.subspace_world.orth_subset_orth_complement
+import game.subspace_world.orth_subset_orth_complement -- hide
 
-namespace vector_spaces
-open tuple
+namespace vector_spaces -- hide
+open tuple -- hide
 
 /-
 
@@ -35,4 +35,4 @@ begin
   exact w_W v (v_sub_w v_V),  
 end
 
-end vector_spaces
+end vector_spaces -- hide

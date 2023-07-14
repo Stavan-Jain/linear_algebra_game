@@ -23,10 +23,11 @@ As before, we will have to prove that a line through the origin fulfils the thre
 
 # Level 3: Any line through the origin is a subspace of Rⁿ  
 -/
-/- 
-Lemma
+
+/- Lemma
 Any line through the origin is a subspace of Rⁿ
 -/
+
 instance line_through_origin {n : ℕ} (v : ℝ ^ n): subspace (ℝ ^ n) ℝ {x : ℝ ^ n |∃(c : ℝ), x = c • v}  := 
 begin 
   split, 
