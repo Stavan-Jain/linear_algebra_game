@@ -12,10 +12,6 @@ It also serves to introduce you to Lean: a proof assistant that provides an envi
 The linear algebra game is intended to supplement your studies in 221. While in class you will learn to write traditional proofs (in natural language), the game will 
 show you how to approach such proofs formally. A formal proof is written in precise syntax and can be checked algorithmically by a computer program called a proof assistant. 
 
-
-
-
-
 # Thanks
 TODO
 -/
