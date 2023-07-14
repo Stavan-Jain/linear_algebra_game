@@ -2,7 +2,7 @@ name: Deploy game to pages
 
 on:
   push:
-    branches: [ "master", "action" ]
+    branches: [ "master" ]
 
 permissions:
   contents: read
