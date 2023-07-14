@@ -10,7 +10,14 @@ The Pythagoras theorem tells us that in a right angled triangle the sum of the s
 of the hypotenuse. Let us see how to prove the Pythagoras theorem formally in Lean. 
 
 Strategy:
+Remember, the "split" tactic allows you to break apart an iff statement into two parts. 
+
 As before, it may be helpful to rewrite ||x||² as x ⬝ x. 
+
+Hint:
+1. "perp_ab" introduces a ⟂ b
+2. "repeat" allows you to apply a command over and over again. See if you can apply repeat {rw dot_dist} at all
+3. You can apply simp to a specific hypothesis by doing "simp at h"
 
 ## Level 5: `Pythogoras Theorem` 
 
