@@ -14,13 +14,12 @@ The Cauchy Schwarz Inequality when one of the vectors is 0.
 |0 ⬝ y| ≤ ‖0‖ * ‖y‖ ∀y ∈ Rⁿ 
 -/
 
-lemma cauchy_schwarz_xzero: ∀ {n : ℕ} ( y : ℝ ^ n)
-, |0 ⬝ y| ≤ ‖(0 : ℝ ^ n) ‖ * ‖y‖    :=
+lemma cauchy_schwarz_xzero: ∀ {n : ℕ} (y : ℝ ^ n), |0 ⬝ y| ≤ ‖(0 : ℝ ^ n) ‖ * ‖y‖ :=
 begin
   intros n y,
   cases n,
     { cases y,
-      repeat {rw norm_eq_sqrt_norm_sq}, simp,  },
+      repeat {rw norm_eq_sqrt_norm_sq}, simp, },
     { cases y with n head tail,
       rw zero_dot,
       repeat {rw norm_eq_sqrt_norm_sq}, simp, 

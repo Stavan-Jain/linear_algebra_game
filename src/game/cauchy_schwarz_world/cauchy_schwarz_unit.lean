@@ -48,10 +48,10 @@ begin
   apply abs_le.mpr,
   split, 
   { have i : ‖x + y‖² ≥ 0 := by simp, 
-    have j : 2 * (1 + x ⬝ y) ≥0 := by exact eq.trans_ge h₁ i, 
+    have j : 2 * (1 + x ⬝ y) ≥ 0 := by exact eq.trans_ge h₁ i, 
     linarith, }, 
   { have i : ‖x - y‖² ≥ 0 := by simp, 
-    have j : 2 * (1 - x ⬝ y) ≥0 := by exact eq.trans_ge h₂ i,
+    have j : 2 * (1 - x ⬝ y) ≥ 0 := by exact eq.trans_ge h₂ i,
     linarith, },
 end
 

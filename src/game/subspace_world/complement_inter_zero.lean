@@ -22,7 +22,7 @@ vector in V.
 
 
 
-# Level 7: V ∩ (Vᗮ) only contains the zero vector
+# Level 8: V ∩ (Vᗮ) only contains the zero vector
 
 -/
 
