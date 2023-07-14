@@ -14,8 +14,7 @@ The Cauchy Schwarz Inequality when one of the vectors is 0.
 |x ⬝ 0| ≤ ‖x‖ * ‖0‖ ∀x ∈ Rⁿ 
 -/
 
-lemma cauchy_schwarz_yzero: ∀ {n : ℕ} (x : ℝ ^ n),
- |x ⬝ 0| ≤ ‖x‖ * ‖(0 : ℝ ^ n)‖ :=
+lemma cauchy_schwarz_yzero: ∀ {n : ℕ} (x : ℝ ^ n), |x ⬝ 0| ≤ ‖x‖ * ‖(0 : ℝ ^ n)‖ :=
 begin
   intros n x,
   cases n,
