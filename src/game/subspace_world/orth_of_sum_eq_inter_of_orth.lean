@@ -24,7 +24,7 @@ set.eq_of_subset_of_subset.
 quantifications or non-dependent implications, are instantiated by concrete terms coming either from arguments a₁ ... aₙ. 
 The tactic adds a new hypothesis with the same name h := h a₁ ... aₙ and tries to clear the previous one.
 
-# Level 10: Proving that (U+V)ᗮ = Uᗮ ∩ Vᗮ
+# Level 11: Proving that (U+V)ᗮ = Uᗮ ∩ Vᗮ
 
 -/
 

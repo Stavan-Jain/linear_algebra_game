@@ -1,7 +1,7 @@
 /-
 # The Linear Algebra Game, version 1.0.0
 
-## By Anoushka Sinha, Annapurna Bhattacharya, Kurt Ma, Ricardo Prado Cunha, Stavan Jain, Yannan Bai
+## By Yannan Bai, Annapurna Bhattacharya, Ricardo Prado Cunha, Stavan Jain, Kurt Ma, Anoushka Sinha,
 
 
 
@@ -12,11 +12,7 @@ It also serves to introduce you to Lean: a proof assistant that provides an envi
 The linear algebra game is intended to supplement your studies in 221. While in class you will learn to write traditional proofs (in natural language), the game will 
 show you how to approach such proofs formally. A formal proof is written in precise syntax and can be checked algorithmically by a computer program called a proof assistant. 
 
-
-
-
-
 # Thanks
-TODO
+
 -/
  

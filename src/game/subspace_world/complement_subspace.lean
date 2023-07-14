@@ -1,4 +1,5 @@
 import game.subspace_world.add_subspace
+import game.auxiliary_theorems.dist_dot --hide
 
 namespace vector_spaces
 open tuple
@@ -21,11 +22,12 @@ Think about how you can go about proving the above conditions with Lean one by o
 The split tactic will break the goal into the three conditions needed to prove that something is a subspace.  
 
 Notation:
-ᗮ : `\^perp`
-^⟂ : `^\perp`
+1. ᗮ : `\^perp`
+2. ^⟂ : `^\perp`
+
 Due to limitations of the game web editor you might need to use the ^⟂ notation. However, if you're using VSCode, both notations work.
 
-# Level 6: Prove orthogonal complement Vᗮ of subspace V is also a subspace
+# Level 7: Prove orthogonal complement Vᗮ of subspace V is also a subspace
 
 
 -/
@@ -41,8 +43,7 @@ begin
 
   { intros xᵤ hᵤ xᵥ hᵥ,
     intros v₁ v₁_V, 
-    rw [dot_comm, dot_dist, dot_comm], 
-    rw dot_comm v₁ xᵥ,   
+    rw dist_dot,
     rw hᵤ v₁ v₁_V, 
     rw hᵥ v₁ v₁_V, 
     simp, }, 

@@ -19,7 +19,7 @@ rcases is a tactic that will perform cases recursively, according to a pattern. 
 of inductive types like h1 : a ∧ b ∧ c ∨ d or h2 : ∃ x y, trans_rel R x y
 (rcases applies cases repeatedly to every hypothesis that is being generated.) 
 
-# Level 5: For subspaces U and V, U + V is also a subspace of R^n 
+# Level 6: For subspaces U and V, U + V is also a subspace of R^n 
 -/
 
 

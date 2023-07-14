@@ -28,7 +28,7 @@ Good luck!
 The set of all v : ℝ ^ n, such that  a ⬝ v = 0 is a subspace
 -/
 
-instance dot_prod {n : ℕ} {a : ℝ ^ n}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | a ⬝ v = 0} := 
+instance dot_prod {n : ℕ} {a : ℝ ^ n} : subspace (ℝ ^ n) ℝ {v : ℝ ^ n | a ⬝ v = 0} := 
 begin
   split,
   { intros u h₁ v h₂,
