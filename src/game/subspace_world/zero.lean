@@ -28,7 +28,7 @@ Lemma:
 0 is a subsapce of Rⁿ 
 -/
 
-instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := 
+instance zero {n : ℕ} : subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := 
 begin
   split,
 
