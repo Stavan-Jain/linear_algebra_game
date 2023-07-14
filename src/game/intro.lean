@@ -13,6 +13,6 @@ The linear algebra game is intended to supplement your studies in 221. While in 
 show you how to approach such proofs formally. A formal proof is written in precise syntax and can be checked algorithmically by a computer program called a proof assistant. 
 
 # Thanks
-TODO
+
 -/
  
