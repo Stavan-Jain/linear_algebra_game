@@ -1,4 +1,5 @@
 import game.subspace_world.add_subspace
+import game.auxiliary_theorems.dist_dot --hide
 
 namespace vector_spaces
 open tuple
@@ -44,8 +45,7 @@ begin
 
   { intros xᵤ hᵤ xᵥ hᵥ,
     intros v₁ v₁_V, 
-    rw [dot_comm, dot_dist, dot_comm], 
-    rw dot_comm v₁ xᵥ,   
+    rw dist_dot,
     rw hᵤ v₁ v₁_V, 
     rw hᵥ v₁ v₁_V, 
     simp, }, 
