@@ -1,0 +1,75 @@
+name: Deploy game to pages
+
+on:
+  push:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: install elan
+      run: |
+        set -o pipefail
+        curl -sSfL https://github.com/leanprover/elan/releases/download/v1.4.2/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz
+        ./elan-init -y --default-toolchain none
+        echo "$HOME/.elan/bin" >> $GITHUB_PATH
+
+    - name: install python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+
+    - name: install node
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+
+    - name: install Python mathlibtools
+      run: python3 -m pip install --upgrade mathlibtools
+
+    - name: install lean-game-maker
+      run: |
+        curl -sSfL https://github.com/MithicSpirit/Lean-game-maker/archive/refs/heads/download_lean.tar.gz | tar xz
+        cd Lean-game-maker-download_lean
+        cd src/interactive_interface
+        npm install .
+        export NODE_OPTIONS=--openssl-legacy-provider
+        ./node_modules/.bin/webpack --mode=production
+        cd ../..
+        python3 -m pip install .
+
+    - name: checkout project
+      uses: actions/checkout@v3
+
+    - name: get mathlib cache
+      run: leanproject get-mathlib-cache
+
+    - name: build
+      run: make html
+
+    - name: upload artifacts
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: ./html
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: deploy to gh pages
+        id: deployment
+        uses: actions/deploy-pages@v2
