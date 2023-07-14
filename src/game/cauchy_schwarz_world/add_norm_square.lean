@@ -1,4 +1,5 @@
 import game.cauchy_schwarz_world.div_norm_unit--hide
+import game.auxiliary_theorems.dist_dot --hide
 namespace tuple -- hide
 
 /- 
@@ -34,9 +35,7 @@ begin
   intros n x y, 
   simp,  
   rw [dot_dist, dot_comm, dot_dist],
-  nth_rewrite 2 dot_comm, 
-  rw dot_dist, 
-  nth_rewrite 2 dot_comm,
+  rw dist_dot,
   linarith,  
 end
 
