@@ -23,12 +23,12 @@ tuple.smul_zero' : ∀ {n : ℕ} (c : ℝ), c • 0 = 0
 # Level 1: {0} is a subspace of Rⁿ 
 -/
 
-/- 
-Lemma: 
-0 is a subsapce of Rⁿ 
+/- Lemma
+{0} is a subsapce of Rⁿ
 -/
 
-instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} := begin
+instance zero {n : ℕ}: subspace (ℝ ^ n) ℝ {v : ℝ ^ n | v = 0} :=
+begin
   split,
 
   { intros u h1 v h2, 
