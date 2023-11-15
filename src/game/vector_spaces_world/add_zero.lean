@@ -37,8 +37,8 @@ Induction on vectors in ℝⁿ is done by showing that if a statement is true fo
 length, and is assumed to be true for a vector of length `k` then it can be proved for a vector of
 length `k+1`.
 
-Hint: `cases v with n head tail` will break a vector of length `n+1` into two `head` and `tail`,
-with `head` being the first element, and `tail` being the `n` other elements. You should also try
+Hint: `cases v with _ head tail` will break a vector of length `l+1` into two `head` and `tail`,
+with `head` being the first element, and `tail` being the `l` other elements. You should also try
 `cases v` when `v` has length `0`.
 
 ## Level 3: `add_zero`
@@ -52,14 +52,14 @@ with `head` being the first element, and `tail` being the `n` other elements. Yo
 lemma add_zero : ∀ {n : ℕ} (u : ℝ ^ n), u + 0 = u :=
 begin
   intro n,
-  induction n with n hn,
+  induction n with k ih,
   { intro v,
     cases v,
     refl, },
   { intro v,
-    cases v with n head tail,
+    cases v with _ head tail,
     simp,
-    exact hn tail, },
+    exact ih tail, },
 end
 
 end tuple -- hide
