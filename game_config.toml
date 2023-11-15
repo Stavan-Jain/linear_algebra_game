@@ -35,7 +35,7 @@ levels = [
 [[worlds]]
 name = "Cauchy Schwarz World"
 id = 3
-parents = [2]
+parents = [2, 8]
 levels = [
 	"src/game/cauchy_schwarz_world/add_norm_square.lean",
 	"src/game/cauchy_schwarz_world/scalar_through.lean",
@@ -54,7 +54,7 @@ levels = [
 [[worlds]]
 name = "Norms and Orthogonality World"
 id = 4
-parents = [3]
+parents = [2]
 levels = [
 	"src/game/norm_orth_world/norm_neg_eq_neg.lean", 
 	"src/game/norm_orth_world/orth_self_unique_zero.lean", 
