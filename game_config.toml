@@ -20,7 +20,7 @@ levels = [
 ]
 
 [[worlds]]
-name = "R3 Vector Space World"
+name = "R3 V.S. World"
 id = 2
 parents = [1]
 levels = [
@@ -33,7 +33,7 @@ levels = [
 ]
 
 [[worlds]]
-name = "Rn Vector Space World"
+name = "Rn V.S. World"
 id = 3
 parents = [2]
 levels = [
@@ -79,7 +79,7 @@ levels = [
 ]
 
 [[worlds]]
-name = "Norms and Orthogonality World"
+name = "Orthogonality World"
 id = 6
 parents = [4]
 levels = [
@@ -111,7 +111,7 @@ levels = [
 
 
 [[worlds]]
-name = "Linear Transformation World"
+name = "Linear Map World"
 id = 8
 parents = [7]
 levels = [
