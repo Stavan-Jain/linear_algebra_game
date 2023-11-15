@@ -6,21 +6,21 @@ open tuple
 
 # Linear Transformation world
 
-Background: The image of a linear transformation or matrix is the span of the vectors 
-of the linear transformation. You could think of it as what vectors you can get from 
-applying the linear transformation. Sometimes, the image is also refered to as the range 
-of a linear transformation.
+Background: The image of a linear transformation is all of the vectors that can show up as an output
+(you might also know this as the "range" of a function). When considering a matrix representation,
+the image of the linear transformation is the span of the column vectors of the matrix.
 
-That is, for a function T from V to W, the image of T is the subset of W consisting of 
-those vectors that are of the form Tv for some v \in V: range T = { Tv : v \in V }.
+That is, for a linear map T from V to W, the image of T is the subset of W consisting of those
+vectors that are of the form T(v) for some v ∈ V. Strictly,
+img T = {w ∈ W | exists v ∈ V, T(v) = w}.
 
 In this level, you are going to prove that the image of a linear transformation is a subspace.
 
-Hint: Remember to use the tactic split and specialize!
+Hint: Use the tactics `split` and `specialize`.
 
-## Level 7: `The Image of a linear transformation is a subspace` 
+## Level 7: `The Image of a linear transformation is a subspace`
 
-C(A) is a subspace for any linear transformation A. 
+img(A) is a subspace for any linear transformation A.
 
 -/
 

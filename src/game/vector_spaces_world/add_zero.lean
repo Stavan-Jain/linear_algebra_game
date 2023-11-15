@@ -10,36 +10,38 @@ namespace tuple -- hide
 # Vector Spaces World
 
 Background:
-Here we will get introduced to the concept of mathematical induction. If you've gone through 
-the natural number game you may be familiar with it. Mathematical induction is a powerful method of 
-mathematical proof used to establish the truth of an infinite sequence of statements. It has three components: 
-a base case, an inductive hypothesis, and an inductive step. First we prove that a statement is true for an 
-initial value of base case (usually 0 or one.) Then in the inductive hypothesis, it is taken to be true for 
-some value k, using which it is used to prove that it is true for k+1 through the inductive step. Hence it is proved. 
+Here we will get introduced to the concept of mathematical induction. If you've gone through the
+natural number game you may be familiar with it. Mathematical induction is a powerful method to
+prove statements about all natural numbers. It has three components: a base case, an inductive
+hypothesis, and an inductive step. First we prove that our claim is true for an initial value of
+base case (usually 0 or 1); then, in the inductive step, we prove that it is true for some number k
+greater than the base case assuming that it is true for k-1. This assumption is called the
+"inductive hypothesis", or `ih` for short. It can help to think of induction as a domino effect,
+where each number implies the next.
 
 Strategy:
-In Lean induction is initiated in the following manner (d and hd here are variable): 
+In Lean induction is initiated in the following manner (`k` is a variable and `ih` is the induction
+hypothesis):
 
-intro d
-induction d with d hd
+```
+intro n
+induction n with k ih
+```
 
-This gives two goals to prove, 1) that a statement is true for the base case (here, 0), 2) that if the statement is true for k then it is true for k+1. 
+This gives two goals to prove,
 
-Induction on vectors is done by showing that if a statement is true for the zero vector, and is assumed to be true for a vector of length n
-then it can be proved for a vector of length n+1. 
+1. that a statement is true for the base case (here, 0)
+2. that if the statement is true for `k` then it is true for `k+1`
 
-Begin this proof as such:
+Induction on vectors in ℝⁿ is done by showing that if a statement is true for the vector of zero
+length, and is assumed to be true for a vector of length `k` then it can be proved for a vector of
+length `k+1`.
 
-intro n,
-induction n with n hn
+Hint: `cases v with n head tail` will break a vector of length `n+1` into two `head` and `tail`,
+with `head` being the first element, and `tail` being the `n` other elements. You should also try
+`cases v` when `v` has length `0`.
 
-Hint:
-
-Remember, 
-
-"cases v with n head tail" will break a vector of length n+1 into a 2-tuple with first element being of length 1, and second element being a tuple of length n. 
-
-## Level 3: `add_zero` 
+## Level 3: `add_zero`
 
 -/
 
@@ -48,7 +50,7 @@ Remember,
 -/
 
 lemma add_zero : ∀ {n : ℕ} (u : ℝ ^ n), u + 0 = u :=
-begin 
+begin
   intro n,
   induction n with n hn,
   { intro v,
