@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue May 21 12:35:04 2024\n"
+"POT-Creation-Date: Tue May 21 12:38:13 2024\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -55,27 +55,34 @@ msgid "This introduction is shown before one enters level 1 of the demo world. U
 msgstr ""
 
 #: Game
-msgid "Hello World Game"
+msgid "The Linear Algebra Game"
 msgstr ""
 
 #: Game
-msgid "This text appears on the starting page where one selects the world/level to play.\n"
-"You can use markdown."
-msgstr ""
-
-#: Game
-msgid "Here you can put additional information about the game. It is accessible\n"
-"from the starting through the drop-down menu.\n"
+msgid "Welcome to the linear algebra game! It works as a learning tool for Duke University’s introductory\n"
+"linear algebra course “Math 221: Linear Algebra and Applications.”\n"
 "\n"
-"For example: Game version, Credits, Link to Github and Zulip, etc.\n"
+"It also serves to introduce you to Lean: a proof assistant that provides an environment and language\n"
+"to encode proofs formally.\n"
 "\n"
-"Use markdown."
+"The linear algebra game is intended to supplement your studies in 221. While in class you will learn\n"
+"to write traditional proofs (in natural language), the game will\n"
+"\n"
+"show you how to approach such proofs formally. A formal proof is written in precise syntax and can\n"
+"be checked algorithmically by a computer program called a proof assistant."
 msgstr ""
 
 #: Game
-msgid "Game Template"
+msgid "Developed by: Yannan Bai, Annapurna Bhattacharya, Stavan Jain, Kurt Ma, Ricardo Prado Cunha,\n"
+"Anoushka Sinha.\n"
+"\n"
+"This game was originally developed as a part of Duke University's Math+ summer program."
 msgstr ""
 
 #: Game
-msgid "You should use this game as a template for your own game and add your own levels."
+msgid "Undergraduate-level linear algebra in Lean"
+msgstr ""
+
+#: Game
+msgid "TODO"
 msgstr ""
