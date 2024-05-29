@@ -2,6 +2,9 @@ import Game.Levels.DemoWorld
 import Game.Lib.Tuple.Basic
 import Game.Lib.Tuple.Functor
 import Game.Lib.Tuple.GetElem
+import Game.Lib.Tuple.VectorSpace
+import Game.Lib.VectorSpace.Basic
+import Game.Lib.VectorSpace.Maps
 
 -- Here's what we'll put on the title screen
 Title "The Linear Algebra Game"
